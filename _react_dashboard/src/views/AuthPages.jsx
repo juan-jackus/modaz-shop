@@ -50,7 +50,7 @@ const AuthPages = () => {
       setAuthForm('login');
       const toastValue = {
         type: 'success',
-        text: `A password reset link has been sent to "${data.email}". !`,
+        text: `Un lien de réinitialisation du mot de passe a été envoyé à "${data.email}". !`,
       };
       toast[toastValue.type](ToastContent(toastValue), {
         transition: Slide,

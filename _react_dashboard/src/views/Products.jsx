@@ -157,13 +157,13 @@ const ProductsPage = () => {
     const action = {
       single: deleteProduct,
       mutiple: deleteMultipleProduct,
-      text: 'deletion',
+      text: 'suppression',
     };
     // eslint-disable-next-line
     if (actionType == 'RESTORE') {
       action.single = restoreProduct;
       action.mutiple = restoreMultipleProduct;
-      action.text = 'restore';
+      action.text = 'restauration';
     }
     if (productToManage) {
       const successDeletion = await dispatch(
@@ -172,11 +172,11 @@ const ProductsPage = () => {
       toastValue = successDeletion
         ? {
             type: 'success',
-            text: `Success deletion of : ${productToManage.name}`,
+            text: `Suppression réussie de : ${productToManage.name}`,
           }
         : {
             type: 'error',
-            text: `Failed to delete : ${productToManage.name}`,
+            text: `Echec de la suppression de : ${productToManage.name}`,
           };
     } else if (selectedProducts.length) {
       // If there is many Products to delete
@@ -188,13 +188,13 @@ const ProductsPage = () => {
         successDeletion === selectedProducts.length
           ? {
               type: 'success',
-              text: `Success ${action.text} of ${selectedProducts.length} product(s)`,
+              text: `${action.text} reussie de ${selectedProducts.length} produit(s)`,
             }
           : {
               type: 'error',
-              text: `Failed to ${action.text} ${
+              text: `Echec de la ${action.text} ${
                 selectedProducts.length - successDeletion
-              } Product(s)`,
+              } produit(s)`,
             };
     }
     setProcessing(false);
@@ -213,7 +213,10 @@ const ProductsPage = () => {
 
   return (
     <Fragment>
-      <Breadcrumbs breadCrumbTitle='Products' breadCrumbActive='products' />
+      <Breadcrumbs
+        breadCrumbTitle='Liste des Produits'
+        breadCrumbActive='produits'
+      />
       <Container>
         <div className='content-detached content-right'>
           <div className='content-body'>
@@ -257,7 +260,7 @@ const ProductsPage = () => {
                 <CustomInput
                   type='checkbox'
                   id='toogle-selection'
-                  label='Toogle selection of all products'
+                  label='Sélection de tous les produits'
                   checked={
                     selectedProducts.length === perPage ||
                     selectedProducts.length === store.products.length

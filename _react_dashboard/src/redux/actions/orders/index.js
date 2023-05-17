@@ -12,6 +12,7 @@ export const getOrderStatuses = () => {
           statusOptions.push({
             value: status.id,
             label: status.name,
+            labelFr: status.nameFr,
             color: status.color,
             hex_color: status.hex_color,
           });

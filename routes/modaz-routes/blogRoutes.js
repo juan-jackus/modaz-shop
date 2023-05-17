@@ -5,7 +5,7 @@ const paginationHandler = require('../../utils/paginationHandler');
 const { postCategories } = require('../../models/post');
 // Products Categories Filter
 const allCategories = postCategories.map((cat) => {
-  return { value: cat.id, label: cat.name };
+  return { value: cat.id, label: cat.nameFr };
 });
 // "/blog" Route
 router.get('/', modazController.getModazBlogPosts, (req, res) => {

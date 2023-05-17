@@ -103,10 +103,10 @@ const UserSocialTab = () => {
             className='mb-1 mb-sm-0 mr-0 mr-sm-1'
             color='primary'
           >
-            Save Changes
+            Sauvegarder les modifications
           </Button>
           <Button disabled color='secondary' outline>
-            Reset
+            Réinitialiser
           </Button>
         </Col>
       </Row>

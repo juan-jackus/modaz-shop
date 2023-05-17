@@ -46,7 +46,7 @@ const ModalForm = (props) => {
         <Row noGutters={true} className='mb-1'>
           {/* Image Preview */}
           <Col>
-            <FormText>Preview of Image Slide</FormText>
+            <FormText>Aperçu de l'image la diapositive </FormText>
             {img ? (
               <div>
                 <Media
@@ -74,9 +74,9 @@ const ModalForm = (props) => {
           </Col>
           {/* Upload & Reset Buttons */}
           <Col className='ml-1'>
-            <FormText>Image size requirement : </FormText>
+            <FormText>Taille d'image requise : </FormText>
             <FormText> - min 1280x500 px</FormText>
-            <FormText> - best 1920x750 px</FormText>
+            <FormText> - meilleur 1920x750 px</FormText>
             <FormText> - max Size (3mb)</FormText>
             <div className='mt-1'>
               <Button.Ripple
@@ -86,7 +86,7 @@ const ModalForm = (props) => {
                 color='primary'
                 disabled={isSubmitting}
               >
-                Upload
+                Télécharger
                 <Input
                   type='file'
                   key={resetImg}
@@ -105,19 +105,19 @@ const ModalForm = (props) => {
                   setImg('');
                 }}
               >
-                Reset
+                Réinitialiser
               </Button.Ripple>
             </div>
           </Col>
         </Row>
         {/* Required Field Text */}
         <FormText className='d-flex mb-1' color='muted'>
-          (<span className='text-danger'> * </span>) Required fields
+          (<span className='text-danger'> * </span>) Champs obligatoires
         </FormText>
         {/* Title */}
         <FormGroup row>
           <Label sm='3' for='slide-title'>
-            Title<span className='text-danger'> * </span>
+            Titre<span className='text-danger'> * </span>
           </Label>
           <Col sm='9'>
             <Input
@@ -133,7 +133,7 @@ const ModalForm = (props) => {
         {/* Text 1 */}
         <FormGroup row>
           <Label sm='3' for='slide-text1'>
-            Text 1
+            Texte 1
           </Label>
           <Col sm='9'>
             <Input
@@ -149,7 +149,7 @@ const ModalForm = (props) => {
         {/* Text 2 */}
         <FormGroup row>
           <Label sm='3' for='slide-text2'>
-            Text 2
+            Texte 2
           </Label>
           <Col sm='9'>
             <Input
@@ -165,7 +165,7 @@ const ModalForm = (props) => {
         {/* Text 3 */}
         <FormGroup row>
           <Label sm='3' for='slide-text3'>
-            Text 3
+            Texte 3
           </Label>
           <Col sm='9'>
             <Input
@@ -181,14 +181,14 @@ const ModalForm = (props) => {
         {/* Text Color */}
         <FormGroup row>
           <Col sm='4'>
-            <div className='text-nowrap'>Text Color</div>
+            <div className='text-nowrap'>Couleur du texte</div>
           </Col>
           <Col sm='8'>
             <CustomInput
               inline
               name='textColor'
               type='radio'
-              label='Black'
+              label='Noir'
               value='black'
               id='text-black-color'
               defaultChecked
@@ -198,7 +198,7 @@ const ModalForm = (props) => {
               inline
               name='textColor'
               type='radio'
-              label='White'
+              label='Blanc'
               value='white'
               id='text-white-color'
               innerRef={register}
@@ -208,7 +208,7 @@ const ModalForm = (props) => {
         {/* Text Position */}
         <FormGroup row>
           <Col sm='4'>
-            <div className='text-nowrap'>Text Position</div>
+            <div className='text-nowrap'>Position du texte</div>
           </Col>
           <Col sm='8'>
             <CustomInput
@@ -216,7 +216,7 @@ const ModalForm = (props) => {
               name='position'
               type='radio'
               value='l'
-              label='Left'
+              label='Gauche'
               id='left-position'
               defaultChecked
               innerRef={register}
@@ -225,7 +225,7 @@ const ModalForm = (props) => {
               inline
               name='position'
               type='radio'
-              label='Rigth'
+              label='Droite'
               value='r'
               id='rigth-position'
               innerRef={register}
@@ -235,7 +235,7 @@ const ModalForm = (props) => {
         {/* Status */}
         <FormGroup row>
           <Col sm='4'>
-            <div className='text-nowrap'>Status</div>
+            <div className='text-nowrap'>Statut</div>
           </Col>
           <Col sm='8'>
             {publishedSlidesCount < 6 && (
@@ -243,7 +243,7 @@ const ModalForm = (props) => {
                 inline
                 name='status'
                 type='radio'
-                label='Published'
+                label='Publiée'
                 value='true'
                 id='published'
                 innerRef={register}
@@ -254,7 +254,7 @@ const ModalForm = (props) => {
               inline
               name='status'
               type='radio'
-              label='Drafted'
+              label='Brouillon'
               value='false'
               id='drafted'
               innerRef={register}
@@ -265,7 +265,7 @@ const ModalForm = (props) => {
         {/* Category */}
         <FormGroup row>
           <Label sm='3' for='slide-category'>
-            Category<span className='text-danger'> * </span>
+            Catégorie<span className='text-danger'> * </span>
           </Label>
           <Col sm='9'>
             <Input
@@ -285,7 +285,7 @@ const ModalForm = (props) => {
         {/* Link Text */}
         <FormGroup row>
           <Label sm='3' for='slide-linkText'>
-            Link Text<span className='text-danger'> * </span>
+            Lien du texte<span className='text-danger'> * </span>
           </Label>
           <Col sm='9'>
             <Input
@@ -313,12 +313,12 @@ const ModalForm = (props) => {
               {isSubmitting ? (
                 <>
                   <Spinner size='sm' color='white' />
-                  <span className='ml-50'>Submitting...</span>
+                  <span className='ml-50'>Soumission...</span>
                 </>
               ) : selectedSlide ? (
-                'Update'
+                'Modifier'
               ) : (
-                'Add'
+                'Ajouter'
               )}
             </Button.Ripple>
             {/* Cancel Button */}
@@ -328,7 +328,7 @@ const ModalForm = (props) => {
               onClick={() => setshowSlideModal(false)}
               disabled={isSubmitting}
             >
-              Cancel
+              Annuler
             </Button.Ripple>
             {/* Delete Button */}
             {selectedSlide && (
@@ -338,7 +338,7 @@ const ModalForm = (props) => {
                 onClick={() => setConfirmDeletion(!confirmDeletion)}
                 disabled={isSubmitting}
               >
-                Delete
+                Supprimer
               </Button.Ripple>
             )}
           </Col>

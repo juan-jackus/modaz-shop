@@ -77,7 +77,7 @@ const BlogPostList = (props) => {
             <Card className='post-card'>
               {post.status && (
                 <div className='ribbon'>
-                  <span>Published</span>
+                  <span>Publié</span>
                 </div>
               )}
               <div className='post-checkbox'>
@@ -126,7 +126,7 @@ const BlogPostList = (props) => {
                         size={{ w: '27', h: '27' }}
                         style={{ marginRight: '12px !important' }}
                       />
-                      <small className='text-muted mr-25'>by</small>
+                      <small className='text-muted mr-25'>par</small>
                       <small className='font-weight-bold'>
                         {post.author.username}
                       </small>
@@ -142,9 +142,7 @@ const BlogPostList = (props) => {
                   {renderTags(post.categories)}
                   {/* Post Read Count */}
                   <div className='ml-auto pl-50'>
-                    <FormText>
-                      Read Count : {kFormatter(post.readCount)}
-                    </FormText>
+                    <FormText>Lu {kFormatter(post.readCount)} fois</FormText>
                   </div>
                 </div>
                 <CardText className='text-truncate'>{post.text}</CardText>
@@ -159,7 +157,7 @@ const BlogPostList = (props) => {
                       setShowPostModal(true);
                     }}
                   >
-                    <XCircle className='mr-50' size={14} /> Delete
+                    <XCircle className='mr-50' size={14} /> Supprimer
                   </div>
                   {/* Edit Post Button */}
                   {!showTrash ? (
@@ -168,7 +166,7 @@ const BlogPostList = (props) => {
                       to={`/blog/edit/${post.id}`}
                       onClick={() => dispatch(getPost(null, post))}
                     >
-                      <Edit className='mr-50' size={14} /> Edit
+                      <Edit className='mr-50' size={14} /> Editer
                     </Link>
                   ) : (
                     <div
@@ -179,7 +177,7 @@ const BlogPostList = (props) => {
                         setShowPostModal(true);
                       }}
                     >
-                      <RefreshCw className='mr-50' size={14} /> Restore
+                      <RefreshCw className='mr-50' size={14} /> Restaurer
                     </div>
                   )}
                   {/* View Post Button */}
@@ -188,7 +186,7 @@ const BlogPostList = (props) => {
                     to={`/blog/view/${post.id}`}
                     onClick={() => dispatch(getPost(null, post))}
                   >
-                    <Eye className='mr-50' size={14} /> View
+                    <Eye className='mr-50' size={14} /> Voir
                   </Link>
                 </div>
               </CardBody>

@@ -9,14 +9,14 @@
       <div class="col-md-12">
         <!-- Title -->
         <div class="page-title-heading">
-          <h1 class="title">Post Details</h1>
+          <h1 class="title">Détails de l'article</h1>
         </div>
         <!-- Breadcrumbs -->
         <div class="breadcrumbs">
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/">Accueil</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li>Post</li>
+            <li>Article</li>
           </ul>
         </div>
       </div>
@@ -40,17 +40,17 @@
             <div class="content-post">
               <ul class="meta-post d-flex">
                 <li class="author padding-left-2">
-                  <span>Posted By : </span>
+                  <span>Publié par : </span>
                   <a class="prevent" href="#">
                     <%=postDetails.author?postDetails.author.fullName:postDetails.authorUsername%>
                   </a>
                 </li>
                 <li class="format-date ml-auto text-center">
-                  <%= postDetails.createdAt %>
+                  <%= postDetails.createdAt.toLocaleDateString() %>
                 </li>
                 <li class="separator mx-2">|</li>
                 <li class="read-count text-center">
-                  Read Count : <%= postDetails.readCount %>
+                  Lu : <%= postDetails.readCount %> fois
                 </li>
               </ul>
               <!-- Post Image -->
@@ -81,7 +81,7 @@
                       style="font-size: 13px"
                     >
                       <%postDetails.categories.map((category)=> {%> |
-                      <%=category.name %> <% }) %>
+                      <%=category.nameFr %> <% }) %>
                     </span>
                   </div>
                 </li>
@@ -89,7 +89,7 @@
                 <li class="float-right">
                   <div class="social-icon">
                     <ul class="social-list">
-                      <li class="share">Share :</li>
+                      <li class="share">Partager :</li>
                       <li>
                         <a class="prevent" href="#">
                           <i class="fa fa-facebook"></i
@@ -129,15 +129,15 @@
             <!-- Write Comment -->
             <div class="comment-respond" id="respond">
               <div class="comment-reply-title">
-                <h5>Write a Comment</h5>
+                <h5>Ecrire un commentaire</h5>
                 <p>
-                  Your email address will not be published. Required fields are
-                  marked *
+                  Votre adresse électronique ne sera pas publiée. Les champs
+                  obligatoires sont marqués *
                 </p>
               </div>
               <form class="comment-form" id="commentform">
                 <p class="comment-form-comment">
-                  <label>Review*</label>
+                  <label>Message*</label>
                   <textarea
                     class=""
                     tabindex="4"
@@ -147,7 +147,7 @@
                   ></textarea>
                 </p>
                 <p class="comment-name">
-                  <label>Name*</label>
+                  <label>Nom*</label>
                   <input
                     type="text"
                     aria-required="true"
@@ -177,11 +177,11 @@
                     disabled
                   />
                   <label for="check-notify">
-                    Notify me of new posts by email
+                    M'avertir des nouveaux messages par e-mail
                   </label>
                 </p>
                 <p class="form-submit">
-                  <button class="comment-submit" disabled>Submit</button>
+                  <button class="comment-submit" disabled>Envoyer</button>
                 </p>
               </form>
             </div>
@@ -194,7 +194,7 @@
           <!-- Popular Posts -->
           <%if(relatedPosts.length){%>
           <div class="widget widget-news-latest">
-            <h5 class="widget-title">Related Posts</h5>
+            <h5 class="widget-title">Articles similaires</h5>
             <ul class="popular-news clearfix">
               <%relatedPosts.map((r_Post)=> {%>
               <li>
@@ -211,7 +211,7 @@
                   </a>
                 </h6>
                 <a class="date format-date post_meta">
-                  <%= r_Post.createdAt %>
+                  <%= r_Post.createdAt.toLocaleDateString() %>
                 </a>
               </li>
               <% }) %>
@@ -221,7 +221,7 @@
           <!-- New Posts -->
           <%if(latestPosts.length){%>
           <div class="widget widget-news-latest">
-            <h5 class="widget-title">New Posts</h5>
+            <h5 class="widget-title">Articles récents</h5>
             <ul class="popular-news clearfix">
               <%latestPosts.map((newPost)=> {%>
               <li>
@@ -238,7 +238,7 @@
                   </a>
                 </h6>
                 <a class="date format-date post_meta">
-                  <%= newPost.createdAt %>
+                  <%= newPost.createdAt.toLocaleDateString() %>
                 </a>
               </li>
               <% }) %>

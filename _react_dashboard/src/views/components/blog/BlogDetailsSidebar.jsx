@@ -48,7 +48,7 @@ const BlogDetailsSidebar = (props) => {
             <span className='text-body-heading'>{post.title}</span>
           </h6>
           <div className='text-muted mb-0'>
-            {new Date(post.created_at).toLocaleDateString('en-GB', {
+            {new Date(post.created_at).toLocaleDateString('fr-GB', {
               // weekday: 'long',
               day: 'numeric',
               month: 'long',
@@ -69,7 +69,7 @@ const BlogDetailsSidebar = (props) => {
               <InputGroup className='input-group-merge'>
                 <Input
                   className='search-post'
-                  placeholder='Search Post here'
+                  placeholder='Rechercher un article...'
                   onChange={debouncePostSearch}
                 />
                 <InputGroupAddon addonType='append'>
@@ -80,7 +80,7 @@ const BlogDetailsSidebar = (props) => {
               </InputGroup>
             </div>
             <div className='blog-recent-posts mt-3'>
-              <h6 className='section-label'>Recent Posts</h6>
+              <h6 className='section-label'>Articles Récents</h6>
               <div className='mt-75'>{renderRecentPosts()}</div>
             </div>
           </div>

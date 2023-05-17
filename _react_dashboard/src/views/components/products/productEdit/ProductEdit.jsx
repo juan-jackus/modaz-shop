@@ -38,7 +38,7 @@ const ProductEdit = () => {
     productId = selectedProduct.id;
     if (selectedProduct.gender) {
       selectedProduct.gender = {
-        label: _.upperFirst(selectedProduct.gender),
+        label: selectedProduct.gender === 'men' ? 'Homme' : 'Femme',
         value: selectedProduct.gender,
       };
     }
@@ -247,13 +247,13 @@ const ProductEdit = () => {
     const toastValue = successSubmit
       ? {
           type: 'success',
-          text: `Product successfully ${
-            selectedProduct ? 'modified' : 'added'
+          text: `Le produit à été bien ${
+            selectedProduct ? 'modifié' : 'ajouté'
           }!`,
         }
       : {
           type: 'error',
-          text: `Failed to ${selectedProduct ? 'modify' : 'add'} product!`,
+          text: `Echec de l'operation'`,
         };
     toast[toastValue.type](ToastContent(toastValue), {
       transition: Slide,
@@ -275,9 +275,11 @@ const ProductEdit = () => {
   return (
     <Fragment>
       <Breadcrumbs
-        breadCrumbTitle={selectedProduct ? 'Edit Product' : 'Add Product'}
-        breadCrumbParent='Products'
-        breadCrumbActive={selectedProduct ? 'Edit' : 'Add'}
+        breadCrumbTitle={
+          selectedProduct ? 'Modifier le produit' : 'Ajouter un produit'
+        }
+        breadCrumbParent='Produits'
+        breadCrumbActive={selectedProduct ? 'Modifier' : 'Ajouter'}
       />
 
       <ProductForm

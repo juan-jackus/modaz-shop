@@ -16,6 +16,7 @@ export const getUserRoles = () => {
           userRoles.push({
             value: role.id,
             label: role.name,
+            labelFr: role.nameFr,
             class: role.class,
             icon: role.icon,
           });

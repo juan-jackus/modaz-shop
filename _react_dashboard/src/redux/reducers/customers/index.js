@@ -9,8 +9,8 @@ const initialState = {
   selectedCustomer: null,
   genders: [
     { value: 'male', label: 'Male' },
-    { value: 'female', label: 'Female' },
-    { value: 'unspecified', label: 'Unspecified' },
+    { value: 'female', label: 'Femelle' },
+    { value: 'unspecified', label: 'Non spécifié' },
   ],
 };
 

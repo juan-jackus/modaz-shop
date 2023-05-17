@@ -23,18 +23,18 @@ const productSidebar = ({
 }) => {
   // ** Array of gender options
   const genderOptions = [
-    { value: '', label: 'All' },
-    { value: 'men', label: 'Men' },
-    { value: 'women', label: 'Women' },
+    { value: '', label: 'Tout' },
+    { value: 'men', label: 'Homme' },
+    { value: 'women', label: 'Femme' },
   ];
   // ** Array of Price Range options
   const priceRangeOptions = [
-    { value: '', label: 'All' },
-    { value: '0,25', label: 'under $25' },
+    { value: '', label: 'Tout' },
+    { value: '0,25', label: 'moins de $25' },
     { value: '25,150', label: '$25 - $150' },
     { value: '150,500', label: '$150 - $500' },
     { value: '500,1000', label: '$500 - $1000' },
-    { value: '1000', label: 'above $1000' },
+    { value: '1000', label: 'au dessus de $1000' },
   ];
 
   // ** Price Range Filter Handler
@@ -98,7 +98,7 @@ const productSidebar = ({
         >
           <Row>
             <Col sm='12'>
-              <h6 className='filter-heading d-none d-lg-block'>Filters</h6>
+              <h6 className='filter-heading d-none d-lg-block'>Filtres</h6>
             </Col>
           </Row>
           <Card>
@@ -106,7 +106,7 @@ const productSidebar = ({
               {/* In Collection Filter */}
               {user.username === 'juan-jackus' && (
                 <div className='d-flex my-2'>
-                  <h6 className='filter-title my-0 mr-1'>My Collection</h6>
+                  <h6 className='filter-title my-0 mr-1'>Ma Collection</h6>
                   <CustomInput
                     type='checkbox'
                     id='inCollection-filter'
@@ -118,7 +118,7 @@ const productSidebar = ({
               )}
               {/* Gender Radio */}
               <div>
-                <h6 className='filter-title mt-0'>Gender</h6>
+                <h6 className='filter-title mt-0'>Genre</h6>
                 <ul className='list-unstyled gender'>
                   {genderOptions.map((opt, i) => {
                     return (
@@ -140,7 +140,7 @@ const productSidebar = ({
               </div>
               {/* Free Shipping Filter */}
               <div className='d-flex my-2'>
-                <h6 className='filter-title my-0 mr-1'>Free Shipping</h6>
+                <h6 className='filter-title my-0 mr-1'>Livraison gratuite</h6>
                 <CustomInput
                   type='checkbox'
                   id='freeshipping-filter'
@@ -151,7 +151,7 @@ const productSidebar = ({
               </div>
               {/* Price Range Radio */}
               <div>
-                <h6 className='filter-title mt-0'>Price Range</h6>
+                <h6 className='filter-title mt-0'>Fourchette de prix</h6>
                 <ul className='list-unstyled price-range'>
                   {priceRangeOptions.map((pr, i) => {
                     return (
@@ -172,7 +172,7 @@ const productSidebar = ({
               </div>
               {/* Categories Select */}
               <div>
-                <h6 className='filter-title mt-1'>Categories</h6>
+                <h6 className='filter-title mt-1'>Catégories</h6>
                 <ul className='list-unstyled brand-list'>
                   {productCategories.map((cat, i) => {
                     return (
@@ -199,7 +199,7 @@ const productSidebar = ({
                 outline
                 onClick={resetFilterHandler}
               >
-                Clear Filter
+                Effacer les filtres
               </Button.Ripple>
             </CardBody>
           </Card>

@@ -23,7 +23,7 @@ const ProductsSearchbar = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
           <InputGroup className='input-group-merge'>
             <Input
               className='search-product'
-              placeholder='Search Product'
+              placeholder='Rechercher un produit'
               defaultValue={searchTerm}
               onChange={_.debounce(handleSearch, 300)}
             />

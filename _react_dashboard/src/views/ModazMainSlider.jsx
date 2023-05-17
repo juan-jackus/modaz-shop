@@ -34,7 +34,7 @@ const ModazHomePage = () => {
   return (
     <div id='modaz-homepage'>
       <Breadcrumbs
-        breadCrumbTitle='Modaz Shop Homepage Carousel'
+        breadCrumbTitle="Carrousel de la page d'accueil de Modaz Shop"
         breadCrumbActive='Modaz carousel'
       />
       <div className='container'>
@@ -50,7 +50,8 @@ const ModazHomePage = () => {
               <div className='mb-3'>
                 <Alert color='primary text-center d-block  '>
                   <div className='alert-body'>
-                    Click on the wheel icon in slider to edit image
+                    Cliquez sur l'icône de la roue dans la diapositive pour
+                    modifier l'image.
                   </div>
                 </Alert>
                 <ModazMainCarousel
@@ -60,7 +61,7 @@ const ModazHomePage = () => {
               </div>
             ) : (
               <div className='no-carousel-img mb-3'>
-                <h4>There is No image in the Carousel !</h4>
+                <h4>Il n'y a pas d'image dans le carrousel !</h4>
               </div>
             )}
             {/* Add Slide Button */}
@@ -71,20 +72,24 @@ const ModazHomePage = () => {
                 onClick={() => setshowSlideModal(!showSlideModal)}
                 disabled={slidesCount >= 10}
               >
-                ADD SLIDE
+                AJOUTER UNE DIAPOSITIVE
               </Button.Ripple>
             </Col>
           </Col>
           <Col lg='3' className='mb-2 '>
             <Alert color='primary text-center'>
               <div className='alert-body'>
-                <span className=''>Drag images to reorder Slide </span>
+                <span className=''>
+                  Faire glisser les images pour réorganiser les diapositives{' '}
+                </span>
                 <br />
-                <span className='d-none d-sm-block '>click to edit</span>
+                <span className='d-none d-sm-block '>
+                  cliquer pour modifier
+                </span>
               </div>
             </Alert>
             <FormText className='text-center mb-1'>
-              Max published slides : (5)
+              Nombre maximum de diapositives publiées : (5)
             </FormText>
             {/* Show all Slide & Reorder Slide */}
             <DragAndDropCards
@@ -93,7 +98,7 @@ const ModazHomePage = () => {
             />
             {/* Drafted Slides */}
             {draftedSlides.length > 0 && (
-              <p className=' text-center '>Drafted Slides</p>
+              <p className=' text-center '>Diapositives non publiées</p>
             )}
             <Row>
               {draftedSlides.map((slide, i) => {

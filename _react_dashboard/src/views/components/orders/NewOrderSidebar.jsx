@@ -46,7 +46,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
   // ** Set server Errors response
   useEffect(() => {
     if (orderErrors) {
-      setFormErrors('Server errors! Please retry');
+      setFormErrors('Erreur de serveur ! Veuillez réessayer');
       setTimeout(() => {
         setFormErrors(null);
       }, 3000);
@@ -121,7 +121,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!selectedCustomer || !selectedProducts.length) {
-      setErrors('"Customer" & "Products" fields are required');
+      setErrors('Les champs "Client" et "Produits" sont obligatoires.');
       setTimeout(() => {
         setErrors(false);
       }, 3000);
@@ -150,7 +150,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
 
     let toastValue = {
       type: 'error',
-      text: 'Order Failed',
+      text: 'Échec de la commande',
     };
 
     if (successSubmit) {
@@ -158,7 +158,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
       setSelectedProducts([]);
       toastValue = {
         type: 'success',
-        text: 'Order successfull',
+        text: 'Commande réussie',
       };
     }
 
@@ -175,7 +175,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
       size='lg'
       open={open}
       id='order-sidebar'
-      title='Add New Order'
+      title='Ajouter une commande'
       headerClassName='mb-1'
       contentClassName='pt-0'
       toggleSidebar={toggleSidebar}
@@ -194,7 +194,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
         ) : (
           <FormText className='d-flex mb-1' color='muted'>
             <div className='ml-auto'>
-              [<span className='text-danger'> * </span>] Required fields
+              [<span className='text-danger'> * </span>] Champs obligatoires
             </div>
           </FormText>
         )}
@@ -202,7 +202,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
         {/* Customer */}
         <FormGroup>
           <Label for='order-customer'>
-            Customer <span className='text-danger'>*</span>
+            Client <span className='text-danger'>*</span>
           </Label>
           <AsyncSelect
             isClearable
@@ -211,7 +211,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
             classNamePrefix='select'
             theme={selectThemeColors}
             value={selectedCustomer}
-            placeholder='Enter customer username...'
+            placeholder="Entrez le nom d'utilisateur du client..."
             loadOptions={debouncedCustomerLoadOptions}
             getOptionValue={(customer) => customer.id}
             getOptionLabel={(customer) => customer.username}
@@ -221,7 +221,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
         {/* Products */}
         <FormGroup>
           <Label for='products'>
-            Products <span className='text-danger'>*</span>
+            Produits <span className='text-danger'>*</span>
           </Label>
           <AsyncSelect
             isMulti
@@ -231,7 +231,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
             classNamePrefix='select'
             theme={selectThemeColors}
             value={selectedProducts}
-            placeholder='Enter product name...'
+            placeholder='Saisir le nom du produit...'
             loadOptions={debouncedProductLoadOptions}
             getOptionValue={(product) => product}
             getOptionLabel={(product) => product.name}
@@ -247,7 +247,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
         {/* Quantity Select */}
         {selectedProducts.length ? (
           <FormGroup>
-            <Label className='mb-1'>Select Quantity</Label>
+            <Label className='mb-1'>Sélectionnez la quantité</Label>
             <Row>
               {selectedProducts.map((product, i) => (
                 <Col
@@ -271,7 +271,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
                       }}
                     />
                     {product.name}
-                    <div>Price : {`$${product.price}`}</div>
+                    <div>Prix : {`$${product.price}`}</div>
                   </UncontrolledTooltip>
                   <input
                     type='number'
@@ -306,7 +306,7 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
               ))}
             </Row>
             <div className='total-price'>
-              Total price :
+              Prix total :
               <span>{`$${(+totalPrice.toFixed(2)).toLocaleString()}`}</span>
             </div>
           </FormGroup>
@@ -321,14 +321,14 @@ const NewOrderSidebar = ({ open, toggleSidebar }) => {
           {isSubmitting ? (
             <>
               <Spinner size='sm' color='white' />
-              <span className='ml-50'>Submitting...</span>
+              <span className='ml-50'>Soumission...</span>
             </>
           ) : (
-            'Submit'
+            'Commander'
           )}
         </Button>
         <Button type='button' color='secondary' outline onClick={toggleSidebar}>
-          Cancel
+          Annuler
         </Button>
       </Form>
     </Sidebar>

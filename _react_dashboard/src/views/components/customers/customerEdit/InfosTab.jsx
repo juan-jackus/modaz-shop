@@ -73,7 +73,7 @@ const CustomerInfos = ({ selectedCustomer, customerErrors, params }) => {
       setIsSubmitting(false);
       const toastValue = {
         type: 'warning',
-        text: 'No modification!',
+        text: 'Pas de modification !',
       };
       toast.warning(ToastContent(toastValue), {
         transition: Slide,
@@ -93,13 +93,13 @@ const CustomerInfos = ({ selectedCustomer, customerErrors, params }) => {
 
     let toastValue = {
       type: 'error',
-      text: 'Failed to edit customer',
+      text: 'Échec de la modification du client',
     };
 
     if (successSubmit) {
       toastValue = {
         type: 'success',
-        text: `Customer succesfully editted`,
+        text: `Client modifié avec succès`,
       };
       setNotEditable(true);
     }

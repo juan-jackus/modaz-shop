@@ -34,11 +34,11 @@ const ForgotPassword = (props) => {
     >
       <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
         <CardTitle tag='h2' className='font-weight-bold mb-1'>
-          Forgot Password? 🔒
+          Mot de passe oublié ? 🔒
         </CardTitle>
         <CardText className='mb-2'>
-          Enter your email and we'll send you instructions to reset your
-          password
+          Saisissez votre adresse électronique et nous vous enverrons les
+          instructions pour réinitialiser votre mot de passe.
         </CardText>
         <Alert color='danger' isOpen={!!loginError}>
           <div className='alert-body'>
@@ -60,7 +60,7 @@ const ForgotPassword = (props) => {
               type='email'
               id='forgotPwd-email'
               name='email'
-              placeholder='john@example.com'
+              placeholder='juan@example.com'
               innerRef={register}
             />
           </FormGroup>
@@ -70,14 +70,20 @@ const ForgotPassword = (props) => {
             color='primary'
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Spinner color='white' /> : 'Send reset link'}
+            {isSubmitting ? (
+              <Spinner color='white' />
+            ) : (
+              'Envoyer le lien de réinitialisation'
+            )}
           </Button.Ripple>
         </Form>
         {!isSubmitting && (
           <p className='text-center mt-2'>
             <Link to='#' onClick={() => setAuthForm('login')}>
               <ChevronLeft className='mr-25' size={14} />
-              <span className='align-middle'>Back to login</span>
+              <span className='align-middle'>
+                Retour à la page de connexion
+              </span>
             </Link>
           </p>
         )}

@@ -17,7 +17,7 @@ const OrderCustomHeader = ({
   return (
     <div className='invoice-list-table-header w-100 mr-1 ml-50 mt-2 mb-75'>
       <div className='d-flex align-items-center my-1'>
-        <Label for='rows-per-page'>Show</Label>
+        <Label for='rows-per-page'>Afficher</Label>
         <CustomInput
           className='form-control mx-50'
           type='select'
@@ -36,7 +36,7 @@ const OrderCustomHeader = ({
           <option value='50'>50</option>
         </CustomInput>
         <Label for='rows-per-page' className='mr-1'>
-          Entries of
+          Entrés sur
         </Label>
         <CustomInput
           className='form-control text-center mr-3'
@@ -54,7 +54,7 @@ const OrderCustomHeader = ({
               className='mr-1'
               onClick={() => oderDeleteRestoreHandler(selectedRows)}
             >
-              Delete
+              Supprimer
             </Button.Ripple>
             {/* Restore Button */}
             {showTrash && (
@@ -64,7 +64,7 @@ const OrderCustomHeader = ({
                   oderDeleteRestoreHandler(selectedRows, 'RESTORE')
                 }
               >
-                Restore
+                Restaurer
               </Button.Ripple>
             )}
           </>
@@ -73,7 +73,7 @@ const OrderCustomHeader = ({
           !showTrash && (
             <div className='text-nowrap mr-1'>
               <Button.Ripple color='primary' onClick={() => toggleSidebar()}>
-                Add Order
+                Ajouter une commande
               </Button.Ripple>
             </div>
           )
@@ -86,7 +86,7 @@ const OrderCustomHeader = ({
             onClick={() => getTrashedOrders()}
           >
             <Trash2 className='mr-50' size={15} />
-            Trash
+            Corbeille
           </Button.Ripple>
         </div>
       </div>

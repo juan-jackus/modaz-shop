@@ -5,16 +5,16 @@ const paginationHandler = require('../../utils/paginationHandler');
 const { productCategories } = require('../../models/product');
 // Products Categories Filter
 const allCategories = productCategories.map((cat) => {
-  return { value: cat.name.toLocaleLowerCase(), label: cat.name };
+  return { value: cat.name.toLocaleLowerCase(), label: cat.nameFr };
 });
 // Products Price Range Filter
 const allPriceRange = [
-  { value: '0', label: 'All' },
-  { value: '0,25', label: 'under $25' },
+  { value: '0', label: 'Tout' },
+  { value: '0,25', label: 'Moins de $25' },
   { value: '25,150', label: '$25 - $150' },
   { value: '150,500', label: '$150 - $500' },
   { value: '500,1000', label: '$500 - $1000' },
-  { value: '1000', label: 'above $1000' },
+  { value: '1000', label: 'Plus de $1000' },
 ];
 // "/Shop" Route
 router.get('/', modazController.getModazProducts, (req, res) => {

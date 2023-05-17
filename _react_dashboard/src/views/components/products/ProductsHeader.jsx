@@ -39,16 +39,16 @@ const ProductsHeader = (props) => {
 
   // ** Sorting options
   const sortByOptions = {
-    newest: 'Newest',
-    oldest: 'Oldest',
-    price_desc: 'Highest Price',
-    price_asc: 'Lowest Price',
-    rating_desc: 'Rating Up',
-    rating_asc: 'Rating Down',
+    newest: 'Plus récents',
+    oldest: 'Plus anciens',
+    price_desc: 'Prix decroissant',
+    price_asc: 'Prix ascendant',
+    rating_desc: 'Note decroissant',
+    rating_asc: 'Note ascendant',
   };
   const trashSortByOptions = {
-    trash_desc: 'Recently Deleted',
-    trash_asc: 'Oldest Deleted',
+    trash_desc: 'Récemment supprimé',
+    trash_asc: 'Aciennement supprimé',
   };
   const selectedSortOption = showTrash ? trashSortByOptions : sortByOptions;
   const trashBtnColor = showTrash ? '#fbdddd' : 'inherit';
@@ -78,7 +78,7 @@ const ProductsHeader = (props) => {
           onClick={() => setSidebarOpen(true)}
         >
           <span className='text d-block d-lg-none mr-1'>
-            <AlignLeft /> Filter
+            <AlignLeft /> Filtre
           </span>
         </button>
         {/* Delete, Restore & Add Product(s) Button */}
@@ -94,7 +94,7 @@ const ProductsHeader = (props) => {
                   setShowProductModal(true);
                 }}
               >
-                Delete
+                Supprimer
               </Button.Ripple>
               {/* Restore Button */}
               {showTrash && (
@@ -105,7 +105,7 @@ const ProductsHeader = (props) => {
                     setShowProductModal(true);
                   }}
                 >
-                  Restore
+                  Restaurer
                 </Button.Ripple>
               )}
             </>
@@ -118,7 +118,7 @@ const ProductsHeader = (props) => {
                 tag={Link}
                 to='/products/add'
               >
-                Add Product
+                Ajouter un produit
               </Button.Ripple>
             )
           )}
@@ -132,14 +132,14 @@ const ProductsHeader = (props) => {
             onClick={() => getTrashedProducts()}
           >
             <Trash2 className='mr-50' size={15} />
-            Trash
+            Corbeille
           </Button.Ripple>
         </div>
       </Col>
       <Col sm='12'>
         <div className='ecommerce-header-items'>
           <div className='d-flex align-items-center mt-1'>
-            <Label for='products-per-page'>Show</Label>
+            <Label for='products-per-page'>Afficher</Label>
             <CustomInput
               className='form-control mx-50'
               type='select'
@@ -161,7 +161,7 @@ const ProductsHeader = (props) => {
               <option value='27'>27</option>
             </CustomInput>
             <Label for='rows-per-page' className='mr-1'>
-              Entries of
+              Entrés sur
             </Label>
             <CustomInput
               className='form-control text-center mr-3'
@@ -180,7 +180,7 @@ const ProductsHeader = (props) => {
                 outline
                 caret
               >
-                <span className='small '>sort By : </span>
+                <span className='small '>Trier par : </span>
                 {selectedSortOption[sortByValue]}
               </DropdownToggle>
               <DropdownMenu>{renderSortToggle()}</DropdownMenu>

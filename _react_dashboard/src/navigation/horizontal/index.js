@@ -18,7 +18,7 @@ export default function getHorizontalMenuItems(loginUser) {
   let menu = [
     {
       id: 'home-menu',
-      title: 'Home',
+      title: 'Accueil',
       icon: <Home size={20} />,
       navLink: '/home',
     },
@@ -44,19 +44,19 @@ export default function getHorizontalMenuItems(loginUser) {
     },
     {
       id: 'customers-menu',
-      title: 'Customers',
+      title: 'Clients',
       icon: <Users size={20} />,
       navLink: '/customers',
     },
     {
       id: 'products-menu',
-      title: 'Products',
+      title: 'Produits',
       icon: <ShoppingCart size={20} />,
       navLink: '/products',
     },
     {
       id: 'orders-menu',
-      title: 'Orders',
+      title: 'Commandes',
       icon: <Box size={20} />,
       navLink: '/orders',
     },
@@ -68,13 +68,13 @@ export default function getHorizontalMenuItems(loginUser) {
     },
     {
       id: 'users-menu',
-      title: 'Users',
+      title: 'Utilisateurs',
       icon: <User size={20} />,
       navLink: '/users',
     },
     {
       id: 'account-settings-menu',
-      title: 'Account Settings',
+      title: 'Paramètres',
       icon: <Settings size={20} />,
       navLink: '/account-settings',
     },

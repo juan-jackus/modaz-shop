@@ -44,10 +44,19 @@ const OrdersList = () => {
   // ** Vars
   const dispatch = useDispatch();
   const store = useSelector((state) => state.orders);
-  const { params, statusOptions } = store;
-  const paramStatus = statusOptions.find(
-    (status) => status.value === params.status
-  );
+  const { params } = store;
+  let paramStatus;
+  const statusOptions = store.statusOptions.map((status) => {
+    if (status.value === params.status) {
+      paramStatus = status;
+    }
+    return { ...status, label: status.labelFr };
+  });
+
+  // console.log(store.statusOptions);
+  // const paramStatus = statusOptions.find(
+  //   (status) => status.value === params.status
+  // );
   // ** States
   const [searchTerm, setSearchTerm] = useState(params.q || ''),
     [currentPage, setCurrentPage] = useState(params.page || 1),
@@ -138,13 +147,13 @@ const OrdersList = () => {
     const action = {
       single: deleteOrder,
       mutiple: deleteMultipleOrder,
-      text: 'deletion',
+      text: 'suppression',
     };
     // eslint-disable-next-line
     if (actionType == 'RESTORE') {
       action.single = restoreOrder;
       action.mutiple = restoreMultipleOrder;
-      action.text = 'restoration';
+      action.text = 'restauration';
     }
     // If there is many orders to delete/restore
     if (order.selectedCount) {
@@ -156,13 +165,13 @@ const OrdersList = () => {
         successAction === order.selectedCount
           ? {
               type: 'success',
-              text: `Success ${action.text} of :`,
+              text: `${action.text} reussie de :`,
               value: order.selectedRows,
             }
           : {
               type: 'error',
-              text: `Failed ${action.text} of :`,
-              value: `${order.selectedCount - successAction} order(s)`,
+              text: `Echec de la ${action.text} de :`,
+              value: `${order.selectedCount - successAction} commande(s)`,
             };
     } else {
       // One Order to Delete
@@ -172,12 +181,12 @@ const OrdersList = () => {
       toastValue = successAction
         ? {
             type: 'success',
-            text: `Success ${action.text} of :`,
+            text: `${action.text} reussie de:`,
             value: order,
           }
         : {
             type: 'error',
-            text: `Failed ${action.text} of :`,
+            text: `Echec de la ${action.text} de :`,
             value: order,
           };
     }
@@ -231,10 +240,13 @@ const OrdersList = () => {
 
   return (
     <Fragment>
-      <Breadcrumbs breadCrumbTitle='orders ' breadCrumbActive='orders' />
+      <Breadcrumbs
+        breadCrumbTitle='Liste des Commandes '
+        breadCrumbActive='commandes'
+      />
       <Card className='container'>
         <CardHeader>
-          <CardTitle tag='h4'>Search Filter</CardTitle>
+          <CardTitle tag='h4'>Filtre de recherche</CardTitle>
         </CardHeader>
         <CardBody>
           <Row>
@@ -242,7 +254,7 @@ const OrdersList = () => {
             <Col md='4'>
               <div className='d-flex align-items-center mb-sm-0 mb-1 mr-1'>
                 <Label className='mb-0' for='search-invoice'>
-                  Search:
+                  Recherche:
                 </Label>
                 <Input
                   type='text'
@@ -257,7 +269,7 @@ const OrdersList = () => {
             <Col className='my-md-0 my-1' md='4'>
               <div className='d-flex align-items-center w-100'>
                 <Label className='mr-1' for='search-status'>
-                  Status:
+                  Statut:
                 </Label>
                 <Select
                   id='search-status'
@@ -306,7 +318,11 @@ const OrdersList = () => {
           clearSelectedRows={toggledClearRows}
           paginationComponent={oderCustomPagination}
           data={store.data}
-          columns={getColumns(oderDeleteRestoreHandler, showTrash)}
+          columns={getColumns(
+            oderDeleteRestoreHandler,
+            statusOptions,
+            showTrash
+          )}
           customStyles={{
             rows: { stripedStyle: { backgroundColor: '#f7f7f7' } },
           }}

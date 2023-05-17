@@ -119,7 +119,7 @@ const GeneralTabs = ({ accountData }) => {
     });
 
     if (successSubmit) {
-      const toastValue = { type: 'success', text: 'Success modification' };
+      const toastValue = { type: 'success', text: 'Modifié avec succés' };
       toast.success(ToastContent(toastValue), {
         transition: Slide,
         hideProgressBar: true,
@@ -157,7 +157,7 @@ const GeneralTabs = ({ accountData }) => {
             color='primary'
             disabled={notEditable}
           >
-            Upload
+            Télécharger
             <Input
               type='file'
               disabled={notEditable}
@@ -177,9 +177,9 @@ const GeneralTabs = ({ accountData }) => {
               setAvatar('');
             }}
           >
-            Reset
+            Réinitialiser
           </Button>
-          <p>Allowed JPG, GIF or PNG. Max size of 800kB</p>
+          <p>Format autorisé: JPG, GIF or PNG. Taille maximale: 800kB</p>
         </Media>
       </Media>
       <div className='text-danger small my-1'>{errors.avatar?.message}</div>
@@ -188,7 +188,7 @@ const GeneralTabs = ({ accountData }) => {
           {/* Username */}
           <Col sm='6'>
             <FormGroup>
-              <Label for='username'>Username</Label>
+              <Label for='username'>Nom d'utilisateur</Label>
               <Input
                 disabled={notEditable}
                 name='username'
@@ -197,7 +197,7 @@ const GeneralTabs = ({ accountData }) => {
                 className={classnames({ 'is-invalid': errors.username })}
               />
               <FormText color='muted'>
-                Allowed : numbers, underScore, hyphen & periods
+                Autorisés : chiffres, underScore, trait d'union et points
               </FormText>
               <div className='invalid-feedback'>{errors.username?.message}</div>
             </FormGroup>
@@ -205,7 +205,7 @@ const GeneralTabs = ({ accountData }) => {
           {/* Full Name */}
           <Col sm='6'>
             <FormGroup>
-              <Label for='full-name'>Full Name</Label>
+              <Label for='full-name'>Nom complet</Label>
               <Input
                 disabled={notEditable}
                 name='fullName'
@@ -236,7 +236,7 @@ const GeneralTabs = ({ accountData }) => {
           {/* Phone Number */}
           <Col sm='6'>
             <FormGroup>
-              <Label for='phone-number'>Phone Number</Label>
+              <Label for='phone-number'>Numéro de téléphone</Label>
               <InputGroup className='input-group-merge'>
                 <InputGroupAddon addonType='prepend'>
                   <InputGroupText>SN (+221)</InputGroupText>
@@ -277,7 +277,7 @@ const GeneralTabs = ({ accountData }) => {
           {/* BirthDate */}
           <Col sm='6'>
             <FormGroup>
-              <Label for='birthdate'>Birth Date</Label>
+              <Label for='birthdate'>Date de naissance</Label>
               <Controller
                 disabled={notEditable}
                 as={Flatpickr}
@@ -293,7 +293,7 @@ const GeneralTabs = ({ accountData }) => {
           {/* User Role */}
           <Col sm='6'>
             <FormGroup>
-              <Label for='role'>Account Role</Label>
+              <Label for='role'>Rôle du compte</Label>
               <Input
                 disabled
                 type='text'
@@ -310,7 +310,7 @@ const GeneralTabs = ({ accountData }) => {
                 className='mr-1'
                 onClick={() => setNotEditable(false)}
               >
-                Edit
+                Modifier
               </Button>
             ) : (
               <Button.Ripple
@@ -322,10 +322,10 @@ const GeneralTabs = ({ accountData }) => {
                 {isSubmitting ? (
                   <>
                     <Spinner size='sm' color='white' />
-                    <span className='ml-50'>Saving...</span>
+                    <span className='ml-50'>Soumission...</span>
                   </>
                 ) : (
-                  'Save changes'
+                  'Sauvegarder les modifications'
                 )}
               </Button.Ripple>
             )}
@@ -336,7 +336,7 @@ const GeneralTabs = ({ accountData }) => {
               outline
               onClick={resetFormData}
             >
-              Cancel
+              Annuler
             </Button.Ripple>
           </Col>
         </Row>

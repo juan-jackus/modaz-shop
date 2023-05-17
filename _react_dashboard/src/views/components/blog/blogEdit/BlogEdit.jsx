@@ -100,7 +100,7 @@ const BlogEdit = () => {
     checkImg.src = URL.createObjectURL(img);
     checkImg.onload = async function () {
       if (this.width < 500 || this.height < 300) {
-        setFormErrors({ invalidImg: 'Invalid image width or height' });
+        setFormErrors({ invalidImg: "Largeur ou hauteur d'image invalide" });
         setResetImg(Date.now());
         setPreviewImg(selectedPost?.image || '');
         setTimeout(() => {
@@ -132,7 +132,9 @@ const BlogEdit = () => {
       !content.getCurrentContent().hasText()
     ) {
       setIsSubmitting(false);
-      setFormErrors({ message: 'Fill all required fields (*) please!' });
+      setFormErrors({
+        message: 'Remplissez tous les champs obligatoires marqués avec (*)!',
+      });
       setTimeout(() => {
         setFormErrors(null);
       }, 3500);
@@ -176,16 +178,16 @@ const BlogEdit = () => {
     let toastValue = {
       type: 'error',
       text: selectedPost
-        ? 'Update of Post failed'
-        : 'Creation of new Post failed',
+        ? 'La mise à jour du article a échoué'
+        : "La création d'un nouveau arcticle a échoué",
     };
 
     if (successSubmit) {
       toastValue = {
         type: 'success',
         text: selectedPost
-          ? 'Post successfuly Modified'
-          : 'New Post successfuly Added',
+          ? 'Article modifié avec succès'
+          : 'Nouveau article ajouté avec succès',
       };
 
       if (!selectedPost) {
@@ -210,9 +212,9 @@ const BlogEdit = () => {
   return (
     <div className='blog-edit-wrapper'>
       <Breadcrumbs
-        breadCrumbTitle='Blog Edit'
+        breadCrumbTitle="Edition de l'article"
         breadCrumbParent='Blog'
-        breadCrumbActive='Edit'
+        breadCrumbActive='Editer'
       />
       <BlogEditForm
         slug={slug}

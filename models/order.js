@@ -2,10 +2,34 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orderStatuses = [
-  { id: 1, name: 'Proceed', color: 'light-info', hex_color: '#00cfe8' },
-  { id: 2, name: 'Shipped', color: 'light-warning', hex_color: '#ff9f43' },
-  { id: 3, name: 'Completed', color: 'light-success', hex_color: '#28c76f' },
-  { id: 4, name: 'Cancelled', color: 'light-danger', hex_color: '#ea5455' },
+  {
+    id: 1,
+    name: 'Proceed',
+    nameFr: 'En cours',
+    color: 'light-info',
+    hex_color: '#00cfe8',
+  },
+  {
+    id: 2,
+    name: 'Shipped',
+    nameFr: 'Livrée',
+    color: 'light-warning',
+    hex_color: '#ff9f43',
+  },
+  {
+    id: 3,
+    name: 'Completed',
+    nameFr: 'Terminée',
+    color: 'light-success',
+    hex_color: '#28c76f',
+  },
+  {
+    id: 4,
+    name: 'Cancelled',
+    nameFr: 'Annulée',
+    color: 'light-danger',
+    hex_color: '#ea5455',
+  },
 ];
 
 const statusesIds = orderStatuses.map((s) => s.id);

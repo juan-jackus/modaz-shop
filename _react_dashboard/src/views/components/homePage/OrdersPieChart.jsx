@@ -19,11 +19,11 @@ const OrdersPieChart = ({ orderStatusCount, statusOptions }) => {
     // eslint-disable-next-line
     const foundStatus = statusOptions.find((st) => st.value == status.id);
     if (foundStatus) {
-      pieChartLabels[i] = foundStatus.label;
+      pieChartLabels[i] = foundStatus.labelFr;
       pieChartSeries[i] = status.count;
       pieChartColors[i] = foundStatus.hex_color;
       labels.push({
-        label: foundStatus.label,
+        label: foundStatus.labelFr,
         color: statusColor[foundStatus.label.toLowerCase()],
         count: status.count,
       });
@@ -52,7 +52,7 @@ const OrdersPieChart = ({ orderStatusCount, statusOptions }) => {
   return orderStatusCount.length ? (
     <Card>
       <CardHeader className='align-items-end'>
-        <CardTitle tag='h4'>Orders Status</CardTitle>
+        <CardTitle tag='h4'>Status des commandes</CardTitle>
       </CardHeader>
       <CardBody>
         <Chart

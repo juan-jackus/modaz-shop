@@ -15,13 +15,13 @@
     <div class="row">
       <div class="col-md-12">
         <div class="page-title-heading">
-          <h1 class="title">Password Recover</h1>
+          <h1 class="title">Récupération du mot de passe</h1>
         </div>
         <div class="breadcrumbs">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li>Account</li>
-            <li>Forgot Password</li>
+            <li><a href="/">Accueil</a></li>
+            <li>Compte</li>
+            <li>Mot de passe oublié</li>
           </ul>
         </div>
       </div>
@@ -33,7 +33,8 @@
   <div class="container">
     <div class="col col-sm-8 col-lg-6 mx-auto">
       <p class="mb-3">
-        Enter your email and we'll send you instructions to reset your password
+        Saisissez votre adresse électronique et nous vous enverrons des
+        instructions pour réinitialiser votre mot de passe.
       </p>
       <form
         id="resetPwd-form"
@@ -59,17 +60,20 @@
           </div>
         </div>
         <button type="submit" class="btn mt-5 btn-block register-btn" disabled>
-          Send Reset Link
+          Envoyer le lien
         </button>
       </form>
       <div class="<%= success ? 'd-block' : 'd-none' %>">
         <div class="d-flex flex-column align-items-center">
-          <h2 class="mb-3">Reset Link has been sent!</h2>
-          <p>Go to your address Email account to confirm password reset</p>
+          <h2 class="mb-3">Lien de réinitialisation a été envoyé !</h2>
+          <p>
+            Accédez à votre adresse Email pour confirmer la réinitialisation de
+            votre mot de passe.
+          </p>
         </div>
       </div>
       <p class="d-flex justify-content-center mt-3">
-        <a href="/" style="color: #7367f0">Return Homepage</a>
+        <a href="/" style="color: #7367f0">Retour à la page d'accueil</a>
       </p>
     </div>
   </div>

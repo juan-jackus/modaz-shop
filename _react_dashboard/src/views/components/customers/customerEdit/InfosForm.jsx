@@ -50,7 +50,7 @@ const InformationsForm = (props) => {
         <Col sm='12'>
           <h4 className='mb-1'>
             <User size={20} className='mr-50' />
-            <span className='align-middle'>Personal Informations</span>
+            <span className='align-middle'>Informations personnelles</span>
           </h4>
         </Col>
         {/* Form */}
@@ -72,7 +72,7 @@ const InformationsForm = (props) => {
                     {/* Fullname */}
                     <FormGroup>
                       <Label for='full-name'>
-                        Full Name <span className='text-danger'>*</span>
+                        Nom complet <span className='text-danger'>*</span>
                       </Label>
                       <Input
                         disabled={notEditable}
@@ -90,7 +90,7 @@ const InformationsForm = (props) => {
                     {/* Username */}
                     <FormGroup>
                       <Label for='username'>
-                        Username <span className='text-danger'>*</span>
+                        Nom d'utilisateur <span className='text-danger'>*</span>
                       </Label>
                       <Input
                         disabled={notEditable}
@@ -102,8 +102,8 @@ const InformationsForm = (props) => {
                         })}
                       />
                       <FormText color='muted'>
-                        You can only use letters, numbers, underScore, hyphen &
-                        periods
+                        Vous ne pouvez utiliser que des lettres, des chiffres,
+                        des sous-notes, des traits d'union et des points.
                       </FormText>
                       <div className='invalid-feedback'>
                         {errors.username?.message}
@@ -134,7 +134,7 @@ const InformationsForm = (props) => {
               {/* Phone Number */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label for='phone-number'>Phone Number</Label>
+                  <Label for='phone-number'>Numéro de téléphone</Label>
                   <InputGroup className='input-group-merge'>
                     <InputGroupAddon addonType='prepend'>
                       <InputGroupText>SN (+221)</InputGroupText>
@@ -173,7 +173,7 @@ const InformationsForm = (props) => {
               {/* Birthdate */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label for='birthdate'>Birth Date</Label>
+                  <Label for='birthdate'>Date de naissance</Label>
                   <Controller
                     disabled={notEditable}
                     control={control}
@@ -189,7 +189,7 @@ const InformationsForm = (props) => {
               {/* Gender */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label className='d-block mb-1'>Gender</Label>
+                  <Label className='d-block mb-1'>Genre</Label>
                   {selectedCustomer.gender && notEditable ? (
                     <CustomInput
                       inline
@@ -215,7 +215,7 @@ const InformationsForm = (props) => {
                               inline
                               type='radio'
                               value='male'
-                              label='Male'
+                              label='Homme'
                               id='gender-male'
                             />
                             <CustomInput
@@ -223,7 +223,7 @@ const InformationsForm = (props) => {
                               disabled={notEditable}
                               inline
                               type='radio'
-                              label='Female'
+                              label='Femme'
                               value='female'
                               id='gender-female'
                             />
@@ -232,7 +232,7 @@ const InformationsForm = (props) => {
                               disabled={notEditable}
                               inline
                               type='radio'
-                              label='Not Specified'
+                              label='Non spécifié'
                               value=''
                               id='no-gender'
                             />
@@ -253,7 +253,7 @@ const InformationsForm = (props) => {
               {/* Address */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label for='address'>Address</Label>
+                  <Label for='address'>Addresse</Label>
                   <Input
                     disabled={notEditable}
                     name='moreInfos.address'
@@ -265,7 +265,7 @@ const InformationsForm = (props) => {
               {/* Postal Code */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label for='postal-code'>Postal Code</Label>
+                  <Label for='postal-code'>Code postal</Label>
                   <Input
                     disabled={notEditable}
                     name='moreInfos.postalCode'
@@ -278,7 +278,7 @@ const InformationsForm = (props) => {
               {/* City */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label for='city'>City</Label>
+                  <Label for='city'>Ville</Label>
                   <Input
                     disabled={notEditable}
                     name='moreInfos.city'
@@ -290,7 +290,7 @@ const InformationsForm = (props) => {
               {/* Country */}
               <Col lg='4' md='6'>
                 <FormGroup>
-                  <Label for='city'>country</Label>
+                  <Label for='city'>Pays</Label>
                   <Input
                     disabled={notEditable}
                     name='moreInfos.country'
@@ -312,10 +312,10 @@ const InformationsForm = (props) => {
                     {isSubmitting ? (
                       <>
                         <Spinner size='sm' color='white' />
-                        <span className='ml-50'>Saving...</span>
+                        <span className='ml-50'>Sauvegarde...</span>
                       </>
                     ) : (
-                      'Save'
+                      'Sauvegarder'
                     )}
                   </Button.Ripple>
                 )}
@@ -329,7 +329,7 @@ const InformationsForm = (props) => {
                       disabled={isSubmitting}
                       onClick={handleFormEdit}
                     >
-                      {notEditable ? 'Edit' : 'Reset'}
+                      {notEditable ? 'Modifier' : 'Réinitialiser'}
                     </Button.Ripple>
                     {/* Delete Button */}
                     {!notEditable && (
@@ -343,7 +343,7 @@ const InformationsForm = (props) => {
                           history.goBack();
                         }}
                       >
-                        Delete
+                        Supprimer
                       </Button.Ripple>
                     )}
                   </>
@@ -356,7 +356,7 @@ const InformationsForm = (props) => {
                   disabled={isSubmitting}
                   onClick={() => history.goBack()}
                 >
-                  Go back
+                  Retour
                 </Button.Ripple>
               </Col>
             </Row>

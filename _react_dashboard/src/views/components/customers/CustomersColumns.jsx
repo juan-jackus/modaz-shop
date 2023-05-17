@@ -27,7 +27,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
       cell: (data) => <strong style={{ color: '#96999b' }}>{data.uid}</strong>,
     },
     {
-      name: 'Customer',
+      name: 'Clients',
       minWidth: '250px',
       sortable: true,
       sortField: 'name',
@@ -60,7 +60,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
       // },
     },
     {
-      name: 'Gender',
+      name: 'Genre',
       width: '100px',
       cell: (data) => data.gender && capitalize(data?.gender),
       conditionalCellStyles: [
@@ -75,7 +75,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
       ],
     },
     {
-      name: 'Created',
+      name: 'créé',
       width: '130px',
       sortable: true,
       sortField: 'id',
@@ -83,7 +83,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
       cell: (data) => formatDate(data.created_at, true),
     },
     {
-      name: 'Deleted',
+      name: 'Supprimé',
       width: '130px',
       sortable: true,
       sortField: 'trash',
@@ -106,7 +106,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
                 style={{ width: '100%', borderTop: '1px solid #e9e9e9' }}
               >
                 <RefreshCw size={14} color='#2dc872' className='mr-50' />
-                <span className='align-middle '>Restore</span>
+                <span className='align-middle '>Restaurer</span>
               </DropdownItem>
             ) : (
               <DropdownItem
@@ -117,7 +117,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
                 }}
               >
                 <Archive size={14} color='#2dc872' className='mr-50' />
-                <span className='align-middle '>Edit</span>
+                <span className='align-middle '>Modifier</span>
               </DropdownItem>
             )}
             {/* Delete */}
@@ -127,7 +127,7 @@ export const getColumns = (customerDeleteRestoreHandler, showTrash) => {
               style={{ width: '100%', borderTop: '1px solid #e9e9e9' }}
             >
               <Trash2 size={14} color='#ea5455' className='mr-50' />
-              <span className='align-middle '>Delete</span>
+              <span className='align-middle '>Supprimer</span>
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>

@@ -15,39 +15,39 @@ import {
 
 const StatsCard = ({ stats, loader, includeRole }) => {
   // ** Stats Data
-  let title = 'Global Stats';
+  let title = 'Statistiques globales';
   let data = [
     {
       count: stats?.usersCount || 0,
-      title: 'User(s)',
+      title: 'Utilisateur(s)',
       link: '/users',
       color: 'light-primary',
       icon: <User size={24} />,
     },
     {
       count: stats?.customersCount || 0,
-      title: 'Customer(s)',
+      title: 'Client(s)',
       link: '/customers',
       color: 'light-info',
       icon: <Users size={24} />,
     },
     {
       count: stats?.productsCount || 0,
-      title: 'Product(s)',
+      title: 'Produit(s)',
       link: '/products',
       color: 'light-danger',
       icon: <Box size={24} />,
     },
     {
       count: stats?.postsCount || 0,
-      title: 'Post(s)',
-      link: '/blogs',
+      title: 'Article(s)',
+      link: '/blog',
       color: 'light-success',
       icon: <FileText size={24} />,
     },
     {
       count: stats?.ordersCount || 0,
-      title: 'Order(s)',
+      title: 'Commande(s)',
       link: '/orders',
       color: 'light-secondary',
       icon: <ShoppingCart size={24} />,
@@ -55,7 +55,7 @@ const StatsCard = ({ stats, loader, includeRole }) => {
   ];
   // If Login user role is author or editor
   if (includeRole) {
-    title = 'Posts Stats';
+    title = 'Status des Articles rédigés';
     data = [
       {
         count: stats?.postsCount || 0,
@@ -97,8 +97,8 @@ const StatsCard = ({ stats, loader, includeRole }) => {
               <Spinner color='primary' />
             ) : (
               <Link to={item.link ? item.link : '#'}>
-                <Media className='my-auto' body role='button'>
-                  <h4 className='font-weight-bolder text-center mb-0'>
+                <Media className='my-auto cursor ' role='button' body>
+                  <h4 className='font-weight-bolder text-dark text-center mb-0'>
                     {item.count}
                   </h4>
                   <CardText className='font-small-3 mb-0 text-dark'>

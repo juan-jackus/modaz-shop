@@ -37,10 +37,10 @@ const Login = (props) => {
     >
       <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
         <CardTitle tag='h2' className='font-weight-bold mb-1 text-center '>
-          Welcome ! 👋
+          Bienvenue ! 👋
         </CardTitle>
         <CardText className='mb-2 text-center'>
-          Please sign-in to your account
+          Veuillez vous connecter à votre compte
         </CardText>
         <Alert color='danger' isOpen={!!loginError}>
           <div className='alert-body'>
@@ -69,16 +69,16 @@ const Login = (props) => {
           <FormGroup>
             <div className='d-flex justify-content-between'>
               <Label className='form-label' for='login-password'>
-                Password
+                Mot de passe
               </Label>
               <Link to='#' onClick={() => setAuthForm('forgotPwd')}>
-                <small>Forgot Password?</small>
+                <small>Mot de passe oublié ?</small>
               </Link>
             </div>
             <InputPasswordToggle
               name='password'
               id='login-password'
-              placeholder='Password'
+              placeholder='Mot de passe'
               innerRef={register}
               required
               className='input-group-merge'
@@ -90,7 +90,7 @@ const Login = (props) => {
               name='rememberMe'
               className='custom-control-Primary'
               id='rememberMe'
-              label='Remember Me'
+              label='Rester Connecté'
               innerRef={register}
             />
           </FormGroup>
@@ -100,7 +100,7 @@ const Login = (props) => {
             color='primary'
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Spinner color='white' /> : 'Sign in'}
+            {isSubmitting ? <Spinner color='white' /> : 'Se connecter'}
           </Button.Ripple>
         </Form>
       </Col>

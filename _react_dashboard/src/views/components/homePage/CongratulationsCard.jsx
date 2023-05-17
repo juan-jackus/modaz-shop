@@ -27,7 +27,7 @@ const CardCongratulations = () => {
         />
         <div className='text-center'>
           <h1 className='mb-1 text-white' style={{ fontSize: '1.3rem' }}>
-            Welcome to Modaz Shop Dashboard!
+            Bienvenue sur le tableau de bord de Modaz Shop !
           </h1>
         </div>
       </CardBody>

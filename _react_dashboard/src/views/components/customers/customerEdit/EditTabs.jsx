@@ -51,9 +51,9 @@ const CustomerEdit = () => {
   ) : (
     <>
       <Breadcrumbs
-        breadCrumbTitle='Edit Customer '
-        breadCrumbParent='Customers'
-        breadCrumbActive='Edit'
+        breadCrumbTitle='Modifier le client'
+        breadCrumbParent='Clients'
+        breadCrumbActive='Modifier'
       />
 
       <Row>
@@ -81,7 +81,7 @@ const CustomerEdit = () => {
                   >
                     <Share2 size={14} />
                     <span className='align-middle d-none d-sm-block'>
-                      Social
+                      Socials
                     </span>
                   </NavLink>
                 </NavItem>
