@@ -1,0 +1,255 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          <h1 class="title">Posts</h1>
+        </div>
+        <!-- BreadCrumbs -->
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog posts -->
+<section class="blog-posts style1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="post-wrap style1">
+          <!-- Post Filters -->
+          <div class="d-flex mb-3 mb-lg-5 flex-wrap">
+            <!-- Sort By  -->
+            <div class="filter-sort-by my-2 mr-3">
+              <div>Sort By</div>
+              <select id="blog-sort-by">
+                <option <%= sortBy=='newest'?'selected':''%> value="newest" >
+                  Newest
+                </option>
+                <option <%= sortBy=='latest'?'selected':''%> value="latest">
+                  Latest
+                </option>
+              </select>
+            </div>
+            <!-- Show Per Page -->
+            <div class="d-flex ml-sm-auto align-items-center my-2">
+              <div class="filter-per-page ">
+                <div>Show</div>
+                <select id="blog-per-page">
+                  <option <%= perPage=='3'?'selected':''%> value="3">3</option>
+                  <option <%= perPage=='5'?'selected':''%> value="5">5</option>
+                  <option <%= perPage=='7'?'selected':''%> value="7">7</option>
+                </select>
+                <div class="nbr-posts">
+                  of <span><%= totalPost %></span> Posts
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Small Screen Search Box -->
+          <div class="widget widget-search d-lg-none mb-5">
+            <form class="blog-search-form d-flex modal-filter">
+              <div tabindex="0" class="w-100">
+                <input
+                  required
+                  type="search"
+                  class="search-field blog-modal-search-input modal-filter"
+                  placeholder="Search …"
+                  value="<%= textSearch %>"
+                />
+                <div class="blog-clear-search modal-filter">
+                  <i class="fa fa-close"></i>
+                </div>
+              </div>
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+          <%posts.map((post)=> {%>
+            <article class="post clearfix">
+              <!-- Post Title -->
+              <div class="title-post">
+                <h2>
+                  <a href="<%=`/blog/articles/${post._id}`%>">
+                    <%= post.title %>
+                  </a>
+                </h2>
+              </div>
+              <div class="content-post">
+                <!-- Post Author, Date, Read Count -->
+                <ul class="meta-post d-flex">
+                  <li class="author padding-left-2">
+                    <span>By : </span>
+                    <a class="prevent " href="#">
+                      <%= post.author ? post.author.fullName : post.authorUsername %>
+                    </a>
+                  </li>
+                  <li class="separator mx-2 d-sm-none">|</li>
+                  <li class=" format-date ml-sm-auto text-center"> 
+                    <%= post.createdAt %>
+                  </li>
+                  <li class="separator mx-2">|</li>
+                  <li class="read-count text-center">
+                    Read Count : <%= post.readCount %>
+                  </li>
+                </ul>
+                <!-- Post Image -->
+                <div class="featured-post">
+                  <a href="<%=`/blog/articles/${post._id}`%>">
+                    <img 
+                      src="<%= post.image %> " 
+                      style="object-fit: cover; width: 100%; height: 250px"
+                      alt="image" 
+                    />
+                  </a>
+                </div>
+                <!-- Post Truncated Text -->
+                <div class="entry-post">
+                  <p>
+                    <%= post.text.length > 300 ? 
+                      `${post.text.substring(0, 300)}...`:
+                      post.text %> 
+                  </p>
+                  <!-- Post Read More -->
+                  <div class="more-link">
+                    <a href="<%=`/blog/articles/${post._id}`%>">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          <% }) %>
+          <!-- If there is No Post -->
+          <% if (!posts.length) {%>
+            <p class="text-center">No Post Found</p>
+          <% } %>
+        </div>
+        <!-- Pagination -->
+        <div class="blog-pagination text-center clearfix">
+          <ul class="flat-pagination" data-totalPage="<%= totalPage %>">
+            <!-- Pagination Prev Button -->
+            <li class="prev">
+              <a href="#" data-page="prev" class="pagination-btn">
+                <i class="fa fa-angle-left"></i>
+              </a>
+            </li>
+            <!-- Pagination Truncate Start -->
+            <% if (pagination.truncateStart) {%>
+            <li class="start-pagination-truncate">
+              <a href="#" data-page="1" class="pagination-btn"> 1 </a>
+            </li>
+            <% if (pagination.numbers[0]>2) {%>
+            <li class="pagination-truncate px-2">...</li>
+            <% } %> <% } %>
+            <!-- Pagination Numbers -->
+            <% pagination.numbers.map(page=> {%>
+            <li class="<%= page == currentPage?'active':'' %>">
+              <a href="#" data-page="<%= page %>" class="pagination-btn">
+                <%= page %>
+              </a>
+            </li>
+            <% }) %>
+            <!-- Pagination Truncate End -->
+            <!-- prettier-ignore -->
+            <% if (pagination.truncateEnd) {%> 
+            <% if (totalPage - pagination.numbers[pagination.numbers.length-1]>1) {%>
+            <li class="pagination-truncate px-2">...</li>
+            <% } %>
+            <li class="end-pagination-truncate">
+              <a href="#" data-page="<%= totalPage %>" class="pagination-btn">
+                <%= totalPage %>
+              </a>
+            </li>
+            <% } %>
+            <!-- Pagination Next Button -->
+            <li class="next">
+              <a href="#" data-page="next" class="pagination-btn">
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="sidebar">
+          <!-- Search Box -->
+          <div class="widget widget-search p-0">
+            <form class="blog-search-form d-flex">
+              <div tabindex="0">
+                <input
+                  required
+                  type="search"
+                  class="search-field blog-search-input"
+                  value="<%= textSearch %>"
+                />
+                <div class="blog-clear-search">
+                  <i class="fa fa-close"></i>
+                </div>
+              </div>
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+          <!-- Categories Filter -->
+          <div class="widget widget_categories">
+            <h5 class="widget-title">Categories</h5>
+            <ul>
+              <%allCategories.map((cat)=> {%>
+                <li 
+                  data-category="<%= cat.value %>"
+                  class=" blog-category 
+                  <%= cat.value == selectedCategory?'active':'' %>"
+                >
+                  <a href="#"><%= cat.label %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+          <!-- Popular Posts -->
+          <div class="widget widget-news-latest">
+            <h5 class="widget-title">Popular Posts</h5>
+            <ul class="popular-news clearfix">
+              <%popularPosts.map((pp)=> {%>
+              <li>
+                <a href="<%=`/blog/articles/${pp._id}`%>">
+                  <img 
+                    src="<%= pp.image %> " 
+                    style="object-fit: cover; width: 100%; height: 75px"
+                    alt="image" 
+                  />
+                </a>
+                <h6 style="line-height: 20px; margin-top: 7px">
+                  <a href="<%=`/blog/articles/${pp._id}`%>">
+                    <%= pp.title %>
+                  </a>
+                </h6>
+                <a class="date format-date post_meta"> <%= pp.createdAt %></a>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

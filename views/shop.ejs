@@ -1,0 +1,482 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Page Title & Breadcrumbs-->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          <h1 class="title">Products</h1>
+        </div>
+        <!-- BreadCrumbs -->
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li>Products</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="flat-row main-shop shop-slidebar">
+  <div class="container">
+    <div class="row">
+      <!-- Filter Sidebar Column -->
+      <div class="col-lg-3">
+        <div class="sidebar slidebar-shop">
+          <!-- Search Box -->
+          <div class="widget widget-search p-0">
+            <form class="shop-search-form d-flex">
+              <div tabindex="0">
+                <input
+                  required
+                  type="search"
+                  class="search-field shop-search-input"
+                  placeholder="Search …"
+                  value="<%= textSearch %>"
+                />
+                <div class="shop-clear-search">
+                  <i class="fa fa-close"></i>
+                </div>
+              </div>
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+          <!-- Juan Jackus Collection Filter -->
+          <div class="widget widget-size">
+            <!-- <h5 class="widget-title">Juan Collection</h5> -->
+            <!-- prettier-ignore -->
+            <ul>
+              <li class="checkbox">
+                <input
+                  class="collection-checkbox"
+                  type="checkbox"
+                  id="collection"
+                  <%= inCollection ? 'checked' : '' %>
+                />
+                <label for="collection">
+                  Juan Collection
+                </label>
+              </li>
+            </ul>
+          </div>
+          <!-- Gender Filter-->
+          <div class="widget widget-size">
+            <h5 class="widget-title">For</h5>
+            <ul>
+              <li class="radio">
+                <!-- prettier-ignore -->
+                <input
+                  class="gender-radio"
+                  type="radio"
+                  name="gender"
+                  value=""
+                  id="for-both"
+                  <%= selectedGender != 'men'|| selectedGender != 'women'?'checked':''%>
+                />
+                <label for="for-both">
+                  Both
+                </label>
+              </li>
+              <li class="radio">
+                <!-- prettier-ignore -->
+                <input
+                  class="gender-radio"
+                  type="radio"
+                  name="gender"
+                  value="men"
+                  id="for-men"
+                  <%= selectedGender == 'men'?'checked':''%>
+                />
+                <label for="for-men">
+                  Men
+                </label>
+              </li>
+              <li class="radio">
+                <!-- prettier-ignore -->
+                <input
+                  class="gender-radio"
+                  type="radio"
+                  name="gender"
+                  value="women"
+                  id="for-women"
+                  <%= selectedGender == 'women'?'checked':''%>
+                />
+                <label for="for-women">
+                  Women
+                </label>
+              </li>
+            </ul>
+          </div>
+          <!-- Categories Filter -->
+          <div class="widget widget-size">
+            <h5 class="widget-title">Categories</h5>
+            <ul>
+              <%allCategories.map((category,i)=> {%>
+              <li class="checkbox">
+                <!-- prettier-ignore -->
+                <input
+                  class="categories-checkbox"
+                  type="checkbox"
+                  value="<%= category.value %>"
+                  id="<%='cat'+'-'+category.label %>"
+                  <%= selectedCategories.includes(category.value)?'checked':''%>
+                />
+                <label for="<%= 'cat'+'-'+category.label %>">
+                  <%= category.label %>
+                </label>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+          <!-- Price Range Filter-->
+          <div class="widget widget-size">
+            <h5 class="widget-title">Price Range</h5>
+            <ul>
+              <%allPriceRange.map((range,i)=> {%>
+              <li class="radio">
+                <!-- prettier-ignore -->
+                <input
+                  class="priceRange-radio"
+                  type="radio"
+                  name="priceRange"
+                  value="<%= range.value %>"
+                  id="<%='range'+'-'+range.label %>"
+                  <%= selectedPriceRange == range.value?'checked':''%>
+                />
+                <label for="<%= 'range'+'-'+range.label %>">
+                  <%= range.label %>
+                </label>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Products Column -->
+      <div class="col-lg-9">
+        <div class="d-flex flex-wrap">
+          <!-- Sort By  -->
+          <div class="filter-sort-by my-2 mr-3">
+              <div>Sort By</div>
+              <select id="shop-sort-by">
+                <option <%= sortBy=='newest'?'selected':''%> 
+                  value="newest" >Newest</option>
+                <option <%= sortBy=='latest'?'selected':''%> 
+                  value="latest">Latest</option>
+                <option <%= sortBy=='price-desc'?'selected':''%>
+                  value="price-desc">Highest Price</option>
+                <option <%= sortBy=='price-asc'?'selected':''%>
+                  value="price-asc">Lowest Price</option>
+                <option <%= sortBy=='rating-up'?'selected':''%>
+                  value="rating-up">Best Review</option>
+              </select>
+          </div>
+          <!-- Show Per Page & Modal Button -->
+          <div class="d-flex ml-sm-auto align-items-center my-2">
+            <!-- Show Per Page -->
+            <div class="filter-per-page ">
+                <div>Show</div>
+                <select id="shop-per-page">
+                  <option <%= perPage=='9'?'selected':''%> value="9">9</option>
+                  <option <%= perPage=='12'?'selected':''%> value="12">12</option>
+                  <option <%= perPage=='18'?'selected':''%> value="18">18</option>
+                </select>
+                <div class="nbr-products">
+                  of <span><%= totalProduct %></span> Products
+                </div>
+            </div>
+            <!-- Small Screen Filter Modal Button -->
+            <button
+              type="button"
+              class="btn btn-sm text-capitalize ml-5 d-lg-none"
+              data-toggle="modal"
+              data-target="#filter-modal"
+            >
+              Filter
+            </button>
+          </div>
+        </div>
+        <!-- Small Screen Search Box -->
+        <div class="widget widget-search d-lg-none my-4">
+          <form class="shop-search-form d-flex modal-filter">
+            <div tabindex="0" class="w-100">
+              <input
+                required
+                type="search"
+                class="search-field shop-search-input modal-filter"
+                placeholder="Search …"
+                value="<%= textSearch %>"
+              />
+              <div class="shop-clear-search modal-filter">
+                <i class="fa fa-close"></i>
+              </div>
+            </div>
+            <button type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <!-- Products -->
+        <div
+          class="product-content product-threecolumn product-slidebar clearfix mt-3"
+        >
+          <ul class="product style2 sd1 row">
+            <%products.map((prod)=> {%>
+            <li class="product-item">
+              <!-- Product Image -->
+              <div class="product-thumb clearfix">
+                <a href="<%= `/shop/product-details/${prod._id}` %>">
+                  <img
+                    src="<%= prod.image %>"
+                    style="object-fit: contain; width: 170px; height: 170px"
+                    alt="image"
+                  />
+                </a>
+              </div>
+              <!-- Product Name & Price -->
+              <div class="product-info clearfix">
+                <a href="<%= `/shop/product-details/${prod._id}` %>">
+                  <span class="product-title"> <%= prod.name %> </span>
+                </a>
+                <div class="price">
+                  <ins>
+                    <span class="amount">$<%= prod.price.toFixed(2) %></span>
+                  </ins>
+                </div>
+              </div>
+              <!-- Add To Cart Button -->
+              <div 
+                class="add-to-cart text-center" 
+                data-product="<%= JSON.stringify(prod) %>"
+              >
+                <a href="#" > ADD TO CART </a>
+              </div>
+              <!-- Color -->
+              <% if (prod.colors) {%>
+                <div class="product-colors2">
+                  <%prod.colors.split(',').map((color)=> {%>
+                  <span
+                    class="color2"
+                    style="background-color: <%= color %>"
+                  ></span>
+                  <% })%>
+                </div>
+              <% }%>
+              <!-- Product Rating -->
+              <!-- prettier-ignore -->
+              <span class="rating">
+                <% for (let i = 0; i < 5; i++) { %>
+                  <%if (prod.rating > i) {%>
+                    <i class="fa fa-star" style="color: #ffa41c;"></i>
+                  <% }else{%>
+                    <i class="fa fa-star-o" style="color: #ffa41c;"></i>
+                  <% }} %>
+              </span>
+            </li>
+            <% }) %>
+          </ul>
+          <!-- If there is No Product -->
+          <% if (!products.length) {%>
+          <p class="text-center">No Products Found</p>
+          <% } %>
+        </div>
+        <!-- Pagination -->
+        <div class="product-pagination text-center clearfix">
+          <ul class="flat-pagination" data-totalPage="<%= totalPage %>">
+            <!-- Pagination Prev Button -->
+            <li class="prev">
+              <a href="#" data-page="prev" class="pagination-btn">
+                <i class="fa fa-angle-left"></i>
+              </a>
+            </li>
+            <!-- Pagination Truncate Start -->
+            <% if (pagination.truncateStart) {%>
+            <li class="start-pagination-truncate">
+              <a href="#" data-page="1" class="pagination-btn"> 1 </a>
+            </li>
+            <% if (pagination.numbers[0]>2) {%>
+            <li class="pagination-truncate px-2">...</li>
+            <% } %> <% } %>
+            <!-- Pagination Numbers -->
+            <% pagination.numbers.map(page=> {%>
+            <li class="<%= page == currentPage?'active':'' %>">
+              <a href="#" data-page="<%= page %>" class="pagination-btn">
+                <%= page %>
+              </a>
+            </li>
+            <% }) %>
+            <!-- Pagination Truncate End -->
+            <!-- prettier-ignore -->
+            <% if (pagination.truncateEnd) {%> 
+            <% if (totalPage - pagination.numbers[pagination.numbers.length-1]>1) {%>
+            <li class="pagination-truncate px-2">...</li>
+            <% } %>
+            <li class="end-pagination-truncate">
+              <a href="#" data-page="<%= totalPage %>" class="pagination-btn">
+                <%= totalPage %>
+              </a>
+            </li>
+            <% } %>
+            <!-- Pagination Next Button -->
+            <li class="next">
+              <a href="#" data-page="next" class="pagination-btn">
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Small Screen Filter Modal -->
+<div
+  class="modal fade"
+  id="filter-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="FilterModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Modal Close Button -->
+        <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
+        <!-- Filters -->
+        <div
+          class="sidebar slidebar-shop d-block"
+          style="max-height: 79vh; overflow: auto"
+        >
+        <!-- Juan Jackus Collection Filter -->
+        <div class="widget widget-size p-0">
+          <!-- <h5 class="widget-title">Juan Collection</h5> -->
+          <!-- prettier-ignore -->
+          <ul>
+            <li class="checkbox">
+              <input
+                class="modal-collection-checkbox modal-filter"
+                type="checkbox"
+                id="modal-collection"
+                <%= inCollection ? 'checked' : '' %>
+              />
+              <label for="modal-collection">
+                Juan Collection
+              </label>
+            </li>
+          </ul>
+        </div>
+        <!-- Gender Filter-->
+        <div class="widget widget-size">
+          <h5 class="widget-title">For</h5>
+          <ul>
+            <li class="radio">
+              <!-- prettier-ignore -->
+              <input
+                class="modal-gender-radio modal-filter"
+                type="radio"
+                name="modalGender"
+                value=""
+                id="modal-for-both"
+                <%= selectedGender != 'men'|| selectedGender != 'women'?'checked':''%>
+              />
+              <label for="modal-for-both">
+                Both
+              </label>
+            </li>
+            <li class="radio">
+              <!-- prettier-ignore -->
+              <input
+                class="modal-gender-radio modal-filter"
+                type="radio"
+                name="modalGender"
+                value="men"
+                id="modal-for-men"
+                <%= selectedGender == 'men'?'checked':''%>
+              />
+              <label for="modal-for-men">
+                Men
+              </label>
+            </li>
+            <li class="radio">
+              <!-- prettier-ignore -->
+              <input
+                class="modal-gender-radio modal-filter"
+                type="radio"
+                name="modalGender"
+                value="women"
+                id="modal-for-women"
+                <%= selectedGender == 'women'?'checked':''%>
+              />
+              <label for="modal-for-women">
+                Women
+              </label>
+            </li>
+          </ul>
+        </div>
+          <!-- Categories -->
+          <div class="widget widget-size pb-0">
+            <h5 class="widget-title">Sort By</h5>
+            <ul>
+              <%allCategories.map((category,i)=> {%>
+              <li class="checkbox">
+                <!-- prettier-ignore -->
+                <input
+                  class="modal-cat-checkbox modal-filter"
+                  type="checkbox"
+                  value="<%= category.value %>"
+                  id="<%='modal-cat'+'-'+category.label %>"
+                  <%= selectedCategories.includes(category.value)?'checked':''%>
+                />
+                <label for="<%= 'modal-cat'+'-'+category.label %>">
+                  <%= category.label %>
+                </label>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+          <!-- Price Range -->
+          <div class="widget widget-size pb-0">
+            <h5 class="widget-title">Price Range</h5>
+            <ul>
+              <%allPriceRange.map((range,i)=> {%>
+              <li class="radio">
+                <!-- prettier-ignore -->
+                <input
+                  class="modal-range-radio modal-filter"
+                  type="radio"
+                  name="modalPriceRange"
+                  value="<%= range.value %>"
+                  id="<%='modal-range'+'-'+range.label %>"
+                  <%= selectedPriceRange == range.value?'checked':''%>
+                />
+                <label for="<%= 'modal-range'+'-'+range.label %>">
+                  <%= range.label %>
+                </label>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

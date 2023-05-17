@@ -1,0 +1,85 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Redirect if user already logged In -->
+<script>
+  if (localStorage.getItem('modazUser')) {
+    window.location.replace(window.location.origin);
+  }
+</script>
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          <h1 class="title">Password Recover</h1>
+        </div>
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>Account</li>
+            <li>Forgot Password</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% const pageTitle = 'test'%>
+<section class="flat-row pt-5">
+  <div class="container">
+    <div class="col col-sm-8 col-lg-6 mx-auto">
+      <p class="mb-3">
+        Enter your email and we'll send you instructions to reset your password
+      </p>
+      <form
+        id="resetPwd-form"
+        class="<%= success ? 'd-none' : 'd-block' %>"
+        action="/account/reset-password"
+        method="POST"
+      >
+        <input type="text" name="field" value="modaz" hidden />
+        <input type="text" name="model" value="customer" hidden />
+        <!-- FULL NAME -->
+        <div class="form-group">
+          <input
+            type="text"
+            id="resetPwd-email"
+            name="forgotPwdEmail"
+            value="<%= values.forgotPwdEmail %>"
+            class="form-control <%= errors.forgotPwdEmail && 'is-invalid'%>"
+            aria-describedby="registerName"
+            disabled
+          />
+          <div className="invalid-feedback">
+            <%= errors.forgotPwdEmail && errors.forgotPwdEmail.msg %>
+          </div>
+        </div>
+        <button type="submit" class="btn mt-5 btn-block register-btn" disabled>
+          Send Reset Link
+        </button>
+      </form>
+      <div class="<%= success ? 'd-block' : 'd-none' %>">
+        <div class="d-flex flex-column align-items-center">
+          <h2 class="mb-3">Reset Link has been sent!</h2>
+          <p>Go to your address Email account to confirm password reset</p>
+        </div>
+      </div>
+      <p class="d-flex justify-content-center mt-3">
+        <a href="/" style="color: #7367f0">Return Homepage</a>
+      </p>
+    </div>
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.flat-row -->
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

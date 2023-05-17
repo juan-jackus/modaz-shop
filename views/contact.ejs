@@ -1,0 +1,172 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          <h1 class="title">Contacts</h1>
+        </div>
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="flat-row flat-iconbox">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-section">
+          <h2 class="title">Get In Touch</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="iconbox text-center">
+          <div class="box-header nomargin">
+            <div class="icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+          </div>
+          <div class="box-content">
+            <p>112 Derkle, NA 12, Dakar</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="divider h0"></div>
+        <div class="iconbox text-center">
+          <div class="box-header">
+            <div class="icon">
+              <i class="fa fa-phone"></i>
+            </div>
+          </div>
+          <div class="box-content">
+            <p>+221 77 441 07 15 / +221 78 345 47 26</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="divider h0"></div>
+        <div class="iconbox text-center">
+          <div class="box-header">
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+          </div>
+          <div class="box-content">
+            <p>juanjackus@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider h43"></div>
+    <!-- Google Maps -->
+    <div class="row">
+      <div class="col-md-12">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7717.617677246794!2d-17.455504023224172!3d14.723397135461118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172c920fdbadf%3A0xc36cfdd5fd2b1fc4!2sDieuppeul%20Derkle%2C%20Dakar!5e0!3m2!1sen!2ssn!4v1649262188082!5m2!1sen!2ssn"
+          width="100%"
+          height="500"
+          style="border: 10px"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flat-row flat-contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-section margin_bottom_17">
+          <h2 class="title">Send Us Email</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Contact Us Form -->
+    <div class="row">
+      <div class="wrap-contact">
+        <form
+          novalidate=""
+          class="contact-form"
+          id="contactform"
+          method="post"
+          action="#"
+        >
+          <div class="form-text-wrap clearfix">
+            <div class="contact-name clearfix">
+              <label>Name</label>
+              <input
+                type="text"
+                aria-required="true"
+                size="30"
+                value=""
+                name="author"
+                id="author"
+                disabled
+              />
+            </div>
+            <div class="contact-email">
+              <label>Email</label>
+              <input
+                type="email"
+                size="30"
+                value=""
+                name="email"
+                id="email"
+                disabled
+              />
+            </div>
+            <div class="contact-subject">
+              <label>Subject</label>
+              <input
+                type="text"
+                aria-required="true"
+                size="30"
+                value=""
+                name="subject"
+                id="subject"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="contact-message clearfix margin-top-40">
+            <label>Message</label>
+            <textarea
+              class=""
+              tabindex="4"
+              name="message"
+              required
+              disabled
+            ></textarea>
+          </div>
+          <div class="form-submit margin-top-32">
+            <button class="contact-submit" disabled>SEND</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

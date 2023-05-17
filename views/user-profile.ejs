@@ -1,0 +1,223 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          <h1 class="title">Profile</h1>
+        </div>
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>Account</li>
+            <li>Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="main-content">
+  <div class="container mt-3">
+    <div class="card bg-secondary shadow">
+      <div class="card-header bg-white border-0 p-5">
+        <div class="row align-items-center">
+          <div class="col-sm-8 d-sm-flex align-items-center">
+            <div class="text-center text-sm-left">
+              <img
+                class="mr-sm-3"
+                src="/images/placeholder-profil.png"
+                style="border-radius: 100%"
+                alt=""
+              />
+            </div>
+
+            <h3 class="mb-0 text-center text-sm-left">My account</h3>
+          </div>
+          <div class="col-sm-4 text-center text-sm-right mt-2 mt-sm-0">
+            <button class="btn btn-sm text-capitalize" style="font-size: 16px">
+              Settings
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body p-4">
+        <form>
+          <h6 class="heading-small text-muted mb-4">USER INFORMATION</h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <!-- FullName -->
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="profile-fullname">
+                    FullName
+                  </label>
+                  <input
+                    readonly
+                    type="text"
+                    id="profile-fullname"
+                    value="<%= customer.fullName %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+              <!-- Username -->
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="profile-username">
+                    Username
+                  </label>
+                  <input
+                    readonly
+                    type="text"
+                    id="profile-username"
+                    value="<%= customer.username %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- Email -->
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="profile-email">
+                    Email address
+                  </label>
+                  <input
+                    readonly
+                    type="email"
+                    id="profile-email"
+                    value="<%= customer.email %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+              <!-- Gender -->
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="profile-gender">
+                    Gender
+                  </label>
+                  <input
+                    readonly
+                    type="text"
+                    id="profile-gender"
+                    value="<%= customer.gender %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <h6 class="heading-small text-muted mb-4">CONTACT INFORMATION</h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <!-- Address -->
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="profile-address">
+                    Address
+                  </label>
+                  <input
+                    readonly
+                    id="profile-address"
+                    class="form-control form-control-alternative"
+                    type="text"
+                    value="<%= customer.moreInfos.adress %>"
+                  />
+                </div>
+              </div>
+              <!-- Phone Number -->
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="profile-phoneNumber">
+                    Phone Number
+                  </label>
+                  <input
+                    readonly
+                    id="profile-phoneNumber"
+                    class="form-control form-control-alternative"
+                    type="text"
+                    value="<%= customer.phoneNumber%>"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- City -->
+              <div class="col-lg-4">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-city">
+                    City
+                  </label>
+                  <input
+                    readonly
+                    type="text"
+                    id="input-city"
+                    value="<%= customer.moreInfos.city %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+              <!-- Country -->
+              <div class="col-lg-4">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-country"
+                    >Country</label
+                  >
+                  <input
+                    readonly
+                    type="text"
+                    id="input-country"
+                    value="<%= customer.moreInfos.country %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+              <!-- Postal Code -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-country">
+                    Postal code
+                  </label>
+                  <input
+                    readonly
+                    type="number"
+                    id="input-postal-code"
+                    value="<%= customer.moreInfos.postalCode %>"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <!-- Description -->
+          <h6 class="heading-small text-muted mb-4">About me</h6>
+          <div class="pl-lg-4">
+            <div class="form-group focused">
+              <label>About Me</label>
+              <textarea
+                readonly
+                rows="4"
+                value="<%= customer.moreInfos.aboutMe %>"
+                class="form-control form-control-alternative"
+              ></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

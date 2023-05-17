@@ -1,0 +1,482 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- SLIDER -->
+<% if (carousel && carousel.length) {%>
+<div class="rev_slider_wrapper fullwidthbanner-container" style="height: 650px">
+  <div id="rev-slider3" class="rev_slider fullwidthabanner">
+    <ul>
+      <%carousel.map((slide)=> {%>
+      <!-- Slide -->
+      <li data-transition="random">
+        <!-- Main Image -->
+        <img
+          src="<%= slide.image %>"
+          alt=""
+          data-bgposition="center center"
+          data-no-retina
+        />
+        <!-- Layer -->
+        <div
+          class="tp-caption pl-3 <%= slide.position === 'l'?'text-left':'text-right' %>"
+          id="slide-layer-1"
+          data-x="<%= slide.position === 'l'?'left':'right' %>"
+          data-y="['bottom','bottom','bottom','bottom']"
+          data-voffset="['75','75','75','75']"
+          data-width="full"
+          data-height="auto"
+          data-whitespace="normal"
+          data-transform_idle="o:1;"
+          data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+          data-mask_in="x:0px;y:[100%];"
+          data-mask_out="x:inherit;y:inherit;"
+          data-start="1000"
+          data-splitin="none"
+          data-splitout="none"
+          data-responsive_offset="on"
+        >
+          <div class="carousel-text-wrapper mb-3">
+            <h1
+              class="<%= slide.textColor ==='white'? 'text-white':'text-dark' %>"
+            >
+              <%= slide.text1 %>
+            </h1>
+            <h1
+              class="<%= slide.textColor ==='white'? 'text-white':'text-dark' %>"
+            >
+              <%= slide.text2 %>
+            </h1>
+            <h1
+              class="<%= slide.textColor ==='white'? 'text-white':'text-dark' %>"
+            >
+              <%= slide.text3 %>
+            </h1>
+          </div>
+          <a
+            href="<%= slide.link %>"
+            class="themesflat-button has-padding-36 bg-accent has-shadow"
+          >
+            <%= slide.linkText %>
+          </a>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+<%}%>
+<!-- END SLIDER -->
+
+<!-- IMAGE BOX -->
+<section class="flat-row row-image-box d-none d-md-block">
+  <div class="container">
+    <div class="row gutter-10">
+      <!-- For Women -->
+      <div class="col-sm-6 col-md-4">
+        <div class="flat-image-box style-1 data-effect div-h22 clearfix">
+          <div class="item data-effect-item">
+            <div class="inner">
+              <div class="thumb">
+                <img
+                  src="/images/image-box/imgbox-forwomen.png"
+                  style="object-fit: cover; width: 375px; height: 500px"
+                  alt="Image"
+                />
+                <div class="elm-btn">
+                  <a
+                    href="/shop?selectedGender=women"
+                    class="themesflat-button bg-white width-150"
+                  >
+                    For Women
+                  </a>
+                </div>
+                <div class="overlay-effect bg-color-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Shoes & Acessories -->
+      <div class="col-sm-6 col-md-4">
+        <div class="flat-image-box style-1 row2 data-effect clearfix">
+          <!-- Shoes  -->
+          <div class="item data-effect-item">
+            <div class="inner">
+              <div class="thumb">
+                <img
+                  src="/images/image-box/imgbox-shoes.png"
+                  style="object-fit: cover; width: 375px; height: 240px"
+                  alt="Image"
+                />
+                <div class="elm-btn">
+                  <a
+                    href="/shop?selectedCategories=shoes"
+                    class="themesflat-button bg-white width-150"
+                  >
+                    Shoes
+                  </a>
+                </div>
+                <div class="overlay-effect bg-color-2"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Acessories  -->
+          <div class="item data-effect-item">
+            <div class="inner">
+              <div class="thumb">
+                <img
+                  src="/images/image-box/imgbox-accessories.png"
+                  style="object-fit: cover; width: 375px; height: 240px"
+                  alt="Image"
+                />
+                <div class="elm-btn">
+                  <a
+                    href="/shop?selectedCategories=accessories%2Cjewelry%2Cbags%2Cwatches"
+                    class="themesflat-button bg-white width-150"
+                  >
+                    Acessories
+                  </a>
+                </div>
+                <div class="overlay-effect bg-color-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- For Men -->
+      <div class="col-sm-6 col-md-4">
+        <div class="flat-image-box style-1 data-effect div-h20 clearfix">
+          <div class="item data-effect-item">
+            <div class="inner">
+              <div class="thumb">
+                <img
+                  src="/images/image-box/imgbox-formen.png"
+                  style="object-fit: cover; width: 375px; height: 500px"
+                  alt="Image"
+                />
+                <div class="elm-btn">
+                  <a
+                    href="/shop?selectedGender=men"
+                    class="themesflat-button bg-white width-150"
+                  >
+                    For Men
+                  </a>
+                </div>
+                <div class="overlay-effect bg-color-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END IMAGE BOX -->
+
+<!-- NEW PRODUCT -->
+<section class="flat-row row-product-new">
+  <div class="container">
+    <div class="row">
+      <%if(newProducts.length) {%>
+      <div class="col-md-12">
+        <div class="title-section margin-bottom-52">
+          <h2 class="title">New Product</h2>
+        </div>
+        <div class="product-content product-fourcolumn clearfix">
+          <ul class="product style2 clearfix row">
+            <%newProducts.map((product)=> {%>
+            <li class="product-item">
+              <div class="product-thumb clearfix">
+                <a href="/shop/product-details/<%= product._id %>">
+                  <img
+                    src="<%= product.image %>"
+                    style="object-fit: contain; width: 250px; height: 250px"
+                    alt="image"
+                  />
+                </a>
+                <span class="new">New</span>
+                <!-- Color -->
+                <% if (product.colors) {%>
+                <div class="product-colors2">
+                  <%product.colors.split(',').map((color)=> {%>
+                  <span
+                    class="color2"
+                    style="background-color: <%= color %>"
+                  ></span>
+                  <% })%>
+                </div>
+                <% }%>
+              </div>
+              <!-- Product Name & Price -->
+              <div class="product-info text-center clearfix mt-4">
+                <span class="product-title"><%= product.name %></span>
+                <div class="price">
+                  <ins>
+                    <span class="amount">$<%= product.price %></span>
+                  </ins>
+                </div>
+              </div>
+              <!-- Add To Cart Button -->
+              <div
+                class="add-to-cart text-center"
+                data-product="<%= JSON.stringify(product) %>"
+              >
+                <a href="#">ADD TO CART</a>
+              </div>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+      <% }%>
+    </div>
+  </div>
+</section>
+<!-- END NEW PRODUCT -->
+
+<!-- PARALLAX BOX -->
+<section class="flat-row row-animation-box bg-section row-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="flat-animation-block">
+          <div
+            class="title-section width-before-17 bg-before-white margin-bottom-14"
+          >
+            <div class="sup-title"><span>NEW TREND 2023</span></div>
+            <h2 class="title font-size-52 line-height-76">
+              Women‘s Collection
+            </h2>
+            <div class="sub-title">
+              <span>Big Sale of this Week</span>
+            </div>
+          </div>
+          <div class="elm-btn text-center">
+            <a
+              href="/shop?selectedGender=women"
+              class="themesflat-button bg-accent has-padding-36"
+              >Shop Now</a
+            >
+          </div>
+        </div>
+        <!-- /.flat-animation-block -->
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- END PARALLAX BOX -->
+
+<!-- BEST SELLING PRODUCT  -->
+<section class="flat-row row-product-project style-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-section margin-bottom-41">
+          <h2 class="title">Best Sale</h2>
+        </div>
+        <ul class="flat-filter style-1 text-center max-width-699 clearfix">
+          <li id="filter-best-sell" class="active">
+            <a href="#" data-filter=".all-product">All Product</a>
+          </li>
+          <li><a href="#" data-filter=".clothing">Clothing</a></li>
+          <li><a href="#" data-filter=".shoes">Shoes</a></li>
+          <li><a href="#" data-filter=".sportswear">Sportswear</a></li>
+          <li><a href="#" data-filter=".accessories">Acessories</a></li>
+        </ul>
+        <div class="divider h54"></div>
+        <div class="product-content product-fourcolumn clearfix">
+          <ul class="product style2 isotope-product clearfix">
+            <%bestSellingProducts.map((product,i)=> {%>
+            <!-- prettier-ignore -->
+            <li
+              class="product-item 
+                <%= (() => { if (i<8) return 'all-product'; 
+                if (7<i&&i<12) return 'clothing'; 
+                if (11<i&&i<16) return 'shoes'; 
+                if (15<i&&i<20) return 'sportswear'; 
+                if (19<i&&i<24) return 'accessories'; })(); %>"
+            >
+              <div class="product-thumb clearfix">
+                <a href="/shop/product-details/<%= product._id %>">
+                  <img
+                    src="<%= product.image %>"
+                    style="object-fit: contain; width: 180px; height: 180px"
+                    alt="image"
+                  />
+                </a>
+              </div>
+              <div class="product-info clearfix mt-4">
+                <span class="product-title"> <%= product.name %> </span>
+                <div class="price">
+                  <ins>
+                    <span class="amount">$<%= product.price %></span>
+                  </ins>
+                </div>
+              </div>
+              <div 
+                class="add-to-cart text-center" 
+                data-product="<%= JSON.stringify(product) %>"
+              >
+                <a href="#">ADD TO CART</a>
+              </div>
+              <!-- Product Rating -->
+              <!-- prettier-ignore -->
+              <span class="rating">
+                <% for (let i = 0; i < 5; i++) { %>
+                  <%if (product.rating > i) {%>
+                    <i class="fa fa-star" style="color: #ffa41c;"></i>
+                  <% }else{%>
+                    <i class="fa fa-star-o" style="color: #ffa41c;"></i>
+                  <% }} %>
+              </span>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END BEST SELLING PRODUCT  -->
+
+<!-- ICON BOX -->
+<section class="flat-row row-icon-box bg-section bg-color-f5f">
+  <div class="container">
+    <div class="row">
+      <!-- /.col-md-3 -->
+      <div class="col-md-3">
+        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+          <div class="inner no-margin">
+            <div class="icon-wrap">
+              <i class="fa fa-truck"></i>
+            </div>
+            <div class="text-wrap">
+              <h5 class="heading">Free Shipping</h5>
+              <p class="desc">Free Shipping on order over $99</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-3 -->
+      <div class="col-md-3">
+        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+          <div class="inner">
+            <div class="icon-wrap">
+              <i class="fa fa-money"></i>
+            </div>
+            <div class="text-wrap">
+              <h5 class="heading">Cash On Delivery</h5>
+              <p class="desc">The Internet Trend To Repeat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-3 -->
+      <div class="col-md-3">
+        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+          <div class="inner">
+            <div class="icon-wrap">
+              <i class="fa fa-gift"></i>
+            </div>
+            <div class="text-wrap">
+              <h5 class="heading">Gift For All</h5>
+              <p class="desc">Receive Gift When Subscribe</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-3 -->
+      <div class="col-md-3">
+        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+          <div class="inner">
+            <div class="icon-wrap">
+              <i class="fa fa-clock-o"></i>
+            </div>
+            <div class="text-wrap">
+              <h5 class="heading">Opening All Week</h5>
+              <p class="desc">6.00 am - 17.00pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-3 -->
+    </div>
+  </div>
+</section>
+<!-- END ICON BOX -->
+
+<!-- NEW LATEST -->
+<section class="flat-row row-new-latest style-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-section margin-bottom-51">
+          <h2 class="title">New Latest</h2>
+        </div>
+        <div class="new-latest-wrap">
+          <div
+            class="flat-new-latest post-wrap flat-carousel-box style4 data-effect clearfix"
+            data-auto="true"
+            data-column="3"
+            data-column2="2"
+            data-column3="1"
+            data-gap="30"
+          >
+            <div class="owl-carousel owl-theme">
+              <%posts.map((post)=> {%>
+              <article class="post clearfix">
+                <div class="featured-post data-effect-item">
+                  <a href="/blog/articles/<%= post._id %>">
+                    <img
+                      src="<%= post.image %>"
+                      style="object-fit: cover; height: 170px"
+                      alt="image"
+                    />
+                    <div
+                      class="overlay-effect bg-overlay-black opacity02"
+                    ></div>
+                  </a>
+                </div>
+                <div class="content-post">
+                  <ul class="meta-post">
+                    <li class="date format-date"><%= post.createdAt %></li>
+                    <li class="author">
+                      <%= post.author?post.author.fullName:'By Admin' %>
+                    </li>
+                  </ul>
+                  <div class="title-post">
+                    <h2>
+                      <a href="/blog/articles/<%= post._id %>">
+                        <%= post.title %>
+                      </a>
+                    </h2>
+                  </div>
+                  <div class="entry-post">
+                    <div class="more-link">
+                      <a href="/blog/articles/<%= post._id %>">
+                        Continue Reading
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END NEW LATEST -->
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

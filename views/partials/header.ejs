@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+
+    <meta name="author" content="themesflat.com" />
+
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/auth-modal.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/img-modal.css" />
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/responsive.css" />
+
+    <!-- Colors -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/colors/color5.css"
+      id="colors"
+    />
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/animate.css" />
+
+    <!-- Favicon and touch icons  -->
+    <link href="/icon/favicon.ico" rel="shortcut icon" />
+    <!-- Custom Style  -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/custom-style.css"
+    />
+  </head>
+
+  <body
+    class="header_sticky header-style-2 topbar-style-2 topbar-width-94 topbar-divider has-menu-extra"
+  >
+    <!-- Preloader -->
+    <div id="loading-overlay">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Boxed -->
+    <div class="boxed">
+      <div id="site-header-wrap">
+        <!-- Header -->
+        <header id="header" class="header clearfix">
+          <div
+            class="container container-fluid clearfix"
+            id="site-header-inner"
+          >
+            <!-- Logo -->
+            <div id="logo" class="logo">
+              <a href="/" title="logo">
+                <picture>
+                  <source
+                    media="(min-width:479px)"
+                    srcset="/images/logo@2x.png"
+                  />
+                  <img src="/images/logo.png" alt="logo" class="logo-img" />
+                </picture>
+              </a>
+            </div>
+            <!-- Nav Menu -->
+            <div class="nav-wrap mx-auto">
+              <nav id="mainnav" class="mainnav">
+                <ul class="menu">
+                  <li class="<%= active === 'home' ? 'active' : '' %>">
+                    <a href="/">HOME</a>
+                  </li>
+                  <li class="<%= active === 'shop' ? 'active' : '' %>">
+                    <a href="/shop">SHOP</a>
+                    <ul class="submenu">
+                      <li>
+                        <a href="/shop?selectedCategories=accessories"
+                          >Accessories</a
+                        >
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=clothing">Clothing</a>
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=handbags">Handbags</a>
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=jewelry">Jewelry</a>
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=shoes">Shoes</a>
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=sportswear"
+                          >Sportswear</a
+                        >
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=watches">Watches</a>
+                      </li>
+                      <li>
+                        <a href="/shop?inCollection=true">Juan Collection</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="<%= active === 'blog' ? 'active' : '' %>">
+                    <a href="/blog">BLOG</a>
+                  </li>
+                  <li class="<%= active === 'contact' ? 'active' : '' %>">
+                    <a href="/contact">CONTACT</a>
+                  </li>
+                  <li class="<%= active === 'faqs' ? 'active' : '' %>">
+                    <a href="/faqs">FAQs</a>
+                  </li>
+                  <li class="d-lg-none">
+                    <!-- Login Button -->
+                    <a
+                      class="close-nav-mobile box-login"
+                      href="#authModal"
+                      data-toggle="modal"
+                      >LOGIN</a
+                    >
+                    <!-- Logout Button -->
+                    <a class="logout-btn d-none" href="#">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      <span>LOGOUT</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- Separator -->
+            <div class="separator-menu"></div>
+            <!-- Menu Extra -->
+            <ul class="menu-extra">
+              <!-- Search Icon -->
+              <li class="box-search">
+                <a class="icon_search header-search-icon" href="#"></a>
+                <form
+                  role="search"
+                  method="get"
+                  class="header-search-form"
+                  action="#"
+                >
+                  <input
+                    type="text"
+                    value=""
+                    name="s"
+                    class="header-search-field"
+                    placeholder="Search..."
+                  />
+                  <button
+                    type="submit"
+                    class="header-search-submit"
+                    title="Search"
+                  >
+                    <i class="fa fa-search"></i>
+                  </button>
+                </form>
+              </li>
+              <!-- Login Icon -->
+              <li class="box-login">
+                <a
+                  class="icon_login trigger-btn"
+                  href="#authModal"
+                  data-toggle="modal"
+                ></a>
+              </li>
+              <!-- Username Profile Icon -->
+              <a
+                class="user-profile d-none <%= active === 'user' ? 'active' : '' %>"
+                href="#"
+              >
+                <i class="fa fa-user mr-1" aria-hidden="true"></i>
+                <span class="username"></span>
+              </a>
+              <!-- Shopping Cart Icon -->
+              <li class="box-cart nav-top-cart-wrapper">
+                <a class="icon_cart nav-cart-trigger prevent" href="#"></a>
+                <div class="nav-shop-cart">
+                  <div class="widget_shopping_cart_content">
+                    <div class="woocommerce-min-cart-wrap">
+                      <ul
+                        class="woocommerce-mini-cart cart_list product_list_widget"
+                      ></ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- Logout Icon -->
+              <a class="logout-btn d-none ml-5" href="#">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <span>Logout</span>
+              </a>
+            </ul>
+            <!-- Hamburger Menu -->
+            <div class="mobile-button"><span></span></div>
+          </div>
+        </header>
+      </div>
+
+      <!-- Login Modal HTML -->
+      <div
+        class="modal fade"
+        id="authModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="authModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <a
+                href="#"
+                class="modal-close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </a>
+              <div id="login-modal">
+                <h5 class="authModal-title mb-4">Login</h5>
+                <!-- Login Server Error -->
+                <div class="server-error"></div>
+                <!-- Login Form -->
+                <form id="login-form">
+                  <!-- Email -->
+                  <div class="form-group">
+                    <input
+                      required
+                      type="email"
+                      id="login-email"
+                      name="email"
+                      class="form-control login-email"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                    />
+                    <div class="error-message email"></div>
+                  </div>
+                  <!-- Password -->
+                  <div class="form-group">
+                    <input
+                      required
+                      type="password"
+                      id="login-password"
+                      name="password"
+                      class="form-control"
+                      placeholder="Password"
+                    />
+                    <div class="error-message password"></div>
+                  </div>
+                  <button type="submit" class="btn mt-5 btn-block signin-btn">
+                    SIGN IN
+                  </button>
+                  <a href="/account/register" class="register-link">REGISTER</a>
+                  <p class="text-center mt-3">
+                    <a href="/account/reset-password" class="recoverPassword">
+                      Forgot your password?
+                    </a>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Modal HTML -->

@@ -1,0 +1,163 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Redirect if user already logged In -->
+<script>
+  if (localStorage.getItem('modazUser')) {
+    window.location.replace(window.location.origin);
+  }
+</script>
+
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading">
+          <h1 class="title">REGISTER</h1>
+        </div>
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>Account</li>
+            <li>Register</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="flat-row pt-5">
+  <div class="container">
+    <form id="register-form" method="POST">
+      <p class="small text-right">
+        (<span class="text-danger"> * </span>) Required fields
+      </p>
+      <!-- Server Error Message -->
+      <div class="server-error"></div>
+      <div class="form-group">
+        <div class="row">
+          <!-- Full Name -->
+          <div class="col-lg-6">
+            <label for="register-name">
+              Full Name <span class="text-danger"> * </span>
+            </label>
+            <input
+              type="text"
+              id="register-name"
+              name="fullName"
+              class="form-control text-capitalize"
+            />
+            <div class="error-message fullName"></div>
+          </div>
+          <!-- Username -->
+          <div class="col-lg-6">
+            <label for="register-username">
+              Username <span class="text-danger"> * </span>
+            </label>
+            <input
+              type="text"
+              id="register-username"
+              name="username"
+              class="form-control"
+              aria-describedby="registerUsername"
+            />
+            <div class="error-message username"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="register-email"
+          >Email <span class="text-danger"> * </span></label
+        >
+        <input
+          type="email"
+          id="register-email"
+          name="email"
+          class="form-control"
+          aria-describedby="emailHelp"
+        />
+        <div class="error-message email"></div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <!-- Password -->
+          <div class="col-lg-6">
+            <label for="register-password">
+              Password <span class="text-danger"> * </span>
+            </label>
+            <input
+              type="password"
+              id="register-password"
+              name="password"
+              class="form-control show-password"
+            />
+            <div class="error-message password"></div>
+          </div>
+          <!-- Confirm Password -->
+          <div class="col-lg-6">
+            <label for="register-confirmPwd">
+              Confirm Password <span class="text-danger"> * </span>
+            </label>
+            <input
+              type="password"
+              id="register-congirmPwd"
+              name="passwordConfirmation"
+              class="form-control show-password"
+            />
+            <div class="error-message passwordConfirmation"></div>
+          </div>
+        </div>
+        <!-- Show Password -->
+        <div class="d-flex align-items-center">
+          <input
+            type="checkbox"
+            class="d-block mr-2"
+            onclick="tooglePassword()"
+          />
+          Show Password
+        </div>
+      </div>
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="register-phone-number">Phone Number</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">+221</div>
+          </div>
+          <input
+            type="text"
+            id="register-phone-number"
+            name="phoneNumber"
+            class="form-control"
+          />
+        </div>
+        <div class="muted">Format : (70,76,77,78,33)-xxx-xx-xx</div>
+        <div class="error-message phoneNumber"></div>
+      </div>
+      <!-- Submit Button -->
+      <button type="submit" class="btn mt-5 btn-block register-btn">
+        CREATE
+      </button>
+    </form>
+    <!-- Sucessfull Register Message -->
+    <div id="success-register" class="d-none">
+      <div class="d-flex flex-column align-items-center">
+        <h2 class="mb-3">Succesful registration!</h2>
+        <p>You can log in to your account with your usename and password</p>
+        <p>
+          <a href="/">return Homepage</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,265 @@
+<!-- HEADER -->
+<%- include('./partials/header.ejs') %>
+<!-- END HEADER -->
+
+<!-- Page Title & Breadcrumbs -->
+<div class="page-title parallax parallax1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Title -->
+        <div class="page-title-heading">
+          <h1 class="title">Post Details</h1>
+        </div>
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li>Post</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog posts & SideBar -->
+<section class="blog-posts blog-detail">
+  <div class="container">
+    <div class="row">
+      <!-- Post & Comments -->
+      <div class="col-lg-9">
+        <div class="post-wrap detail">
+          <article class="post clearfix">
+            <!-- Title -->
+            <div class="title-post">
+              <h2><%= postDetails.title %></h2>
+            </div>
+            <!-- Post Author, Date, Read Count -->
+            <div class="content-post">
+              <ul class="meta-post d-flex">
+                <li class="author padding-left-2">
+                  <span>Posted By : </span>
+                  <a class="prevent" href="#">
+                    <%=postDetails.author?postDetails.author.fullName:postDetails.authorUsername%>
+                  </a>
+                </li>
+                <li class="format-date ml-auto text-center">
+                  <%= postDetails.createdAt %>
+                </li>
+                <li class="separator mx-2">|</li>
+                <li class="read-count text-center">
+                  Read Count : <%= postDetails.readCount %>
+                </li>
+              </ul>
+              <!-- Post Image -->
+              <div class="featured-post">
+                <img
+                  src="<%= postDetails.image %> "
+                  style="object-fit: cover; width: 100%; max-height: 500px"
+                  alt="image"
+                />
+              </div>
+              <!-- Post Text -->
+              <div
+                class="entry-post py-1 mb-3"
+                id="post-text"
+                data-text="<%= postDetails.htmlText %>"
+                style="font-family: Poppins !important"
+              ></div>
+            </div>
+            <!-- Article Categories & Social Icons -->
+            <div class="direction">
+              <ul class="tags-share clearfix">
+                <!-- Categories -->
+                <li class="float-left">
+                  <div class="tags">
+                    <span>Tags :</span>
+                    <span
+                      class="text-muted font-italic"
+                      style="font-size: 13px"
+                    >
+                      <%postDetails.categories.map((category)=> {%> |
+                      <%=category.name %> <% }) %>
+                    </span>
+                  </div>
+                </li>
+                <!-- Social Icons -->
+                <li class="float-right">
+                  <div class="social-icon">
+                    <ul class="social-list">
+                      <li class="share">Share :</li>
+                      <li>
+                        <a class="prevent" href="#">
+                          <i class="fa fa-facebook"></i
+                        ></a>
+                      </li>
+                      <li>
+                        <a class="prevent" href="#">
+                          <i class="fa fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="prevent" href="#">
+                          <i class="fa fa-google-plus"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="prevent" href="#">
+                          <i class="fa fa-linkedin"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="prevent" href="#">
+                          <i class="fa fa-envelope"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.social-icon -->
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <!-- Comments -->
+        <div class="main-single">
+          <div class="comments-area">
+            <!-- Write Comment -->
+            <div class="comment-respond" id="respond">
+              <div class="comment-reply-title">
+                <h5>Write a Comment</h5>
+                <p>
+                  Your email address will not be published. Required fields are
+                  marked *
+                </p>
+              </div>
+              <form class="comment-form" id="commentform">
+                <p class="comment-form-comment">
+                  <label>Review*</label>
+                  <textarea
+                    class=""
+                    tabindex="4"
+                    name="comment"
+                    required
+                    disabled
+                  ></textarea>
+                </p>
+                <p class="comment-name">
+                  <label>Name*</label>
+                  <input
+                    type="text"
+                    aria-required="true"
+                    size="30"
+                    value=""
+                    name="author"
+                    id="author"
+                    disabled
+                  />
+                </p>
+                <p class="comment-email">
+                  <label>Email*</label>
+                  <input
+                    type="email"
+                    size="30"
+                    value=""
+                    name="email"
+                    id="email"
+                    disabled
+                  />
+                </p>
+                <p class="comment-form-notify clearfix">
+                  <input
+                    type="checkbox"
+                    name="check-notify"
+                    id="check-notify"
+                    disabled
+                  />
+                  <label for="check-notify">
+                    Notify me of new posts by email
+                  </label>
+                </p>
+                <p class="form-submit">
+                  <button class="comment-submit" disabled>Submit</button>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="sidebar">
+          <!-- Popular Posts -->
+          <%if(relatedPosts.length){%>
+          <div class="widget widget-news-latest">
+            <h5 class="widget-title">Related Posts</h5>
+            <ul class="popular-news clearfix">
+              <%relatedPosts.map((r_Post)=> {%>
+              <li>
+                <a href="<%=`/blog/articles/${r_Post._id}`%>">
+                  <img
+                    src="<%= r_Post.image %> "
+                    style="object-fit: cover; width: 100%; height: 75px"
+                    alt="image"
+                  />
+                </a>
+                <h6 style="line-height: 20px; margin-top: 7px">
+                  <a href="<%=`/blog/articles/${r_Post._id}`%>">
+                    <%= r_Post.title %>
+                  </a>
+                </h6>
+                <a class="date format-date post_meta">
+                  <%= r_Post.createdAt %>
+                </a>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+          <% } %>
+          <!-- New Posts -->
+          <%if(latestPosts.length){%>
+          <div class="widget widget-news-latest">
+            <h5 class="widget-title">New Posts</h5>
+            <ul class="popular-news clearfix">
+              <%latestPosts.map((newPost)=> {%>
+              <li>
+                <a href="<%=`/blog/articles/${newPost._id}`%>">
+                  <img
+                    src="<%= newPost.image %> "
+                    style="object-fit: cover; width: 100%; height: 75px"
+                    alt="image"
+                  />
+                </a>
+                <h6 style="line-height: 20px; margin-top: 7px">
+                  <a href="<%=`/blog/articles/${newPost._id}`%>">
+                    <%= newPost.title %>
+                  </a>
+                </h6>
+                <a class="date format-date post_meta">
+                  <%= newPost.createdAt %>
+                </a>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add Post Html Text -->
+<script>
+  const postText = document.getElementById('post-text');
+  postText.innerHTML = postText.dataset.text;
+</script>
+
+<!-- NEWSLETTER -->
+<%- include('./partials/newsletter.ejs') %>
+<!-- END NEWSLETTER -->
+
+<!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>

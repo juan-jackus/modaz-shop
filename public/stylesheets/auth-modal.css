@@ -1,0 +1,115 @@
+:root {
+  --color: #7367f0;
+}
+/* AUTH MODAL */
+#authModal {
+  margin-top: 9rem;
+}
+
+.modal-content {
+  border: 0;
+  border-radius: 0;
+}
+
+.modal-body {
+  padding: 3.7rem;
+}
+
+.authModal-title {
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.9rem;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.5rem;
+}
+
+.signin-btn,
+.register-btn {
+  border: none;
+  display: block;
+  border-radius: 0px;
+  padding: 0.79rem;
+  /* width: 79%;
+  margin: 0 auto 0 auto; */
+}
+
+#login-password,
+#login-email {
+  color: black;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px solid lightgrey;
+}
+
+.register-link {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto 0 auto;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 0.1rem;
+  border-bottom: 2px solid black;
+}
+
+.register-link:hover {
+  border-bottom: 2px solid var(--color);
+}
+
+.recoverPassword {
+  color: var(--color);
+}
+
+.recoverPassword:hover {
+  color: var(--color);
+}
+
+/* REGISTER FORM */
+
+#register-form {
+  width: 90%;
+  max-width: 530px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#register-form .form-control {
+  border-radius: 0;
+}
+
+#register-form .form-control:focus {
+  border-color: black;
+}
+
+#register-form .input-group-prepend {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  color: black;
+  background-color: rgb(239, 239, 239);
+}
+
+#register-form .is-invalid {
+  border-color: rgb(235, 137, 137);
+}
+
+#register-form .form-group .invalid-feedback {
+  color: red;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}

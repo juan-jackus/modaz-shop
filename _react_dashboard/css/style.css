@@ -1,0 +1,539 @@
+/*================================================================================
+	Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+#modaz-homepage h6 {
+  background-color: rgba(115, 103, 240, 0.1);
+  border-radius: 3px;
+}
+
+#modaz-homepage .no-carousel-img {
+  height: 500px;
+  border: 1px solid #ececec;
+  background-image: url('../images/avatars/no-carousel.png');
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#modaz-homepage .no-carousel-img h4 {
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  background-color: #fafafaa6;
+}
+
+#modaz-homepage .homepage-carousel {
+  height: 500px;
+  max-width: 800px;
+  margin-left: auto;
+}
+
+#modaz-homepage .homepage-carousel .carousel-inner,
+#modaz-homepage .homepage-carousel .carousel-item {
+  height: 100%;
+  width: 100%;
+}
+
+#modaz-homepage .homepage-carousel .carousel-item img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+#modaz-homepage .homepage-carousel .carousel-control-next-icon,
+#modaz-homepage .homepage-carousel .carousel-control-prev-icon {
+  background-color: rgba(0, 0, 0, 0.39);
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+
+#modaz-homepage .homepage-carousel .carousel-indicators li {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.39);
+  width: 15px;
+  height: 15px;
+  margin: 0 3.7px 0 3.7px;
+  border: 2px solid #f1f1f1;
+  border-radius: 50%;
+}
+
+#modaz-homepage .homepage-carousel .settings-icon-right {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.39);
+  border-radius: 50%;
+  position: absolute;
+  right: 7%;
+  top: 7%;
+  z-index: 100;
+  cursor: pointer;
+}
+
+#modaz-homepage .homepage-carousel .settings-icon-left {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.39);
+  border-radius: 50%;
+  position: absolute;
+  left: 7%;
+  top: 7%;
+  z-index: 100;
+  cursor: pointer;
+}
+
+#modaz-homepage .homepage-carousel .carousel-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2rem 9rem;
+  text-align: center;
+}
+
+#modaz-homepage .homepage-carousel .carousel-title .carousel-title-right {
+  margin-left: auto;
+}
+
+#modaz-homepage .homepage-carousel .carousel-title .titles {
+  background-color: rgba(0, 0, 0, 0.39);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+
+#modaz-homepage .homepage-carousel .carousel-title .titles h1,
+#modaz-homepage .homepage-carousel .carousel-title .titles h2,
+#modaz-homepage .homepage-carousel .carousel-title .titles h3,
+#modaz-homepage .homepage-carousel .carousel-title .titles h4,
+#modaz-homepage .homepage-carousel .carousel-title .titles h5,
+#modaz-homepage .homepage-carousel .carousel-title .titles h6 {
+  color: #e9e9e9;
+}
+
+#modaz-homepage .homepage-carousel .carousel-caption-wrapper {
+  background-color: rgba(0, 0, 0, 0.39);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  color: #e6e6e6;
+}
+
+#modaz-homepage .sortable-carousel-img .draggable {
+  position: relative;
+}
+
+#modaz-homepage .sortable-carousel-img .draggable img {
+  cursor: -webkit-grab;
+  cursor: grab;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  display: block;
+}
+
+#modaz-homepage .sortable-carousel-img .draggable .sotable-img-overlay {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  top: 5%;
+  font-weight: bold;
+  right: 5%;
+  padding: 0.1rem 0.5rem;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
+}
+
+#homepage-section img {
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#homepage-section button {
+  border-radius: 0;
+}
+
+#homepage-section button:hover {
+  background-color: #7367f0 !important;
+  border: 2px solid #7367f0 !important;
+  -webkit-box-shadow: 0 0 !important;
+  box-shadow: 0 0 !important;
+}
+
+#homepage-section .img-wrapper {
+  position: relative;
+}
+
+#homepage-section .img-parallax {
+  position: relative;
+}
+
+#homepage-section .img-parallax img {
+  min-height: 250px;
+}
+
+#homepage-section .img-box .mb-1 {
+  max-width: 370px;
+}
+
+#homepage-section .img-overlay {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#homepage-section .img-overlay:hover {
+  background-color: rgba(115, 103, 240, 0.1);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  padding: 0 1rem;
+}
+
+.invalid-text {
+  margin-top: 0.25rem;
+  width: 100%;
+  font-size: 0.857rem;
+  color: #ea5455;
+}
+
+.avatar-bg {
+  background-image: url('../images/avatars/placeholder-profil.png');
+  background-size: cover;
+  height: 80px;
+  width: 80px;
+}
+
+.carousel-img-bg {
+  background-image: url('../images/avatars/carousel-placeholder.jpg');
+  background-size: cover;
+  width: 231px;
+  height: 130px;
+}
+
+.loading-img {
+  position: absolute;
+  top: 0;
+  width: 231px;
+  height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.79);
+}
+
+input[type='text']:disabled,
+input[type='email']:disabled,
+input[type='number']:disabled {
+  background: #fafafa;
+  border-color: #e9e9e9;
+  color: #353535;
+}
+
+#customers-table .rdt_Table .rdt_TableHead .rdt_TableHeadRow {
+  background-color: #1f1c2b;
+  min-height: 55px;
+}
+
+#customers-table .rdt_Table .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol {
+  border-right: 2px solid #181622;
+}
+
+#customers-table
+  .rdt_Table
+  .rdt_TableHead
+  .rdt_TableHeadRow
+  .rdt_TableCol
+  .rdt_TableCol_Sortable {
+  color: #bbbbbb;
+}
+
+#customers-table .rdt_Table .rdt_TableBody .rdt_TableRow {
+  border-bottom: 0px;
+}
+
+#shop-filter-sidebar {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#product-infos .product-img-bg {
+  background-image: url('../images/avatars/carousel-placeholder.jpg');
+  background-size: 130px 100px;
+  width: 130px;
+  height: 100px;
+}
+
+#product-infos .product-img {
+  cursor: pointer;
+  margin-right: 7px;
+  margin-bottom: 7px;
+  border-radius: 3px;
+}
+
+#product-infos .product-img:hover + .delete-product-img {
+  display: block;
+}
+
+#product-infos .delete-product-img {
+  position: absolute;
+  display: none;
+  border: none;
+  right: 3px;
+  top: -10px;
+  border-radius: 50%;
+  padding: 1px 3px;
+  color: #fafafa;
+  cursor: pointer;
+  background-color: #ea5455;
+}
+
+#product-infos .delete-product-img:hover {
+  display: block;
+}
+
+#product-infos .delete-product-img:focus,
+#product-infos .delete-product-img svg:focus {
+  outline: none;
+}
+
+#product-infos .zoom-image-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#product-infos .zoom-image-overlay .zoom-image-wrapper {
+  position: relative;
+  background-color: #fafafa;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+#product-infos .zoom-image-overlay .zoom-image-wrapper .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 250px;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid lightgrey;
+}
+
+#product-infos .zoom-image-overlay .zoom-image-wrapper .form-group select {
+  width: 55px;
+  margin-left: 1rem;
+}
+
+#product-infos .zoom-image-overlay .zoom-image-wrapper img {
+  -o-object-fit: contain;
+  object-fit: contain;
+  border-radius: 3px;
+  max-width: 70vw;
+  max-height: 70vh;
+}
+
+#product-infos .zoom-image-overlay .zoom-image-wrapper .close-zoom {
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  border-radius: 50%;
+  padding: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #818181;
+}
+
+#product-infos .custom-control {
+  z-index: 0 !important;
+}
+
+#product-infos .reset-rating {
+  border: 1px solid #bbbbbb;
+  color: #838383;
+  padding: 0 0.5rem;
+  border-radius: 13px;
+  margin-left: auto;
+}
+
+#product-infos .reset-rating:hover {
+  background-color: #7367f0;
+  color: #fafafa;
+  border-color: #7367f0;
+}
+
+#product-infos .reset-rating:focus {
+  outline: none;
+}
+
+#product-infos .product-colors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+#product-infos .product-colors .p-color-wrapper {
+  position: relative;
+}
+
+#product-infos .product-colors .p-color-wrapper .p-color {
+  width: 33px;
+  height: 33px;
+  margin-right: 0.7rem;
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+#product-infos .product-colors .p-color-wrapper .color-cover {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+#product-infos .product-colors .p-color-wrapper .chrome-picker {
+  position: absolute;
+  bottom: 79px;
+  z-index: 1;
+}
+
+#product-infos .product-colors .p-color-wrapper .delete-color-btn {
+  position: absolute;
+  bottom: 60px;
+  width: 225.5px;
+  color: #ea5455;
+  z-index: 1;
+  border: 1px solid #ea545471;
+  text-align: center;
+  padding: 3px 0;
+  background-color: #fdf1f1;
+  border-radius: 0 0 3px 3px;
+}
+
+#product-infos .product-colors .p-color-wrapper .delete-color-btn:focus {
+  outline: none;
+}
+
+#product-infos .product-colors .p-color-wrapper .delete-color-btn:after {
+  content: ' ';
+  position: absolute;
+  left: 3px;
+  bottom: -13px;
+  border-top: 13px solid #ea5455;
+  border-right: 13px solid transparent;
+  border-left: 13px solid transparent;
+  border-bottom: none;
+}
+
+#product-infos .add-color-btn {
+  margin-left: 1rem;
+  border: 2px solid #babfc7;
+  border-radius: 3px;
+  margin-bottom: 0.7rem;
+}
+
+#product-infos .add-color-btn svg {
+  color: #848990;
+}
+
+#product-infos .add-color-btn:hover {
+  background-color: #7367f0;
+  border-color: #7367f0;
+}
+
+#product-infos .add-color-btn:hover svg {
+  color: white;
+}
+
+#product-infos .add-color-btn:focus,
+#product-infos .add-color-btn svg:focus {
+  outline: none;
+}
+
+#product-infos .input-group-text {
+  height: auto;
+  padding: 0.438rem 1rem;
+  border: 1px solid #d8d6de;
+  border-radius: 0.357rem 0 0 0.357rem;
+}
+
+#product-cards .free-shipping {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
