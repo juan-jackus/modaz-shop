@@ -2,14 +2,14 @@ import * as Yup from 'yup';
 
 export const productSchema = Yup.object().shape({
   name: Yup.string()
-    .required('This field is required')
+    .required('Ce champ est obligatoire')
     .trim()
-    .max(100, 'Name too long (limit 100)')
-    .min(3, 'Name too short (minimum 5)'),
-  price: Yup.string().required('This field is required'),
-  quantity: Yup.string().required('This field is required'),
+    .max(100, 'Nom trop long (limite 100)')
+    .min(3, 'Nom trop court (minimum 5)'),
+  price: Yup.string().required('Ce champ est obligatoire'),
+  quantity: Yup.string().required('Ce champ est obligatoire'),
   categories: Yup.array()
     .nullable(true)
-    .min(1, 'Select category')
-    .required('Select category'),
+    .min(1, 'Sélectionner une catégorie')
+    .required('Sélectionner une catégorie'),
 });

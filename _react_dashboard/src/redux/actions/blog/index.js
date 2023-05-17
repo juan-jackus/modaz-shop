@@ -11,7 +11,7 @@ export const getPostCategories = () => {
         response.data.forEach((category) => {
           postCategories.push({
             value: category.id,
-            label: category.name,
+            label: category.nameFr,
             color: category.color,
             icon: category.icon,
           });

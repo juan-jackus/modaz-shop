@@ -35,7 +35,7 @@ const renderRole = (data, userRoles) => {
   return (
     <span className='text-truncate text-capitalize align-middle'>
       <Icon size={18} className={`${role?.class} mr-50`} />
-      {role.label}
+      {role.labelFr}
     </span>
   );
 };
@@ -56,7 +56,7 @@ export const getColumns = (
       cell: (data) => <strong style={{ color: '#96999b' }}>{data.uid}</strong>,
     },
     {
-      name: 'Name',
+      name: 'Nom',
       minWidth: '250px',
       sortable: true,
       sortField: 'name',
@@ -87,12 +87,12 @@ export const getColumns = (
       selector: (data) => data.email,
     },
     {
-      name: 'Role',
+      name: 'Rôle',
       width: '170px',
       cell: (data) => renderRole(data, userRoles),
     },
     {
-      name: 'Created',
+      name: 'Créé',
       width: '130px',
       sortable: true,
       sortField: 'id',
@@ -100,7 +100,7 @@ export const getColumns = (
       cell: (data) => formatDate(data.created_at, true),
     },
     {
-      name: 'Deleted',
+      name: 'Supprimé',
       width: '130px',
       sortable: true,
       sortField: 'trash',
@@ -126,7 +126,7 @@ export const getColumns = (
                   style={{ width: '100%', borderTop: '1px solid #e9e9e9' }}
                 >
                   <RefreshCw size={14} color='#2dc872' className='mr-50' />
-                  <span className='align-middle '>Restore</span>
+                  <span className='align-middle '>Restaurer</span>
                 </DropdownItem>
               ) : (
                 // Edit
@@ -135,7 +135,7 @@ export const getColumns = (
                   onClick={() => toggleSidebar(data)}
                 >
                   <Archive size={14} color='#2dc872' className='mr-50' />
-                  <span className='align-middle '>Edit</span>
+                  <span className='align-middle '>Editer</span>
                 </DropdownItem>
               )}
               {/* Delete */}
@@ -145,7 +145,7 @@ export const getColumns = (
                 style={{ width: '100%', borderTop: '1px solid #e9e9e9' }}
               >
                 <Trash2 size={14} color='#ea5455' className='mr-50' />
-                <span className='align-middle '>Delete</span>
+                <span className='align-middle '>Supprimer</span>
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>

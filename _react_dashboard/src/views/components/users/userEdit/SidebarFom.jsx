@@ -72,7 +72,7 @@ const UserFom = (props) => {
             size='sm'
             color='primary'
           >
-            Upload
+            Télécharger
             <Input
               type='file'
               key={resetAvatar}
@@ -90,10 +90,10 @@ const UserFom = (props) => {
               setAvatar('');
             }}
           >
-            Reset
+            Réinitialiser
           </Button.Ripple>
           <p style={{ fontSize: '0.9rem' }}>
-            Allowed format ( JPG, GIF or PNG)
+            Format autorisé ( JPG, GIF ou PNG)
           </p>
         </Media>
       </Media>
@@ -101,13 +101,13 @@ const UserFom = (props) => {
       {/* Required Field Text */}
       <FormText className='d-flex mb-1' color='muted'>
         <div className='ml-auto'>
-          [<span className='text-danger'> * </span>] Required fields
+          [<span className='text-danger'> * </span>] Champs obligatoires
         </div>
       </FormText>
       {/* Full Name */}
       <FormGroup>
         <Label for='full-name'>
-          Full Name <span className='text-danger'>*</span>
+          Nom complet <span className='text-danger'>*</span>
         </Label>
         <Input
           name='fullName'
@@ -123,7 +123,7 @@ const UserFom = (props) => {
       {/* Username */}
       <FormGroup>
         <Label for='username'>
-          Username <span className='text-danger'>*</span>
+          Nom d'utilisateur <span className='text-danger'>*</span>
         </Label>
         <Input
           name='username'
@@ -133,7 +133,8 @@ const UserFom = (props) => {
           className={classnames({ 'is-invalid': errors.username })}
         />
         <FormText color='muted'>
-          You can only use letters, numbers, underScore, hyphen & periods
+          Vous ne pouvez utiliser que des lettres, des chiffres, des sous-notes,
+          des traits d'union et des points.
         </FormText>
         <div className='invalid-feedback'>{errors.username?.message}</div>
       </FormGroup>
@@ -157,7 +158,7 @@ const UserFom = (props) => {
           {/* Password */}
           <FormGroup>
             <Label for='user-password'>
-              Password <span className='text-danger'>*</span>
+              Mot de passe <span className='text-danger'>*</span>
             </Label>
             <InputPasswordToggle
               id='user-password'
@@ -171,7 +172,7 @@ const UserFom = (props) => {
           {/* Confirm Password */}
           <FormGroup>
             <Label for='confirm-password'>
-              Confirm Password <span className='text-danger'>*</span>
+              Confirmer le mot de passe <span className='text-danger'>*</span>
             </Label>
             <InputPasswordToggle
               id='confirm-password'
@@ -190,7 +191,7 @@ const UserFom = (props) => {
       )}
       {/* BirthDate */}
       <FormGroup>
-        <Label for='birthdate'>Birth Date</Label>
+        <Label for='birthdate'>Date de naissance</Label>
         <Controller
           as={Flatpickr}
           control={control}
@@ -204,7 +205,7 @@ const UserFom = (props) => {
       {/* Phone Number */}
       <FormGroup>
         <Label for='phone-number'>
-          Phone Number <span className='text-danger'>*</span>
+          Numéro de téléphone <span className='text-danger'>*</span>
         </Label>
         <InputGroup className='input-group-merge'>
           <InputGroupAddon addonType='prepend'>
@@ -242,7 +243,7 @@ const UserFom = (props) => {
       </FormGroup>
       {/* User Role */}
       <FormGroup>
-        <Label for='role'>User Role</Label>
+        <Label for='role'>Rôle de l'utilisateur</Label>
         <Controller
           name='role'
           control={control}
@@ -277,10 +278,10 @@ const UserFom = (props) => {
         {isSubmitting ? (
           <>
             <Spinner size='sm' color='white' />
-            <span className='ml-50'>Submitting...</span>
+            <span className='ml-50'>Soumission...</span>
           </>
         ) : (
-          'Submit'
+          'Soumettre'
         )}
       </Button>
       <Button
@@ -290,7 +291,7 @@ const UserFom = (props) => {
         disabled={isSubmitting}
         onClick={() => toggleSidebar()}
       >
-        Cancel
+        Annuler
       </Button>
     </Form>
   );

@@ -45,8 +45,15 @@ const UsersList = () => {
   const dispatch = useDispatch();
   const loggedUser = useSelector((state) => state.auth.userData);
   const store = useSelector((state) => state.users);
-  const { params, userRoles } = store;
-  const paramsRole = userRoles.find((role) => role.value === params.role);
+  const { params } = store;
+  let paramsRole;
+  const userRoles = store.userRoles.map((role) => {
+    if (role.value === params.role) {
+      paramsRole = role;
+    }
+    return { ...role, label: role.labelFr };
+  });
+  // const paramsRole = userRoles.find((role) => role.value === params.role);
   // ** States
   const [searchTerm, setSearchTerm] = useState(params.q || ''),
     [currentPage, setCurrentPage] = useState(params.page || 1),
@@ -141,13 +148,13 @@ const UsersList = () => {
     const action = {
       single: deleteUser,
       mutiple: deleteMultipleUser,
-      text: 'deletion',
+      text: 'suppression',
     };
     // eslint-disable-next-line
     if (actionType == 'RESTORE') {
       action.single = restoreUser;
       action.mutiple = restoreMultipleUser;
-      action.text = 'restoration';
+      action.text = 'restauration';
     }
     // If there is many customers to delete/restore
     if (user.selectedCount) {
@@ -159,13 +166,13 @@ const UsersList = () => {
         successAction === user.selectedCount
           ? {
               type: 'success',
-              text: `Success ${action.text} of :`,
+              text: `${action.text} resussie de :`,
               value: user.selectedRows,
             }
           : {
               type: 'error',
-              text: `Failed ${action.text} of :`,
-              value: `${user.selectedCount - successAction} user(s)`,
+              text: `Echec de la ${action.text} de :`,
+              value: `${user.selectedCount - successAction} utilisateur(s)`,
             };
     } else {
       const successAction = await dispatch(action.single(user, showTrash)).then(
@@ -174,12 +181,12 @@ const UsersList = () => {
       toastValue = successAction
         ? {
             type: 'success',
-            text: `Success ${action.text} of :`,
+            text: `${action.text} reussie de :`,
             value: user,
           }
         : {
             type: 'error',
-            text: `Failed ${action.text} of :`,
+            text: `Echec de la ${action.text} de :`,
             value: user,
           };
     }
@@ -243,11 +250,14 @@ const UsersList = () => {
   return (
     <Fragment>
       <div className='container'>
-        <Breadcrumbs breadCrumbTitle='Users ' breadCrumbActive='users' />
+        <Breadcrumbs
+          breadCrumbTitle='Liste des Utilisateurs'
+          breadCrumbActive='Utilisateurs'
+        />
         {/* Filter */}
         <Card>
           <CardHeader>
-            <CardTitle tag='h4'>Filter</CardTitle>
+            <CardTitle tag='h4'>Filtres</CardTitle>
           </CardHeader>
           <CardBody>
             <Row>
@@ -255,7 +265,7 @@ const UsersList = () => {
               <Col md='4'>
                 <div className='d-flex align-items-center mb-sm-0 mb-1 mr-1'>
                   <Label className='mb-0' for='search-invoice'>
-                    Search:
+                    Recherche:
                   </Label>
                   <Input
                     // disabled
@@ -271,7 +281,7 @@ const UsersList = () => {
               <Col className='my-md-0 my-1' md='4'>
                 <div className='d-flex align-items-center w-100'>
                   <Label className='mr-1' for='search-role'>
-                    Role:
+                    Rôle:
                   </Label>
                   <Select
                     // isDisabled

@@ -11,7 +11,7 @@ export const getProductCategories = () => {
         response.data.forEach((category) => {
           productCategories.push({
             value: category.id,
-            label: category.name,
+            label: category.nameFr,
           });
         });
         dispatch({

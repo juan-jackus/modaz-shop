@@ -49,7 +49,7 @@ const ProductCards = (props) => {
                     'd-none': activeView === 'list',
                   })}
                 >
-                  <Badge color='light-success'>Free Shipping</Badge>
+                  <Badge color='light-success'>Livraison gratuite</Badge>
                 </CardText>
               ) : null}
               {/* Checkbox */}
@@ -122,7 +122,7 @@ const ProductCards = (props) => {
                 </UncontrolledTooltip>
                 {product?.moreInfos?.brand && (
                   <CardText tag='span' className='item-company text-primary'>
-                    By{' '}
+                    Par{' '}
                     <span className='company-name'>
                       {product.moreInfos.brand}
                     </span>
@@ -159,7 +159,7 @@ const ProductCards = (props) => {
                 >
                   <span className='text-nowrap'>
                     <RefreshCw className='mr-50' size={14} />
-                    Restore
+                    Restaurer
                   </span>
                 </Button>
               ) : (
@@ -173,7 +173,7 @@ const ProductCards = (props) => {
                 >
                   <span className='text-nowrap'>
                     <Eye className='mr-50' size={14} />
-                    View
+                    Voir
                   </span>
                 </Button>
               )}
@@ -189,7 +189,7 @@ const ProductCards = (props) => {
               >
                 <span className='text-nowrap'>
                   <Delete className='mr-50' size={14} />
-                  Delete
+                  Supprimer
                 </span>
               </Button>
             </div>

@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const productCategories = [
-  { id: 1, name: 'Accessories' },
-  { id: 2, name: 'Clothing' },
-  { id: 3, name: 'Bags' },
-  { id: 4, name: 'Jewelry' },
-  { id: 5, name: 'Shoes' },
-  { id: 6, name: 'Sportswear' },
-  { id: 7, name: 'Watches' },
+  { id: 1, name: 'Accessories', nameFr: 'Accessoires' },
+  { id: 2, name: 'Clothing', nameFr: 'Vêtements' },
+  { id: 3, name: 'Bags', nameFr: 'Sacs' },
+  { id: 4, name: 'Jewelry', nameFr: 'Bijoux' },
+  { id: 5, name: 'Shoes', nameFr: 'Chaussures' },
+  { id: 6, name: 'Sportswear', nameFr: 'Habits de Sport' },
+  { id: 7, name: 'Watches', nameFr: 'Montres' },
 ];
 
 const categoriesIds = productCategories.map((c) => c.id);

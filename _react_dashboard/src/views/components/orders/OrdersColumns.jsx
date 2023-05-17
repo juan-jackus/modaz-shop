@@ -21,7 +21,6 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownToggle,
-  UncontrolledTooltip,
   UncontrolledDropdown,
 } from 'reactstrap';
 
@@ -74,10 +73,14 @@ const renderStatus = (
   );
 };
 
-export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
+export const getColumns = (
+  oderDeleteRestoreHandler,
+  statusOptions,
+  showTrash
+) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const statusOptions = useSelector((state) => state.orders.statusOptions);
+  // const statusOptions = useSelector((state) => state.orders.statusOptions);
   const [loader, setLoader] = useState(false);
 
   return [
@@ -97,19 +100,19 @@ export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
       ),
     },
     {
-      name: 'Customers',
+      name: 'Clients',
       minWidth: '200px',
       cell: (data) => <span>@{data.customer.username}</span>,
     },
     {
-      name: 'Total Price',
+      name: 'Prix total',
       minWidth: '150px',
       sortable: true,
       sortField: 'price',
       cell: (data) => `$${(+data.totalPrice.toFixed(2)).toLocaleString()}`,
     },
     {
-      name: 'Status',
+      name: 'Statut',
       width: '150px',
       cell: (data) =>
         renderStatus(
@@ -122,7 +125,7 @@ export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
         ),
     },
     {
-      name: 'Created',
+      name: 'Créée',
       width: '130px',
       sortable: true,
       sortField: 'id',
@@ -130,7 +133,7 @@ export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
       cell: (data) => formatDate(data.created_at, true),
     },
     {
-      name: 'Deleted',
+      name: 'Supprimée',
       width: '130px',
       sortable: true,
       sortField: 'trash',
@@ -153,7 +156,7 @@ export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
                 style={{ width: '100%', borderTop: '1px solid #e9e9e9' }}
               >
                 <RefreshCw size={14} color='#2dc872' className='mr-50' />
-                <span className='align-middle '>Restore</span>
+                <span className='align-middle '>Restaurer</span>
               </DropdownItem>
             ) : (
               <DropdownItem
@@ -164,7 +167,7 @@ export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
                 }}
               >
                 <Eye size={14} color='#2dc872' className='mr-50' />
-                <span className='align-middle '>View</span>
+                <span className='align-middle '>Voir</span>
               </DropdownItem>
             )}
             {/* Delete */}
@@ -174,7 +177,7 @@ export const getColumns = (oderDeleteRestoreHandler, showTrash) => {
               style={{ width: '100%', borderTop: '1px solid #e9e9e9' }}
             >
               <Trash2 size={14} color='#ea5455' className='mr-50' />
-              <span className='align-middle '>Delete</span>
+              <span className='align-middle '>Supprimer</span>
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>

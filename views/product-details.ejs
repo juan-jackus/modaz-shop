@@ -8,14 +8,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="page-title-heading">
-          <h1 class="title">Product Details</h1>
+          <h1 class="title" style="font-size: 2rem">Détails du produit</h1>
         </div>
         <!-- Breadcrumbs -->
         <div class="breadcrumbs">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/shop">Shop</a></li>
-            <li>Product Details</li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/shop">Boutique</a></li>
+            <li>Détails du produit</li>
           </ul>
         </div>
       </div>
@@ -58,7 +58,7 @@
                 class="carousel-control-prev-icon"
                 aria-hidden="true"
               ></span>
-              <span class="sr-only">Previous</span>
+              <span class="sr-only">Précédent</span>
             </div>
           </a>
           <!-- Next Carousel Control -->
@@ -73,7 +73,7 @@
                 class="carousel-control-next-icon"
                 aria-hidden="true"
               ></span>
-              <span class="sr-only">Next</span>
+              <span class="sr-only">Suivant</span>
             </div>
           </a>
         </div>
@@ -131,29 +131,31 @@
                 </ins>
               </div>
               <!-- Brand -->
-              <div class="brand mt-4">
-                <span>Brand :</span>
-                <%=productDetails.moreInfos.brand %>
-              </div>
+              <% if (productDetails.moreInfos.brand) {%>
+                <div class="brand mt-4">
+                  <span>Marque :</span>
+                  <%=productDetails.moreInfos.brand %>
+                </div>
+              <% }%>
               <!-- Color -->
               <% if (productDetails.moreInfos.colors) {%>
-              <div class="color mt-4">
-                <span>Colors :</span>
-                <div class="product-colors ">
-                  <%productDetails.moreInfos.colors.split(',').map((color,i)=> {%>
-                  <div 
-                    class="color-wrapper <%= i===0 ? 'active':'' %>"
-                    data-product-color="<%= color %>"
-                  >
-                    <span 
-                    style="background-color: <%= color %>"
-                    class="color "
+                <div class="color mt-4">
+                  <span>Couleurs :</span>
+                  <div class="product-colors ">
+                    <%productDetails.moreInfos.colors.split(',').map((color,i)=> {%>
+                    <div 
+                      class="color-wrapper <%= i===0 ? 'active':'' %>"
+                      data-product-color="<%= color %>"
                     >
-                    </span>
+                      <span 
+                      style="background-color: <%= color %>"
+                      class="color "
+                      >
+                      </span>
+                    </div>
+                    <% })%>
                   </div>
-                  <% })%>
                 </div>
-              </div>
               <% }%>
               <!-- Quantity & Add To Cart  -->
               <div class="product-quantity mt-4">
@@ -171,7 +173,7 @@
                   class="add-to-cart"
                   data-product="<%= JSON.stringify(shoppingDetails) %>"
                 >
-                  <a href="#"> ADD TO CART </a>
+                  <a href="#"> AJOUTER AU PANIER </a>
                 </div>
               </div>
               <!-- Product Categories  -->
@@ -181,7 +183,7 @@
                 <% const lastIndex = productDetails.categories.length - 1%>
                 <% productDetails.categories.map((category, index)=>{ %>
                 <a href="/shop?selectedCategories=<%= category.name %>" class="mr-1">
-                  <%= category.name %> <%= lastIndex != index?', ': '' %>
+                  <%= category.nameFr %> <%= lastIndex != index?', ': '' %>
                 </a>
                 <% }) %>
               </div>
@@ -219,8 +221,8 @@
           <div class="inner">
             <ul class="menu-tab">
               <li class="active" id="product-description">Description</li>
-              <li>Additional information</li>
-              <li>Reviews</li>
+              <li>Informations complémentaires</li>
+              <li>Commentaires</li>
             </ul>
             <div class="content-tab">
               <!-- Description  -->
@@ -234,16 +236,16 @@
                 <div class="inner max-width-40">
                   <table>
                     <tr>
-                      <td>Weight</td>
+                      <td>Poids</td>
                     </tr>
                     <tr>
                       <td>Dimensions</td>
                     </tr>
                     <tr>
-                      <td>Materials</td>
+                      <td>Matériaux</td>
                     </tr>
                     <tr>
-                      <td>Size</td>
+                      <td>Taille</td>
                     </tr>
                   </table>
                 </div>
@@ -253,10 +255,10 @@
                 <div class="inner max-width-83 padding-top-33">
                   <div class="comment-respond review-respond" id="respond">
                     <div class="comment-reply-title margin-bottom-14">
-                      <h5>Write a review</h5>
+                      <h5>Écrire un commentaire</h5>
                       <p>
-                        Your email address will not be published. Required
-                        fields are marked *
+                        Votre adresse électronique ne sera pas publiée. Les champs requis
+                        sont marqués *
                       </p>
                     </div>
                     <form
@@ -267,7 +269,7 @@
                       action="#"
                     >
                       <p class="flat-star style-2">
-                        <label>Rating*:</label>
+                        <label>Evaluation*:</label>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -275,12 +277,12 @@
                         <i class="fa fa-star"></i>
                       </p>
                       <p class="comment-form-comment">
-                        <label>Review*</label>
+                        <label>Message*</label>
                         <textarea class="" tabindex="4" name="comment" required>
                         </textarea>
                       </p>
                       <p class="comment-name">
-                        <label>Name*</label>
+                        <label>Nom*</label>
                         <input
                           type="text"
                           aria-required="true"
@@ -307,11 +309,11 @@
                           id="check-notify"
                         />
                         <label for="check-notify">
-                          Notify me of new posts by email
+                          M'avertir des nouveaux messages par e-mail
                         </label>
                       </p>
                       <p class="form-submit">
-                        <button class="comment-submit" disabled>Submit</button>
+                        <button class="comment-submit" disabled>Envoyer</button>
                       </p>
                     </form>
                   </div>
@@ -331,7 +333,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="title-section margin-bottom-55">
-          <h2 class="title">Related Products</h2>
+          <h2 class="title">Produits similaires</h2>
         </div>
         <div class="product-content product-fourcolumn clearfix">
           <ul class="product style2 row">
@@ -360,7 +362,7 @@
                 class="add-to-cart text-center" 
                 data-product="<%= JSON.stringify(prod) %>"
               >
-                <a href="#">ADD TO CART</a>
+                <a href="#">AJOUTER AU PANIER</a>
               </div>
             </li>
             <% }) %>

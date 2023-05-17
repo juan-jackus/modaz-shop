@@ -138,13 +138,13 @@ const Blog = () => {
     const action = {
       single: deletePost,
       mutiple: deleteMultiplePost,
-      text: 'deletion',
+      text: 'Suppression',
     };
     // eslint-disable-next-line
     if (actionType == 'RESTORE') {
       action.single = restorePost;
       action.mutiple = restoreMultiplePost;
-      action.text = 'restore';
+      action.text = 'restoration';
     }
     if (postToManage) {
       const successDeletion = await dispatch(
@@ -154,11 +154,11 @@ const Blog = () => {
       toastValue = successDeletion
         ? {
             type: 'success',
-            text: `Success deletion of : ${postToManage.title}`,
+            text: `${action.text} reussie de : ${postToManage.title}`,
           }
         : {
             type: 'error',
-            text: `Failed to delete : ${postToManage.title}`,
+            text: `Echec de la ${action.text} de : ${postToManage.title}`,
           };
     } else if (selectedPosts.length) {
       // If there is many Posts to delete
@@ -170,13 +170,13 @@ const Blog = () => {
         successDeletion === selectedPosts.length
           ? {
               type: 'success',
-              text: `Success ${action.text} of ${selectedPosts.length} post(s)`,
+              text: `${action.text} reussie de ${selectedPosts.length} article(s)`,
             }
           : {
               type: 'error',
-              text: `Failed to ${action.text} ${
+              text: `Echec de la ${action.text} de ${
                 selectedPosts.length - successDeletion
-              } post(s)`,
+              } article(s)`,
             };
     }
     setProcessing(false);
@@ -196,9 +196,9 @@ const Blog = () => {
   return (
     <Fragment>
       <Breadcrumbs
-        breadCrumbTitle='Post List'
+        breadCrumbTitle='Liste des Articles'
         breadCrumbParent='Blog'
-        breadCrumbActive='posts'
+        breadCrumbActive='Articles'
       />
       <div id='blog' className=' container'>
         <div className='content-detached content-left'>
@@ -230,7 +230,7 @@ const Blog = () => {
                 <CustomInput
                   type='checkbox'
                   id='toogle-selection'
-                  label='Select all posts per page '
+                  label='Sélectionner tous les article de la page '
                   checked={
                     selectedPosts.length === params.perPage ||
                     selectedPosts.length === posts.length
@@ -260,7 +260,7 @@ const Blog = () => {
                 ) : (
                   <Card style={{ height: '190px' }}>
                     <CardTitle className='text-center mt-5 pt-2' tag='h4'>
-                      No Post!
+                      Aucun Article !
                     </CardTitle>
                   </Card>
                 )}

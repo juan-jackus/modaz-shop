@@ -46,9 +46,9 @@ import { Card, CardHeader, CardTitle, CardBody, Media } from 'reactstrap';
 
 const data = [
   {
-    title: '12 Invoices have been paid',
-    content: 'Invoices have been paid to the company.',
-    meta: '12 min ago',
+    title: '12 factures ont été payées',
+    content: "Les factures ont été payées à l'entreprise.",
+    meta: 'Il y a 12 minutes',
     metaClassName: 'mr-1',
     customContent: (
       <Media>
@@ -60,9 +60,9 @@ const data = [
     ),
   },
   {
-    title: 'Client Meeting',
-    content: 'Project meeting with john @10:15am.',
-    meta: '45 min ago',
+    title: 'Réunion des clients',
+    content: 'Réunion de projet avec Juan à 10h15.',
+    meta: 'Il y a 45 minutes',
     metaClassName: 'mr-1',
     color: 'warning',
     customContent: (
@@ -70,24 +70,24 @@ const data = [
         {/* <Avatar img={ceo} /> */}
         <Media className='ml-50' body>
           <h6 className='mb-0'>John Doe (Client)</h6>
-          <span>CEO of Infibeam</span>
+          <span>PDG d'Infibeam</span>
         </Media>
       </Media>
     ),
   },
   {
-    title: 'Create a new project for client',
-    content: 'Add files to new design folder',
+    title: 'Créer un nouveau projet pour un client',
+    content: 'Ajouter des fichiers à un nouveau dossier de dessin ou modèle',
     color: 'info',
-    meta: '2 days ago',
+    meta: 'Il y a 2 jours',
     metaClassName: 'mr-1',
     // customContent: <AvatarGroup data={avatarGroupArr} />,
   },
   {
-    title: 'Create a new project for client',
-    content: 'Add files to new design folder',
+    title: 'Créer un nouveau projet pour un client',
+    content: 'Ajouter des fichiers à un nouveau dossier de dessin ou modèle',
     color: 'danger',
-    meta: '5 days ago',
+    meta: 'Il y a 5 jours',
     metaClassName: 'mr-1',
   },
 ];
@@ -98,7 +98,7 @@ const UserTimeline = () => {
       <CardHeader>
         <div className='d-flex align-items-center'>
           <List className='user-timeline-title-icon' />
-          <CardTitle tag='h4'>User Timeline</CardTitle>
+          <CardTitle tag='h4'>Chronologie de l'utilisateur</CardTitle>
         </div>
         <MoreVertical size={18} className='cursor-pointer' />
       </CardHeader>

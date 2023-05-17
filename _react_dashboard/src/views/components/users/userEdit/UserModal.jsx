@@ -17,7 +17,7 @@ const UserModal = ({
   showUserModalData,
   userDeleteRestoreHandler,
 }) => {
-  const actionText = actionType === 'RESTORE' ? 'restoration' : 'deletion';
+  const actionText = actionType === 'RESTORE' ? 'restauration' : 'suppression';
   const style = actionType === 'RESTORE' ? 'warning' : 'danger';
   return (
     <Modal
@@ -30,7 +30,7 @@ const UserModal = ({
       ></ModalHeader>
       <ModalBody>
         <p className={`text-${style} font-weight-bold`}>
-          Confirm {actionText} of user(s) :
+          Confirmer la {actionText} de :
         </p>
         {showUserModalData(userToManage?.selectedRows || userToManage)}
       </ModalBody>
@@ -45,10 +45,10 @@ const UserModal = ({
           {processing ? (
             <>
               <Spinner size='sm' color='white' />
-              <span className='ml-50'>Processing...</span>
+              <span className='ml-50'>Traitement...</span>
             </>
           ) : (
-            'Confirm'
+            'Confirmer'
           )}
         </Button>
         <Button
@@ -56,7 +56,7 @@ const UserModal = ({
           disabled={processing}
           onClick={() => setShowUserModal(!showUserModal)}
         >
-          Cancel
+          Annuler
         </Button>
       </ModalFooter>
     </Modal>

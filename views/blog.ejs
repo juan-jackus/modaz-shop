@@ -8,13 +8,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="page-title-heading">
-          <h1 class="title">Posts</h1>
+          <h1 class="title">Articles</h1>
         </div>
         <!-- BreadCrumbs -->
         <div class="breadcrumbs">
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/">Accueil</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li>Articles</li>
           </ul>
         </div>
       </div>
@@ -32,27 +33,33 @@
           <div class="d-flex mb-3 mb-lg-5 flex-wrap">
             <!-- Sort By  -->
             <div class="filter-sort-by my-2 mr-3">
-              <div>Sort By</div>
+              <div>Trier par</div>
               <select id="blog-sort-by">
                 <option <%= sortBy=='newest'?'selected':''%> value="newest" >
-                  Newest
+                  Plus récents
                 </option>
-                <option <%= sortBy=='latest'?'selected':''%> value="latest">
-                  Latest
+                <option <%= sortBy=='oldest'?'selected':''%> value="oldest">
+                  Plus anciens
+                </option>
+                <option <%= sortBy=='mostReaded'?'selected':''%> value="mostReaded">
+                  Plus lus
+                </option>
+                <option <%= sortBy=='leastReaded'?'selected':''%> value="leastReaded">
+                  Moins lus
                 </option>
               </select>
             </div>
             <!-- Show Per Page -->
             <div class="d-flex ml-sm-auto align-items-center my-2">
               <div class="filter-per-page ">
-                <div>Show</div>
+                <div>Afficher</div>
                 <select id="blog-per-page">
                   <option <%= perPage=='3'?'selected':''%> value="3">3</option>
                   <option <%= perPage=='5'?'selected':''%> value="5">5</option>
                   <option <%= perPage=='7'?'selected':''%> value="7">7</option>
                 </select>
                 <div class="nbr-posts">
-                  of <span><%= totalPost %></span> Posts
+                  sur <span><%= totalPost %></span> articles
                 </div>
               </div>
             </div>
@@ -65,7 +72,7 @@
                   required
                   type="search"
                   class="search-field blog-modal-search-input modal-filter"
-                  placeholder="Search …"
+                  placeholder="Rechercher…"
                   value="<%= textSearch %>"
                 />
                 <div class="blog-clear-search modal-filter">
@@ -91,18 +98,18 @@
                 <!-- Post Author, Date, Read Count -->
                 <ul class="meta-post d-flex">
                   <li class="author padding-left-2">
-                    <span>By : </span>
+                    <span>Par : </span>
                     <a class="prevent " href="#">
                       <%= post.author ? post.author.fullName : post.authorUsername %>
                     </a>
                   </li>
                   <li class="separator mx-2 d-sm-none">|</li>
                   <li class=" format-date ml-sm-auto text-center"> 
-                    <%= post.createdAt %>
+                    <%= post.createdAt.toLocaleDateString() %>
                   </li>
                   <li class="separator mx-2">|</li>
                   <li class="read-count text-center">
-                    Read Count : <%= post.readCount %>
+                    Lu <%= post.readCount %> fois
                   </li>
                 </ul>
                 <!-- Post Image -->
@@ -124,7 +131,7 @@
                   </p>
                   <!-- Post Read More -->
                   <div class="more-link">
-                    <a href="<%=`/blog/articles/${post._id}`%>">Read More</a>
+                    <a href="<%=`/blog/articles/${post._id}`%>">Lire la suite</a>
                   </div>
                 </div>
               </div>
@@ -132,7 +139,7 @@
           <% }) %>
           <!-- If there is No Post -->
           <% if (!posts.length) {%>
-            <p class="text-center">No Post Found</p>
+            <p class="text-center">Aucun article trouvé</p>
           <% } %>
         </div>
         <!-- Pagination -->
@@ -220,7 +227,7 @@
           </div>
           <!-- Popular Posts -->
           <div class="widget widget-news-latest">
-            <h5 class="widget-title">Popular Posts</h5>
+            <h5 class="widget-title">Articles populaires</h5>
             <ul class="popular-news clearfix">
               <%popularPosts.map((pp)=> {%>
               <li>
@@ -236,7 +243,7 @@
                     <%= pp.title %>
                   </a>
                 </h6>
-                <a class="date format-date post_meta"> <%= pp.createdAt %></a>
+                <a class="date format-date post_meta"> <%= pp.createdAt.toLocaleDateString() %></a>
               </li>
               <% }) %>
             </ul>

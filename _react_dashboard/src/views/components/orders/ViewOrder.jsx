@@ -34,7 +34,7 @@ const ViewOrder = () => {
             {/* Office */}
             <div className='mb-2'>
               <p className='card-text mb-25'>
-                Office 149, 450 South Brand Brooklyn
+                Bureau 149, 450 South Brand Brooklyn
               </p>
               <p className='card-text mb-25'>San Diego County, CA 91905, USA</p>
               <p className='card-text mb-0'>
@@ -44,15 +44,15 @@ const ViewOrder = () => {
             {/* UID & Date */}
             <div>
               <div className='d-flex align-items-center mb-1'>
-                <h4 className='mr-1'>Invoice</h4>
+                <h4 className='mr-1'>Facture</h4>
                 <Input value={`#-${order.id}`} disabled />
               </div>
               <div className='d-flex align-items-center mb-1'>
-                <span className='mr-1 text-nowrap'>Created At :</span>
+                <span className='mr-1 text-nowrap'>Créé le :</span>
                 <Input value={formatDate(order.created_at)} disabled />
               </div>
               <div className='d-flex align-items-center'>
-                <span className='mr-1 text-nowrap'>Due Date :</span>
+                <span className='mr-1 text-nowrap'>Date d'échéance :</span>
                 <Input value={formatDate(dueDate)} disabled />
               </div>
             </div>
@@ -65,7 +65,7 @@ const ViewOrder = () => {
             {/* Customer Informations */}
             <Col className='p-0' lg='8'>
               <h5 className='mb-2'>
-                <u> Invoice To</u> :
+                <u> Facturé à</u> :
               </h5>
               <h6 className='mb-25'>{order.customer.fullName}</h6>
               <CardText className='mb-25'>{order.customer.username}</CardText>
@@ -80,16 +80,16 @@ const ViewOrder = () => {
             {/* Payement Details */}
             <Col className='p-0 mt-xl-0 mt-2' lg='4'>
               <h5 className='mb-2'>
-                <u>Payment Details</u> :
+                <u>Modalités de paiement</u> :
               </h5>
               <table>
                 <tbody>
                   <tr>
-                    <td className='pr-1'>Method:</td>
+                    <td className='pr-1'>Methode:</td>
                     <td>PayPal</td>
                   </tr>
                   <tr>
-                    <td className='pr-1'>Discount:</td>
+                    <td className='pr-1'>Remise:</td>
                     <td>$0</td>
                   </tr>
                   <tr>
@@ -103,7 +103,7 @@ const ViewOrder = () => {
                   </tr>
 
                   <tr>
-                    <td className='pr-1'>Total Due:</td>
+                    <td className='pr-1'>Total dû:</td>
                     <td>
                       <span className='font-weight-bolder'>
                         {`$${(+order.totalPrice.toFixed(2)).toLocaleString()}`}
@@ -120,13 +120,13 @@ const ViewOrder = () => {
         <CardBody>
           <Row>
             <Col sm='6'>
-              <h5>Items</h5>
+              <h5>Produits</h5>
             </Col>
             <Col sm='2' className='d-none d-sm-block'>
-              <h5>Color</h5>
+              <h5>Couleur</h5>
             </Col>
             <Col sm='2' className='d-none d-sm-block'>
-              <h5>Price</h5>
+              <h5>Prix</h5>
             </Col>
             <Col sm='2' className='d-none d-sm-block'>
               <h5>Qty</h5>
@@ -166,7 +166,7 @@ const ViewOrder = () => {
             className='mt-1'
             onClick={() => history.goBack()}
           >
-            Go Back
+            Retour
           </Button>
         </CardBody>
       </Card>

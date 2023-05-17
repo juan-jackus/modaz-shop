@@ -12,10 +12,10 @@ function PermissionsTable() {
         <thead className='thead-light'>
           <tr>
             <th>Module</th>
-            <th>Read</th>
-            <th>Write</th>
-            <th>Create</th>
-            <th>Delete</th>
+            <th>Lecture</th>
+            <th>Ecriture</th>
+            <th>Creation</th>
+            <th>Suppression</th>
           </tr>
         </thead>
         <tbody>
@@ -101,7 +101,7 @@ function PermissionsTable() {
           </tr>
           {/* Maintainer */}
           <tr>
-            <td>Maintainer</td>
+            <td>Responsable</td>
             <td>
               <CustomInput
                 type='checkbox'
@@ -141,7 +141,7 @@ function PermissionsTable() {
           </tr>
           {/* Editor */}
           <tr>
-            <td>Editor</td>
+            <td>Éditeur</td>
             <td>
               <CustomInput
                 type='checkbox'
@@ -179,7 +179,7 @@ function PermissionsTable() {
           </tr>
           {/* Author */}
           <tr>
-            <td>Author</td>
+            <td>Auteur</td>
             <td>
               <CustomInput
                 type='checkbox'

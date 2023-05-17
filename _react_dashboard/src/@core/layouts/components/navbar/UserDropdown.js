@@ -56,14 +56,14 @@ const UserDropdown = () => {
       <DropdownMenu right>
         <DropdownItem tag={Link} to='/account-settings'>
           <User size={14} className='mr-75' />
-          <span className='align-middle'>Profile</span>
+          <span className='align-middle'>Profil</span>
         </DropdownItem>
         <DropdownItem
           className='w-100'
           onClick={() => dispatch(handleLogout(userData.id))}
         >
           <Power size={14} className='mr-75' />
-          <span className='align-middle'>Logout</span>
+          <span className='align-middle'>Déconnexion</span>
         </DropdownItem>
       </DropdownMenu>
     </UncontrolledDropdown>

@@ -100,11 +100,11 @@ const SlideImgModal = ({ showSlideModal, setshowSlideModal }) => {
     const toastValue = successDeletion
       ? {
           type: 'success',
-          text: 'Success deletion of carousel',
+          text: 'Suppression reussie',
         }
       : {
           type: 'error',
-          text: 'Failed to delete carousel',
+          text: 'Echec de la suppression',
         };
     toast[toastValue.type](ToastContent(toastValue), {
       transition: Slide,
@@ -119,7 +119,7 @@ const SlideImgModal = ({ showSlideModal, setshowSlideModal }) => {
     if (!img) {
       setError('img', {
         type: 'matches',
-        message: 'Image is required',
+        message: 'Image est obligatoire',
       });
       setTimeout(() => {
         clearErrors('img');
@@ -147,13 +147,13 @@ const SlideImgModal = ({ showSlideModal, setshowSlideModal }) => {
 
     let toastValue = {
       type: 'error',
-      text: 'Creation/Modification of Carousel failed',
+      text: 'Echec de la Creation ou de la Modification',
     };
 
     if (successSubmit) {
       toastValue = {
         type: 'success',
-        text: 'Carousel added/modified',
+        text: 'Diapositive ajoutée/modifiée avec succées',
       };
       // Close Modal when limit of slide
       if (selectedSlide || publishedSlidesCount + 1 >= 6) {
@@ -181,12 +181,16 @@ const SlideImgModal = ({ showSlideModal, setshowSlideModal }) => {
       fade={false}
     >
       <ModalHeader toggle={() => setshowSlideModal(!showSlideModal)}>
-        {selectedSlide ? 'Edit Slide' : 'Add Slide'}
+        {selectedSlide
+          ? 'Modification de la diapositive'
+          : "Ajout d'une Diapositive"}
       </ModalHeader>
       {confirmDeletion ? (
         //  Deletion Message
         <ModalBody>
-          <p className='text-danger font-weight-bold'>Confirm deletion ?</p>
+          <p className='text-danger font-weight-bold'>
+            Confirmer la suppression ?
+          </p>
           <div className='d-flex '>
             <Button.Ripple
               className='ml-auto mr-1'
@@ -197,10 +201,10 @@ const SlideImgModal = ({ showSlideModal, setshowSlideModal }) => {
               {isSubmitting ? (
                 <>
                   <Spinner size='sm' color='white' />
-                  <span className='ml-50'>Deleting...</span>
+                  <span className='ml-50'>Suppression...</span>
                 </>
               ) : (
-                'Yes'
+                'Oui'
               )}
             </Button.Ripple>
             <Button.Ripple
@@ -208,7 +212,7 @@ const SlideImgModal = ({ showSlideModal, setshowSlideModal }) => {
               disabled={isSubmitting}
               onClick={() => setshowSlideModal(!showSlideModal)}
             >
-              No
+              Non
             </Button.Ripple>
           </div>
         </ModalBody>

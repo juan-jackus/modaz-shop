@@ -67,7 +67,9 @@ const ModazMainCarousel = ({ publishedSlides, setshowSlideModal }) => {
               setshowSlideModal(true);
             }}
           >
-            <span className='carousel-caption-wrapper'>Slide {i + 1}</span>
+            <span className='carousel-caption-wrapper'>
+              Diapositive {i + 1}
+            </span>
             <Settings size={30} color='white' />
           </div>
 

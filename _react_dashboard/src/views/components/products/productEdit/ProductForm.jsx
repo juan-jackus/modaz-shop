@@ -73,7 +73,9 @@ const ProductForm = (props) => {
             <Col sm='12'>
               <h4 className='mb-1'>
                 <Edit size={20} className='mr-50' />
-                <span className='align-middle'>Product Informations</span>
+                <span className='align-middle'>
+                  Informations sur le produit
+                </span>
               </h4>
             </Col>
             {/* Form */}
@@ -83,7 +85,7 @@ const ProductForm = (props) => {
                   {/* Product Images */}
                   <Col sm='12'>
                     <Label style={{ marginBottom: '10px' }}>
-                      Product Images (max: 5 images)
+                      Images du produit (max : 5 images)
                     </Label>
                     {/* Image Preview */}
                     <div className='d-flex flex-wrap'>
@@ -115,7 +117,7 @@ const ProductForm = (props) => {
                                 placement='top'
                                 target='delete-img'
                               >
-                                Delete Image
+                                Supprimer l'image
                               </UncontrolledTooltip>
                             </button>
                           </div>
@@ -128,9 +130,9 @@ const ProductForm = (props) => {
                       )}
                       {/* Upload & Reset Buttons */}
                       <div className='ml-2'>
-                        <FormText>Image size requirement :</FormText>
-                        <FormText> - min Width (300px)</FormText>
-                        <FormText> - min Height (300px)</FormText>
+                        <FormText>Taille d'image requise :</FormText>
+                        <FormText> - min largeur (300px)</FormText>
+                        <FormText> - min hauteur (300px)</FormText>
                         {/* <FormText> - max Size (1mb)</FormText> */}
                         <div className='mt-1'>
                           <Button.Ripple
@@ -140,7 +142,7 @@ const ProductForm = (props) => {
                             color='primary'
                             disabled={notEditable || imgArray.length >= 5}
                           >
-                            Upload
+                            Télécharger
                             <Input
                               type='file'
                               key={resetImg}
@@ -169,7 +171,7 @@ const ProductForm = (props) => {
                           >
                             <FormGroup>
                               <Label for='img-position'>
-                                Select Image Position
+                                Sélectionner la position de l'image
                               </Label>
                               <Input
                                 type='select'
@@ -208,7 +210,7 @@ const ProductForm = (props) => {
                   <Col md='6'>
                     <FormGroup>
                       <Label for='product-name'>
-                        Name <span className='text-danger'>*</span>
+                        Nom <span className='text-danger'>*</span>
                       </Label>
                       <Input
                         name='name'
@@ -227,7 +229,7 @@ const ProductForm = (props) => {
                   {/* Gender */}
                   <Col md='6'>
                     <FormGroup>
-                      <Label for='product-gender'>For</Label>
+                      <Label for='product-gender'>Pour</Label>
                       <Controller
                         defaultValue={''}
                         isDisabled={notEditable}
@@ -237,8 +239,8 @@ const ProductForm = (props) => {
                         control={control}
                         name='gender'
                         options={[
-                          { value: 'men', label: 'Men' },
-                          { value: 'women', label: 'Women' },
+                          { value: 'men', label: 'Homme' },
+                          { value: 'women', label: 'Femme' },
                         ]}
                         theme={selectThemeColors}
                         classNamePrefix='select'
@@ -255,7 +257,7 @@ const ProductForm = (props) => {
                   <Col md='6'>
                     <FormGroup>
                       <Label for='product-categories'>
-                        Categories <span className='text-danger'>*</span>
+                        Catégories <span className='text-danger'>*</span>
                       </Label>
                       <Controller
                         // isSearchable
@@ -283,7 +285,7 @@ const ProductForm = (props) => {
                   <Col md='6'>
                     <FormGroup>
                       <Label for='price'>
-                        Price <span className='text-danger'>*</span>
+                        Prix <span className='text-danger'>*</span>
                       </Label>
                       <InputGroup className='input-group-merge'>
                         <InputGroupAddon addonType='prepend'>
@@ -319,7 +321,7 @@ const ProductForm = (props) => {
                   <Col md='6'>
                     <FormGroup>
                       <Label for='quantity'>
-                        Quantity <span className='text-danger'>*</span>
+                        Quantité <span className='text-danger'>*</span>
                       </Label>
                       <Input
                         type='number'
@@ -343,7 +345,7 @@ const ProductForm = (props) => {
                         type='checkbox'
                         name='inCollection'
                         id='in-collection'
-                        label='In my collection'
+                        label='Dans ma collection'
                         innerRef={register}
                         disabled={notEditable}
                       />
@@ -353,13 +355,13 @@ const ProductForm = (props) => {
                   <Col sm='12'>
                     <h4 className='mb-1 mt-2'>
                       <Tag size={20} className='mr-50' />
-                      <span className='align-middle'>More Infos</span>
+                      <span className='align-middle'>Plus d'infos</span>
                     </h4>
                   </Col>
                   {/* Brand */}
                   <Col lg='4' md='6'>
                     <FormGroup>
-                      <Label for='brand'>Brand</Label>
+                      <Label for='brand'>Marque</Label>
                       <Input
                         name='moreInfos.brand'
                         id='brand'
@@ -372,14 +374,14 @@ const ProductForm = (props) => {
                   <Col lg='3' xs='6'>
                     <FormGroup>
                       <Label className='d-flex align-items-center pr-3'>
-                        <span>Rating</span>
+                        <span>Evaluation</span>
                         <button
                           type='button'
-                          className='reset-rating'
+                          className='reset-rating ml-1'
                           disabled={notEditable}
                           onClick={() => setRating(0)}
                         >
-                          reset
+                          réinitialiser
                         </button>
                       </Label>
 
@@ -408,7 +410,7 @@ const ProductForm = (props) => {
                       type='checkbox'
                       name='moreInfos.freeShipping'
                       id='free-shipping'
-                      label='Free Shipping'
+                      label='Livraison gratuite'
                       innerRef={register}
                       disabled={notEditable}
                     />
@@ -416,7 +418,7 @@ const ProductForm = (props) => {
                   {/* Color */}
                   <Col xs='8'>
                     <FormGroup>
-                      <Label>Colors</Label>
+                      <Label>Couleurs</Label>
                       <div className='d-flex align-items-center'>
                         <div className='product-colors'>
                           {colorsArray.map((color, i) => (
@@ -446,7 +448,7 @@ const ProductForm = (props) => {
                                     type='button'
                                     onClick={() => handleDeleteColor(i)}
                                   >
-                                    Delete
+                                    Supprimer
                                   </button>
                                 </div>
                               )}
@@ -464,7 +466,7 @@ const ProductForm = (props) => {
                             placement='top'
                             target='add-tooltip'
                           >
-                            Add Color
+                            Ajouter une couleur
                           </UncontrolledTooltip>
                         </button>
                       </div>
@@ -500,10 +502,10 @@ const ProductForm = (props) => {
                         {isSubmitting ? (
                           <>
                             <Spinner size='sm' color='white' />
-                            <span className='ml-50'>Saving...</span>
+                            <span className='ml-50'>Sauvegarde...</span>
                           </>
                         ) : (
-                          'Save'
+                          'Sauvegarder'
                         )}
                       </Button.Ripple>
                     )}
@@ -516,7 +518,7 @@ const ProductForm = (props) => {
                         disabled={isSubmitting}
                         onClick={handleFormEdit}
                       >
-                        {notEditable ? 'Edit' : 'Reset'}
+                        {notEditable ? 'Modifier' : 'Réinitialiser'}
                       </Button.Ripple>
                     )}
                     {/* Delete Button */}
@@ -531,7 +533,7 @@ const ProductForm = (props) => {
                           history.goBack();
                         }}
                       >
-                        Delete
+                        Supprimer
                       </Button.Ripple>
                     )}
                     {/* Go Back Button */}
@@ -542,7 +544,7 @@ const ProductForm = (props) => {
                       disabled={isSubmitting}
                       onClick={() => history.goBack()}
                     >
-                      Go back
+                      Retour
                     </Button.Ripple>
                   </Col>
                 </Row>

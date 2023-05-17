@@ -17,7 +17,7 @@ const OrderModal = ({
   showOderModalData,
   oderDeleteRestoreHandler,
 }) => {
-  const actionText = actionType === 'RESTORE' ? 'restoration' : 'deletion';
+  const actionText = actionType === 'RESTORE' ? 'restauration' : 'suppression';
   const style = actionType === 'RESTORE' ? 'warning' : 'danger';
   return (
     <Modal
@@ -30,7 +30,7 @@ const OrderModal = ({
       ></ModalHeader>
       <ModalBody>
         <p className={`text-${style} font-weight-bold`}>
-          Confirm {actionText} of order(s) :
+          Confirmer la {actionText} des commandes :
         </p>
         {showOderModalData(orderToManage?.selectedRows || orderToManage)}
       </ModalBody>
@@ -45,10 +45,10 @@ const OrderModal = ({
           {processing ? (
             <>
               <Spinner size='sm' color='white' />
-              <span className='ml-50'>Processing...</span>
+              <span className='ml-50'>Traitement...</span>
             </>
           ) : (
-            'Confirm'
+            'Confirmer'
           )}
         </Button>
         <Button
@@ -56,7 +56,7 @@ const OrderModal = ({
           disabled={processing}
           onClick={() => setShowOrderModal(!showOrderModal)}
         >
-          Cancel
+          Annuler
         </Button>
       </ModalFooter>
     </Modal>

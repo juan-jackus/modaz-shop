@@ -75,14 +75,14 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
 
     let toastValue = {
       type: 'error',
-      text: 'Failed to add the customer',
+      text: "Échec de l'ajout du client",
     };
 
     if (successSubmit) {
       reset();
       toastValue = {
         type: 'success',
-        text: `Customer ${values.fullName} successfully added`,
+        text: `Le client ${values.fullName} a été ajouté avec succés`,
       };
     }
 
@@ -98,7 +98,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
     <Sidebar
       size='lg'
       open={open}
-      title='Add New Customer'
+      title='Ajouter un nouveau client'
       headerClassName='mb-1'
       contentClassName='pt-0'
       toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
@@ -107,13 +107,13 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
         {/* Required Field Text */}
         <FormText className='d-flex mb-1' color='muted'>
           <div className='ml-auto'>
-            [<span className='text-danger'> * </span>] Required fields
+            [<span className='text-danger'> * </span>] Champs obligatoires
           </div>
         </FormText>
         {/* Full Name */}
         <FormGroup>
           <Label for='full-name'>
-            Full Name <span className='text-danger'>*</span>
+            Nom complet <span className='text-danger'>*</span>
           </Label>
           <Input
             name='fullName'
@@ -128,7 +128,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
         {/* Username */}
         <FormGroup>
           <Label for='username'>
-            Username <span className='text-danger'>*</span>
+            Nom d'utilisateur <span className='text-danger'>*</span>
           </Label>
           <Input
             name='username'
@@ -137,7 +137,8 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
             className={classnames({ 'is-invalid': errors.username })}
           />
           <FormText color='muted'>
-            You can only use letters, numbers, underScore, hyphen & periods
+            Vous ne pouvez utiliser que des lettres, des chiffres, des
+            sous-notes, des traits d'union et des points.
           </FormText>
           <div className='invalid-feedback'>{errors.username?.message}</div>
         </FormGroup>
@@ -158,7 +159,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
         {/* Password */}
         <FormGroup>
           <Label for='customer-password'>
-            Password <span className='text-danger'>*</span>
+            Mot de passe <span className='text-danger'>*</span>
           </Label>
           <InputPasswordToggle
             id='customer-password'
@@ -172,7 +173,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
         {/* Confirm Password */}
         <FormGroup>
           <Label for='confirm-password'>
-            Confirm Password <span className='text-danger'>*</span>
+            Confirmer le mot de passe <span className='text-danger'>*</span>
           </Label>
           <InputPasswordToggle
             id='confirm-password'
@@ -189,7 +190,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
         </FormGroup>
         {/* Phone Number */}
         <FormGroup>
-          <Label for='phone-number'>Phone Number</Label>
+          <Label for='phone-number'>Numéro de téléphone</Label>
           <InputGroup className='input-group-merge'>
             <InputGroupAddon addonType='prepend'>
               <InputGroupText>SN (+221)</InputGroupText>
@@ -226,13 +227,13 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
         </FormGroup>
         {/* Gender */}
         <FormGroup className='mt-2 mb-3'>
-          <label className='d-block mb-1'>Gender</label>
+          <label className='d-block mb-1'>Genre</label>
           <CustomInput
             inline
             name='gender'
             type='radio'
             value='male'
-            label='Male'
+            label='Homme'
             id='gender-male'
             innerRef={register}
           />
@@ -240,7 +241,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
             inline
             name='gender'
             type='radio'
-            label='Female'
+            label='Femme'
             value='female'
             id='gender-female'
             innerRef={register}
@@ -249,7 +250,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
             inline
             name='gender'
             type='radio'
-            label='Not Specified'
+            label='Non spécifié'
             value=''
             id='gender-null'
             innerRef={register}
@@ -265,10 +266,10 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
           {isSubmitting ? (
             <>
               <Spinner size='sm' color='white' />
-              <span className='ml-50'>Submitting...</span>
+              <span className='ml-50'>Soumission...</span>
             </>
           ) : (
-            'Submit'
+            'Ajouter'
           )}
         </Button>
         <Button
@@ -277,7 +278,7 @@ const NewCustomerSidebar = ({ open, sidebarOpen, setSidebarOpen }) => {
           outline
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
-          Cancel
+          Annuler
         </Button>
       </Form>
     </Sidebar>

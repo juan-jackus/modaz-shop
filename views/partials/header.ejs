@@ -81,35 +81,37 @@
               <nav id="mainnav" class="mainnav">
                 <ul class="menu">
                   <li class="<%= active === 'home' ? 'active' : '' %>">
-                    <a href="/">HOME</a>
+                    <a href="/">ACCUEIL</a>
                   </li>
                   <li class="<%= active === 'shop' ? 'active' : '' %>">
-                    <a href="/shop">SHOP</a>
+                    <a href="/shop">BOUTIQUE</a>
                     <ul class="submenu">
                       <li>
-                        <a href="/shop?selectedCategories=accessories"
-                          >Accessories</a
+                        <a href="/shop?selectedCategories=accessories">
+                          Accessoires
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/shop?selectedCategories=clothing"
+                          >Vêtements</a
                         >
                       </li>
                       <li>
-                        <a href="/shop?selectedCategories=clothing">Clothing</a>
+                        <a href="/shop?selectedCategories=handbags">Sacs</a>
                       </li>
                       <li>
-                        <a href="/shop?selectedCategories=handbags">Handbags</a>
+                        <a href="/shop?selectedCategories=jewelry">Bijoux</a>
                       </li>
                       <li>
-                        <a href="/shop?selectedCategories=jewelry">Jewelry</a>
+                        <a href="/shop?selectedCategories=shoes">Chaussures</a>
                       </li>
                       <li>
-                        <a href="/shop?selectedCategories=shoes">Shoes</a>
+                        <a href="/shop?selectedCategories=sportswear">
+                          Vêtements de sport
+                        </a>
                       </li>
                       <li>
-                        <a href="/shop?selectedCategories=sportswear"
-                          >Sportswear</a
-                        >
-                      </li>
-                      <li>
-                        <a href="/shop?selectedCategories=watches">Watches</a>
+                        <a href="/shop?selectedCategories=watches">Montres</a>
                       </li>
                       <li>
                         <a href="/shop?inCollection=true">Juan Collection</a>
@@ -123,7 +125,7 @@
                     <a href="/contact">CONTACT</a>
                   </li>
                   <li class="<%= active === 'faqs' ? 'active' : '' %>">
-                    <a href="/faqs">FAQs</a>
+                    <a href="/faqs">FAQ</a>
                   </li>
                   <li class="d-lg-none">
                     <!-- Login Button -->
@@ -131,12 +133,12 @@
                       class="close-nav-mobile box-login"
                       href="#authModal"
                       data-toggle="modal"
-                      >LOGIN</a
+                      >SE CONNECTER</a
                     >
                     <!-- Logout Button -->
                     <a class="logout-btn d-none" href="#">
                       <i class="fa fa-sign-out" aria-hidden="true"></i>
-                      <span>LOGOUT</span>
+                      <span>DECONNEXION</span>
                     </a>
                   </li>
                 </ul>
@@ -160,12 +162,12 @@
                     value=""
                     name="s"
                     class="header-search-field"
-                    placeholder="Search..."
+                    placeholder="Rechercher..."
                   />
                   <button
                     type="submit"
                     class="header-search-submit"
-                    title="Search"
+                    title="Rechercher"
                   >
                     <i class="fa fa-search"></i>
                   </button>
@@ -203,7 +205,7 @@
               <!-- Logout Icon -->
               <a class="logout-btn d-none ml-5" href="#">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
-                <span>Logout</span>
+                <span>Deconnexion</span>
               </a>
             </ul>
             <!-- Hamburger Menu -->
@@ -233,7 +235,7 @@
                 <span aria-hidden="true">&times;</span>
               </a>
               <div id="login-modal">
-                <h5 class="authModal-title mb-4">Login</h5>
+                <h5 class="authModal-title mb-4">S'identifier</h5>
                 <!-- Login Server Error -->
                 <div class="server-error"></div>
                 <!-- Login Form -->
@@ -247,7 +249,7 @@
                       name="email"
                       class="form-control login-email"
                       aria-describedby="emailHelp"
-                      placeholder="Enter email"
+                      placeholder="Email"
                     />
                     <div class="error-message email"></div>
                   </div>
@@ -259,17 +261,19 @@
                       id="login-password"
                       name="password"
                       class="form-control"
-                      placeholder="Password"
+                      placeholder="Mot de passe"
                     />
                     <div class="error-message password"></div>
                   </div>
                   <button type="submit" class="btn mt-5 btn-block signin-btn">
-                    SIGN IN
+                    SE CONNECTER
                   </button>
-                  <a href="/account/register" class="register-link">REGISTER</a>
+                  <a href="/account/register" class="register-link"
+                    >S'ENREGISTRER</a
+                  >
                   <p class="text-center mt-3">
                     <a href="/account/reset-password" class="recoverPassword">
-                      Forgot your password?
+                      Mot de passe oublié?
                     </a>
                   </p>
                 </form>

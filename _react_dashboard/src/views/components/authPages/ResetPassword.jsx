@@ -96,7 +96,7 @@ const AuthPages = () => {
     if (!result) return;
     const toastValue = {
       type: 'success',
-      text: 'Password has been successfully reset!',
+      text: 'Le mot de passe a été réinitialisé avec succès !',
     };
     toast[toastValue.type](ToastContent(toastValue), {
       transition: Slide,
@@ -131,29 +131,30 @@ const AuthPages = () => {
           {isLoading ? (
             <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
               <CardTitle tag='h2' className='font-weight-bold mb-1'>
-                Requesting password reset...
+                Demande de réinitialisation du mot de passe...
               </CardTitle>
               <Spinner className='mx-auto' size='lg' color='primary' />
             </Col>
           ) : tokenError ? (
             <div>
-              <h3>Password reset request 🔒</h3>
+              <h3>Demande de réinitialisation du mot de passe 🔒</h3>
               <Alert color='danger mt-2'>
                 <div className='alert-body'>{tokenError}</div>
               </Alert>
               <Button.Ripple color='primary' block tag={Link} to='/'>
                 <ChevronLeft className='mr-25' size={14} />
-                <span className='align-middle'>Back to login</span>
+                <span className='align-middle'>
+                  Retour à la page de connexion
+                </span>
               </Button.Ripple>
             </div>
           ) : (
             <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
               <CardTitle tag='h2' className='font-weight-bold mb-1'>
-                Reset Password 🔒
+                Réinitialiser le mot de passe 🔒
               </CardTitle>
               <CardText className='mb-2'>
-                Your new password must be different from previously used
-                passwords
+                Votre nouveau mot de passe doit être différent de l'ancien
               </CardText>
               <Form
                 className='auth-reset-password-form mt-2'
@@ -161,7 +162,7 @@ const AuthPages = () => {
               >
                 <FormGroup>
                   <Label className='form-label' for='reset-pwd'>
-                    New Password
+                    Nouveau mot de passe
                   </Label>
                   <InputPassword
                     id='reset-pwd'
@@ -179,7 +180,7 @@ const AuthPages = () => {
                 </FormGroup>
                 <FormGroup>
                   <Label className='form-label' for='confirm-reset-pwd'>
-                    Confirm Password
+                    Confirmer le mot de passe
                   </Label>
                   <InputPassword
                     id='confirm-reset-pwd'
@@ -203,17 +204,19 @@ const AuthPages = () => {
                   {isSubmitting ? (
                     <>
                       <Spinner color='white' />
-                      <span className='ml-50'>Submitting...</span>
+                      <span className='ml-50'>Soumission...</span>
                     </>
                   ) : (
-                    'Set New Password'
+                    'Valider'
                   )}
                 </Button.Ripple>
               </Form>
               <p className='text-center mt-2'>
                 <Link to='/'>
                   <ChevronLeft className='mr-25' size={14} />
-                  <span className='align-middle'>Back to login</span>
+                  <span className='align-middle'>
+                    Retour à la page de connexion
+                  </span>
                 </Link>
               </p>
             </Col>

@@ -124,7 +124,7 @@ const BlogEditForm = (props) => {
           ) : (
             <FormText className='d-flex mb-1' color='muted'>
               <div className='ml-auto'>
-                [<span className='text-danger'> * </span>] Required fields
+                [<span className='text-danger'> * </span>] Champs obligatoires
               </div>
             </FormText>
           )}
@@ -150,7 +150,7 @@ const BlogEditForm = (props) => {
             <Col md='6'>
               <FormGroup className='mb-2'>
                 <Label for='blog-edit-category'>
-                  Category <span className='text-danger'> * </span>
+                  Catégories <span className='text-danger'> * </span>
                 </Label>
                 <Select
                   required
@@ -171,7 +171,7 @@ const BlogEditForm = (props) => {
             {/* Slug */}
             <Col md='6'>
               <FormGroup className='mb-2'>
-                <Label for='blog-edit-slug'>Slug</Label>
+                <Label for='blog-edit-slug'>Mots Clés</Label>
                 <Input
                   // disabled={notEditable}
                   id='blog-edit-slug'
@@ -184,7 +184,7 @@ const BlogEditForm = (props) => {
             <Col md='6'>
               <FormGroup className='mb-2'>
                 <Label for='blog-edit-status'>
-                  Status <span className='text-danger'> * </span>
+                  Statut <span className='text-danger'> * </span>
                 </Label>
                 <Input
                   // disabled={notEditable}
@@ -194,8 +194,8 @@ const BlogEditForm = (props) => {
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
                 >
-                  <option value='true'>Published</option>
-                  <option value='false'>Draft</option>
+                  <option value='true'>Publié</option>
+                  <option value='false'>Brouillon</option>
                 </Input>
               </FormGroup>
             </Col>
@@ -203,7 +203,7 @@ const BlogEditForm = (props) => {
             <Col sm='12'>
               <FormGroup className='mb-2'>
                 <Label>
-                  Content <span className='text-danger'> * </span>
+                  Texte <span className='text-danger'> * </span>
                 </Label>
                 <Editor
                   // readOnly={notEditable}
@@ -221,7 +221,7 @@ const BlogEditForm = (props) => {
             <Col className='mb-2' sm='12'>
               <div className='border rounded p-2'>
                 <h5 className='mb-1'>
-                  Featured Image <span className='text-danger'> * </span>
+                  Image <span className='text-danger'> * </span>
                 </h5>
                 <Media className='flex-column flex-md-row'>
                   {previewImg && (
@@ -238,8 +238,8 @@ const BlogEditForm = (props) => {
                   <Media body>
                     <div>
                       <small className='text-muted'>
-                        Required image min resolution 500x300, max image size
-                        1mb.
+                        Résolution minimale de l'image 500x300, taille maximale
+                        de l'image 1 mb.
                       </small>
                     </div>
 
@@ -254,6 +254,7 @@ const BlogEditForm = (props) => {
                           id='featured-img'
                           key={resetImg}
                           onChange={onFileChange}
+                          placeholder='Choisir une image'
                           accept='.jpg, .png, .jpeg, .webp'
                         />
                       </FormGroup>
@@ -281,10 +282,10 @@ const BlogEditForm = (props) => {
                 {isSubmitting ? (
                   <>
                     <Spinner size='sm' color='white' />
-                    <span className='ml-50'>Saving...</span>
+                    <span className='ml-50'>Sauvegarde...</span>
                   </>
                 ) : (
-                  'Save'
+                  'Sauvegarder'
                 )}
               </Button.Ripple>
               {/* Reset Changes Button */}
@@ -296,7 +297,7 @@ const BlogEditForm = (props) => {
                   disabled={isSubmitting || !!formErrors}
                   onClick={handleFormReset}
                 >
-                  Reset
+                  Réinitialiser
                 </Button.Ripple>
               )}
               {/* Delete Button */}
@@ -311,7 +312,7 @@ const BlogEditForm = (props) => {
                     history.goBack();
                   }}
                 >
-                  Delete
+                  Supprimer
                 </Button.Ripple>
               )}
               {/* Go Back Button */}
@@ -323,7 +324,7 @@ const BlogEditForm = (props) => {
                 disabled={isSubmitting || !!formErrors}
                 onClick={() => history.goBack()}
               >
-                Go back
+                Retour
               </Button.Ripple>
             </Col>
           </Row>

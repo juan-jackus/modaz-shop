@@ -6,7 +6,7 @@ const pwdLowercaseRegex = /(?=.*[a-z])/;
 const pwdNumberRegex = /(?=.*[0-9])/;
 const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const usernameRegex1 = /^.[a-zA-Z0-9-_.]+$/; // allowed characters
-const usernameRegex2 = /^(?![._-])/; // no "_", "-" or "." at the beginning
+const usernameRegex2 = /^(?![._-])/; // no "_", "-" ou "." at the beginning
 const usernameRegex3 = /^(?!.*[._-]{2})/; // no "__" or "_." or "._" or ".." inside
 const usernameRegex4 = /(?<![_.])$/; // no "_" or "." at the end
 const phoneNumberRegex =
@@ -16,80 +16,89 @@ export const getSchemaValidation = (editValues) => {
   //
   const addCustomerSchema = Yup.object().shape({
     fullName: Yup.string()
-      .required('This field is required')
+      .required('Ce champ est obligatoire')
       .trim()
-      .max(50, 'Name too long (limit 50)')
-      .matches(nameRegex, 'Invalid Name')
-      .min(3, 'Name too short (minimum 3)'),
+      .max(50, 'Nom trop long (limite 50)')
+      .matches(nameRegex, 'Nom invalide')
+      .min(3, 'Nom trop court (minimum 3)'),
     username: Yup.string()
-      .required('This field is required')
+      .required('Ce champ est obligatoire')
       .trim()
-      .max(20, 'Username too long (limit 20)')
+      .max(20, "Nom d'utilisateur trop long (limite 20)")
       .matches(
         usernameRegex4,
-        '".","_", or "-" must not be the first or last character'
+        '".","_", ou "-" ne doit pas être le premier ou le dernier caractère'
       )
-      .matches(usernameRegex3, '".","_", or "-" does not appear consecutively')
+      .matches(
+        usernameRegex3,
+        '".","_", ou "-" ne doit pas apparaître consécutivement'
+      )
       .matches(
         usernameRegex2,
-        '".","_", or "-" must not be the first or last character'
+        '".","_", ou "-" ne doit pas être le premier ou le dernier caractère'
       )
       .matches(
         usernameRegex1,
-        'Only alphanumeric characters, "-", "_" and "." are allowed'
+        'Uniquement des caractères alphanumériques, "-", "_" et "." sont autorisés'
       )
-      .min(7, 'username too short (minimum 7)'),
+      .min(7, "nom d'utilisateur trop court (minimum 7)"),
     email: Yup.string()
       .trim()
       .lowercase()
-      .email('Invalid Email')
-      .required('This field is required'),
+      .email('Email invalide')
+      .required('Ce champ est obligatoire'),
     password: Yup.string()
-      .required('This field is required')
+      .required('Ce champ est obligatoire')
       .trim()
-      .matches(pwdNumberRegex, 'Must contains a number')
-      .matches(pwdUppercaseRegex, 'Must contains a capital letter')
-      .matches(pwdLowercaseRegex, 'Must contains lowercase letter')
-      .min(8, 'Password to short (minimum 8)'),
+      .matches(pwdNumberRegex, 'Doit contenir un nombre')
+      .matches(pwdUppercaseRegex, 'Doit contenir une majuscule')
+      .matches(pwdLowercaseRegex, 'Doit contenir une lettre minuscule')
+      .min(8, 'Mot de passe court (minimum 8)'),
     passwordConfirmation: Yup.string()
       .trim()
-      .oneOf([Yup.ref('password')], "Passwords doesn't match")
-      .required('This field is required'),
+      .oneOf([Yup.ref('password')], 'Les mots de passe ne correspondent pas')
+      .required('Ce champ est obligatoire'),
   });
 
   const editCustomerSchema = Yup.object().shape({
     fullName: Yup.string()
-      .required('This field is required')
+      .required('Ce champ est obligatoire')
       .trim()
-      .max(50, 'Name too long (limit 50)')
-      .matches(nameRegex, 'Invalid Name')
-      .min(3, 'Name too short (minimum 3)'),
+      .max(50, 'Nom trop long (limite 50)')
+      .matches(nameRegex, 'Nom invalide')
+      .min(3, 'Nom trop court (minimum 3)'),
     username: Yup.string()
-      .required('This field is required')
+      .required('Ce champ est obligatoire')
       .trim()
-      .max(20, 'Username too long (limit 20)')
+      .max(20, "Nom d'utilisateur trop long (limite 20)")
       .matches(
         usernameRegex4,
-        '".","_", or "-" must not be the first or last character'
+        '".","_", ou "-"  ne doit pas être le premier ou le dernier caractère'
       )
-      .matches(usernameRegex3, '".","_", or "-" does not appear consecutively')
+      .matches(
+        usernameRegex3,
+        '".","_", ou "-" ne doit pas apparaître consécutivement'
+      )
       .matches(
         usernameRegex2,
-        '".","_", or "-" must not be the first or last character'
+        '".","_", ou "-" ne doit pas être le premier ou le dernier caractère'
       )
       .matches(
         usernameRegex1,
-        'Only alphanumeric characters, "-", "_" and "." are allowed'
+        'Uniquement des caractères alphanumériques, "-", "_" et "." sont autorisés'
       )
-      .min(7, 'username too short (minimum 7)'),
+      .min(7, "nom d'utilisateur trop court (minimum 7)"),
     email: Yup.string()
       .trim()
       .lowercase()
-      .email('Invalid Email')
-      .required('This field is required'),
+      .email('Email invalide')
+      .required('Ce champ est obligatoire'),
     phoneNumber: Yup.lazy((value) => {
       if (value) {
-        return Yup.string().matches(phoneNumberRegex, 'Invalid Phone Number');
+        return Yup.string().matches(
+          phoneNumberRegex,
+          'Numéro de téléphone invalide'
+        );
       } else return Yup.string().nullable();
     }),
     moreInfos: Yup.object().shape({
@@ -98,7 +107,7 @@ export const getSchemaValidation = (editValues) => {
       country: Yup.string().trim(),
       postalCode: Yup.lazy((value) => {
         if (value) {
-          return Yup.number('Must be number');
+          return Yup.number('Doit être un nombre');
         } else {
           return Yup.string();
         }
@@ -121,7 +130,7 @@ export const getSchemaValidation = (editValues) => {
     //   then: Yup.string()
     //     .trim()
     //     .oneOf([Yup.ref('password')], "Passwords doen't match")
-    //     .required('This field is required'),
+    //     .required('Ce champ est obligatoire'),
     // }),
     // gender: Yup.string().required('Choose a gender'),
   });

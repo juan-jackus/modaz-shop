@@ -113,8 +113,8 @@ const NewUserSidebar = ({ selectedUser, open, toggleSidebar }) => {
     let toastValue = {
       type: 'error',
       text: selectedUser
-        ? `Modification of ${selectedUser.fullName} failed`
-        : `Creation of user failed`,
+        ? `La modification de ${selectedUser.fullName} a échoué`
+        : `La création de l'utilisateur a échoué`,
     };
 
     if (successSubmit) {
@@ -125,8 +125,8 @@ const NewUserSidebar = ({ selectedUser, open, toggleSidebar }) => {
       toastValue = {
         type: 'success',
         text: selectedUser
-          ? `User ${selectedUser.fullName} successfully modified!`
-          : 'User successfully added!',
+          ? `L'utilisateur ${selectedUser.fullName} a été modifié avec succés!`
+          : "L'utilisateur a été ajouté avec succès !",
       };
       if (selectedUser) {
         toggleSidebar();
@@ -145,7 +145,7 @@ const NewUserSidebar = ({ selectedUser, open, toggleSidebar }) => {
     <Sidebar
       size='lg'
       open={open}
-      title={selectedUser ? 'Edit User' : 'Add New User'}
+      title={selectedUser ? "Modifier l'utilisateur" : 'Ajouter un utilisateur'}
       headerClassName='mb-1'
       contentClassName='pt-0'
       toggleSidebar={() => toggleSidebar()}

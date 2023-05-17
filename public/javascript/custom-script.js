@@ -188,7 +188,7 @@ function showShoppingCartItems() {
     : '';
   // No Items In Shopping Cart Text
   let shoppingItemsList =
-    '<li class="p-3 text-center">No Item in Shopping Cart</li>';
+    '<li class="p-3 text-center">Aucun produit dans le panier</li>';
   if (shoppingCart.length) {
     let cartTotal = 0;
     shoppingItemsList = '';

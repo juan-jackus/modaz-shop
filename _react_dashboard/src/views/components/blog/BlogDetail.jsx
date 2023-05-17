@@ -81,9 +81,9 @@ const BlogDetails = () => {
   ) : (
     <Fragment>
       <Breadcrumbs
-        breadCrumbTitle='Post Details'
+        breadCrumbTitle="Details de l'article"
         breadCrumbParent='Blog'
-        breadCrumbActive='details'
+        breadCrumbActive='Details'
       />
       <div className='blog-wrapper container'>
         <div className='content-detached content-left'>
@@ -101,7 +101,7 @@ const BlogDetails = () => {
                   <div>
                     <FormText>
                       {new Date(selectedPost.created_at).toLocaleDateString(
-                        'en-GB',
+                        'fr-GB',
                         {
                           day: 'numeric',
                           weekday: 'long',
@@ -115,7 +115,7 @@ const BlogDetails = () => {
                 <div className='d-flex flex-wrap mb-2'>
                   {/* Post Categories */}
                   <div className=' mb-1'>
-                    <FormText>Categories</FormText>
+                    <FormText>Catégories</FormText>
                     <div className=' py-25'>
                       {renderTags(selectedPost.categories)}
                     </div>
@@ -123,7 +123,7 @@ const BlogDetails = () => {
                   <div className='d-flex ml-auto mb-1'>
                     {/* Post Read Count */}
                     <div>
-                      <FormText>Read Count</FormText>
+                      <FormText>Nombre de Lecture</FormText>
                       <div className=' text-center font-italic py-25 text-muted'>
                         {kFormatter(selectedPost.readCount)}
                       </div>
@@ -132,9 +132,9 @@ const BlogDetails = () => {
                     <div className='mx-1'>|</div>
                     {/* Post Status */}
                     <div>
-                      <FormText>Status</FormText>
+                      <FormText>Statut</FormText>
                       <div className=' text-capitalize font-italic py-25 text-muted'>
-                        {selectedPost.status ? 'Published' : 'Drafted'}
+                        {selectedPost.status ? 'Publié' : 'Brouillon'}
                       </div>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ const BlogDetails = () => {
                 {selectedPost.author && (
                   <>
                     <hr className='my-2' />
-                    <h6>Author</h6>
+                    <h6>Auteur</h6>
                     <Media>
                       <RenderAvatar
                         avatar={selectedPost.author.avatar}
@@ -158,7 +158,7 @@ const BlogDetails = () => {
                       <Media body>
                         {selectedPost.author.fullName && (
                           <CardText className='mb-25'>
-                            <small className='text-muted mr-25'>Name : </small>
+                            <small className='text-muted mr-25'>Nom : </small>
                             <span className='font-weight-bold'>
                               {selectedPost.author.fullName}
                             </span>
@@ -166,7 +166,7 @@ const BlogDetails = () => {
                         )}
                         <CardText className='mb-25'>
                           <small className='text-muted mr-25'>
-                            username :{' '}
+                            Nom d'utilisateur :{' '}
                           </small>
                           <span className='font-weight-bold'>
                             {selectedPost.author.username}
@@ -174,7 +174,7 @@ const BlogDetails = () => {
                         </CardText>
                         {selectedPost.author.email && (
                           <CardText>
-                            <small className='text-muted mr-25'>email : </small>
+                            <small className='text-muted mr-25'>Email : </small>
                             <span className='font-weight-bold'>
                               {selectedPost.author.email}
                             </span>
@@ -199,7 +199,7 @@ const BlogDetails = () => {
                         history.push(`/blog/edit/${selectedPost.id}`);
                       }}
                     >
-                      Edit Post
+                      Editer l'article
                     </Button.Ripple>
                   ) : (
                     <Button.Ripple
@@ -216,7 +216,7 @@ const BlogDetails = () => {
                         // history.goBack();
                       }}
                     >
-                      Restore Post
+                      Restaurer L'article
                     </Button.Ripple>
                   )}
                   {/* Delete Post Button */}
@@ -234,7 +234,7 @@ const BlogDetails = () => {
                       // history.goBack();
                     }}
                   >
-                    Delete Post
+                    Supprimer l'article
                   </Button.Ripple>
                   {/* Go Back Button */}
                   <Button.Ripple
@@ -244,7 +244,7 @@ const BlogDetails = () => {
                     outline
                     onClick={() => history.goBack()}
                   >
-                    Go back
+                    Retour
                   </Button.Ripple>
                 </div>
               </CardBody>

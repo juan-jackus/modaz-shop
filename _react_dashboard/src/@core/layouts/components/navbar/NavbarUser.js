@@ -40,12 +40,12 @@ const NavbarUser = (props) => {
           <a href='/' target='_blank' style={{ color: 'inherit' }}>
             <Globe id='website-link' className='ml-2' />
             <UncontrolledTooltip placement='top' target='website-link'>
-              Go to Website
+              Aller au site web
             </UncontrolledTooltip>
           </a>
           <ThemeToggler id='set-theme' className='ficon ml-2 cursor-pointer' />
           <UncontrolledTooltip placement='top' target='set-theme'>
-            Change Theme Skin
+            Changer l'apparence du thème
           </UncontrolledTooltip>
         </NavItem>
       </div>

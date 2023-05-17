@@ -52,11 +52,11 @@ const BlogHeader = (props) => {
               onClick={() => setSidebarOpen(true)}
             >
               <span className='text d-block d-lg-none mr-1'>
-                <AlignLeft /> Filter
+                <AlignLeft /> Filtres
               </span>
             </button>
             <div className=' d-flex align-items-center mb-1'>
-              <Label for='posts-per-page'>Show</Label>
+              <Label for='posts-per-page'>Afficher</Label>
               <CustomInput
                 className='form-control mx-50'
                 type='select'
@@ -75,7 +75,7 @@ const BlogHeader = (props) => {
                 <option value='14'>14</option>
               </CustomInput>
               <Label for='rows-per-page' className='mr-1'>
-                Entries of
+                Entrés sur
               </Label>
               <CustomInput
                 className='form-control text-center mr-3'
@@ -99,7 +99,7 @@ const BlogHeader = (props) => {
                       setShowPostModal(true);
                     }}
                   >
-                    Delete
+                    Supprimer
                   </Button.Ripple>
                   {/* Restore Button */}
                   {showTrash && (
@@ -110,7 +110,7 @@ const BlogHeader = (props) => {
                         setShowPostModal(true);
                       }}
                     >
-                      Restore
+                      Restaurer
                     </Button.Ripple>
                   )}
                 </>
@@ -123,7 +123,7 @@ const BlogHeader = (props) => {
                     tag={Link}
                     to='/blog/add'
                   >
-                    Add Post
+                    Ajouter un article
                   </Button.Ripple>
                 )
               )}
@@ -137,7 +137,7 @@ const BlogHeader = (props) => {
                 onClick={() => getTrashedPosts()}
               >
                 <Trash2 className='mr-50' size={15} />
-                Trash
+                Corbeille
               </Button.Ripple>
             </div>
           </div>

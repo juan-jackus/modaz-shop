@@ -33,7 +33,10 @@ const UserEdit = () => {
   const trashed = location.state?.showTrash;
   const dispatch = useDispatch();
   const loginUser = useSelector((state) => state.auth.userData);
-  const selectedUser = useSelector((state) => state.users.selectedUser);
+  const store = useSelector((state) => state.users);
+  const { selectedUser, userRoles } = store;
+  const role = userRoles.find((role) => role.label === selectedUser.role);
+
   // ** States
   const [sidebarOpen, setSidebarOpen] = useState(false);
   // ** Remove Selected User on Component Unmount
@@ -53,9 +56,9 @@ const UserEdit = () => {
   ) : (
     <Fragment>
       <Breadcrumbs
-        breadCrumbTitle='Edit User '
-        breadCrumbParent='Users'
-        breadCrumbActive='Edit'
+        breadCrumbTitle="Modifier l'utilisateur"
+        breadCrumbParent='Utilisateurs'
+        breadCrumbActive='Modifier'
       />
       <Container>
         <Row>
@@ -69,7 +72,7 @@ const UserEdit = () => {
             </Media>
             {/* Full Name */}
             <FormGroup>
-              <Label for='r-full-name'>Full Name</Label>
+              <Label for='r-full-name'>Nom complet</Label>
               <Input id='r-full-name' value={selectedUser.fullName} disabled />
             </FormGroup>
           </Col>
@@ -80,7 +83,7 @@ const UserEdit = () => {
                 {/* Username */}
                 <Col md='4' sm='12'>
                   <FormGroup>
-                    <Label for='r-username'>Username</Label>
+                    <Label for='r-username'>Nom d'utilisateur</Label>
                     <Input
                       id='r-username'
                       value={selectedUser.username}
@@ -98,18 +101,14 @@ const UserEdit = () => {
                 {/* Role */}
                 <Col md='4' sm='12'>
                   <FormGroup>
-                    <Label for='r-role'>User Role</Label>
-                    <Input
-                      id='r-role'
-                      value={capitalize(selectedUser.role)}
-                      disabled
-                    />
+                    <Label for='r-role'>Rôle de l'utilisateur</Label>
+                    <Input id='r-role' value={role.labelFr || ''} disabled />
                   </FormGroup>
                 </Col>
                 {/* Phone Number */}
                 <Col md='4' sm='12'>
                   <FormGroup>
-                    <Label for='r-phoneNumber'>Phone Number</Label>
+                    <Label for='r-phoneNumber'>Numéro de téléphone</Label>
                     <Input
                       id='r-phoneNumber'
                       value={selectedUser.phoneNumber}
@@ -120,7 +119,7 @@ const UserEdit = () => {
                 {/* Birthdate */}
                 <Col md='4' sm='12'>
                   <FormGroup>
-                    <Label for='r-birthdate'>Birthdate</Label>
+                    <Label for='r-birthdate'>Date de naissance</Label>
                     <Flatpickr
                       id='r-birthdate'
                       value={selectedUser.birthdate}
@@ -146,7 +145,7 @@ const UserEdit = () => {
                   onClick={toggleSidebar}
                   disabled={loginUser.id === selectedUser.id}
                 >
-                  Edit
+                  Modifier
                 </Button.Ripple>
               )}
               {/* Go Back */}
@@ -155,7 +154,7 @@ const UserEdit = () => {
                 outline
                 onClick={() => history.goBack()}
               >
-                Go back
+                Retour
               </Button.Ripple>
             </div>
           </Col>

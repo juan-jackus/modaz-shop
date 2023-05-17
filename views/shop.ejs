@@ -8,14 +8,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="page-title-heading">
-          <h1 class="title">Products</h1>
+          <h1 class="title">Produits</h1>
         </div>
         <!-- BreadCrumbs -->
         <div class="breadcrumbs">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/shop">Shop</a></li>
-            <li>Products</li>
+            <li><a href="/">Acceuil</a></li>
+            <li><a href="/shop">Boutique</a></li>
+            <li>Produits</li>
           </ul>
         </div>
       </div>
@@ -37,7 +37,7 @@
                   required
                   type="search"
                   class="search-field shop-search-input"
-                  placeholder="Search …"
+                  placeholder="Rechercher…"
                   value="<%= textSearch %>"
                 />
                 <div class="shop-clear-search">
@@ -69,7 +69,7 @@
           </div>
           <!-- Gender Filter-->
           <div class="widget widget-size">
-            <h5 class="widget-title">For</h5>
+            <h5 class="widget-title">Pour</h5>
             <ul>
               <li class="radio">
                 <!-- prettier-ignore -->
@@ -82,7 +82,7 @@
                   <%= selectedGender != 'men'|| selectedGender != 'women'?'checked':''%>
                 />
                 <label for="for-both">
-                  Both
+                  Les deux
                 </label>
               </li>
               <li class="radio">
@@ -96,7 +96,7 @@
                   <%= selectedGender == 'men'?'checked':''%>
                 />
                 <label for="for-men">
-                  Men
+                  Hommes
                 </label>
               </li>
               <li class="radio">
@@ -110,7 +110,7 @@
                   <%= selectedGender == 'women'?'checked':''%>
                 />
                 <label for="for-women">
-                  Women
+                  Femmes
                 </label>
               </li>
             </ul>
@@ -138,7 +138,7 @@
           </div>
           <!-- Price Range Filter-->
           <div class="widget widget-size">
-            <h5 class="widget-title">Price Range</h5>
+            <h5 class="widget-title">Fourchette de prix</h5>
             <ul>
               <%allPriceRange.map((range,i)=> {%>
               <li class="radio">
@@ -165,32 +165,32 @@
         <div class="d-flex flex-wrap">
           <!-- Sort By  -->
           <div class="filter-sort-by my-2 mr-3">
-              <div>Sort By</div>
+              <div>Trier par</div>
               <select id="shop-sort-by">
                 <option <%= sortBy=='newest'?'selected':''%> 
-                  value="newest" >Newest</option>
+                  value="newest" >Plus récents</option>
                 <option <%= sortBy=='latest'?'selected':''%> 
-                  value="latest">Latest</option>
+                  value="latest">Plus ancients</option>
                 <option <%= sortBy=='price-desc'?'selected':''%>
-                  value="price-desc">Highest Price</option>
+                  value="price-desc">Prix decroissant</option>
                 <option <%= sortBy=='price-asc'?'selected':''%>
-                  value="price-asc">Lowest Price</option>
+                  value="price-asc">Prix croissant</option>
                 <option <%= sortBy=='rating-up'?'selected':''%>
-                  value="rating-up">Best Review</option>
+                  value="rating-up">Les mieux notés</option>
               </select>
           </div>
           <!-- Show Per Page & Modal Button -->
           <div class="d-flex ml-sm-auto align-items-center my-2">
             <!-- Show Per Page -->
             <div class="filter-per-page ">
-                <div>Show</div>
+                <div>Afficher</div>
                 <select id="shop-per-page">
                   <option <%= perPage=='9'?'selected':''%> value="9">9</option>
                   <option <%= perPage=='12'?'selected':''%> value="12">12</option>
                   <option <%= perPage=='18'?'selected':''%> value="18">18</option>
                 </select>
                 <div class="nbr-products">
-                  of <span><%= totalProduct %></span> Products
+                  sur <span><%= totalProduct %></span> Produits
                 </div>
             </div>
             <!-- Small Screen Filter Modal Button -->
@@ -200,7 +200,7 @@
               data-toggle="modal"
               data-target="#filter-modal"
             >
-              Filter
+              Trier par...
             </button>
           </div>
         </div>
@@ -212,7 +212,7 @@
                 required
                 type="search"
                 class="search-field shop-search-input modal-filter"
-                placeholder="Search …"
+                placeholder="Rechercher…"
                 value="<%= textSearch %>"
               />
               <div class="shop-clear-search modal-filter">
@@ -257,7 +257,7 @@
                 class="add-to-cart text-center" 
                 data-product="<%= JSON.stringify(prod) %>"
               >
-                <a href="#" > ADD TO CART </a>
+                <a href="#" > AJOUTER AU PANIER </a>
               </div>
               <!-- Color -->
               <% if (prod.colors) {%>
@@ -285,7 +285,7 @@
           </ul>
           <!-- If there is No Product -->
           <% if (!products.length) {%>
-          <p class="text-center">No Products Found</p>
+          <p class="text-center">Aucun produit trouvé</p>
           <% } %>
         </div>
         <!-- Pagination -->
@@ -379,7 +379,7 @@
         </div>
         <!-- Gender Filter-->
         <div class="widget widget-size">
-          <h5 class="widget-title">For</h5>
+          <h5 class="widget-title">Pour</h5>
           <ul>
             <li class="radio">
               <!-- prettier-ignore -->
@@ -392,7 +392,7 @@
                 <%= selectedGender != 'men'|| selectedGender != 'women'?'checked':''%>
               />
               <label for="modal-for-both">
-                Both
+                Les deux
               </label>
             </li>
             <li class="radio">
@@ -406,7 +406,7 @@
                 <%= selectedGender == 'men'?'checked':''%>
               />
               <label for="modal-for-men">
-                Men
+                Hommes
               </label>
             </li>
             <li class="radio">
@@ -420,14 +420,14 @@
                 <%= selectedGender == 'women'?'checked':''%>
               />
               <label for="modal-for-women">
-                Women
+                Femmes
               </label>
             </li>
           </ul>
         </div>
           <!-- Categories -->
           <div class="widget widget-size pb-0">
-            <h5 class="widget-title">Sort By</h5>
+            <h5 class="widget-title">Categories</h5>
             <ul>
               <%allCategories.map((category,i)=> {%>
               <li class="checkbox">
@@ -448,7 +448,7 @@
           </div>
           <!-- Price Range -->
           <div class="widget widget-size pb-0">
-            <h5 class="widget-title">Price Range</h5>
+            <h5 class="widget-title">Fourchette de prix</h5>
             <ul>
               <%allPriceRange.map((range,i)=> {%>
               <li class="radio">

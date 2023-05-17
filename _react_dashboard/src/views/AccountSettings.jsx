@@ -37,8 +37,8 @@ const AccountSettings = () => {
   return (
     <Fragment>
       <Breadcrumbs
-        breadCrumbTitle='Account Settings'
-        breadCrumbActive='Account Settings'
+        breadCrumbTitle='Paramètres du compte'
+        breadCrumbActive='Paramètres du compte'
       />
 
       <Row>
@@ -50,7 +50,7 @@ const AccountSettings = () => {
                 onClick={() => toggleTab('1')}
               >
                 <User size={18} className='mr-1' />
-                <span className='font-weight-bold'>General</span>
+                <span className='font-weight-bold'>Général</span>
               </NavLink>
             </NavItem>
             <NavItem>
@@ -59,7 +59,9 @@ const AccountSettings = () => {
                 onClick={() => toggleTab('3')}
               >
                 <Lock size={18} className='mr-1' />
-                <span className='font-weight-bold'>Change Password</span>
+                <span className='font-weight-bold'>
+                  Modifier le mot de passe
+                </span>
               </NavLink>
             </NavItem>
           </Nav>

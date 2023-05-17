@@ -388,11 +388,23 @@ const getModazBlogPosts = async (req, res, next) => {
     filter.title = { $regex: text, $options: 'i' };
   }
   // Determine Sort Order
-  let sortOrder = sortBy === 'latest' ? 1 : -1;
+  let sortOrder = -1; // descending order
+  const sortField = (() => {
+    if (sortBy === 'mostReaded') {
+      sortOrder = -1;
+      return 'readCount';
+    }
+    if (sortBy === 'leastReaded') {
+      sortOrder = 1;
+      return 'readCount';
+    }
+    if (sortBy === 'oldest') sortOrder = 1;
+    return '_id';
+  })();
 
   Post.find(filter, { __v: 0, status: 0 })
     .populate('author', { fullName: 1 })
-    .sort({ _id: sortOrder })
+    .sort({ [sortField]: sortOrder })
     .then(async (result) => {
       const totalPost = result.length;
       const totalPage = Math.ceil(totalPost / perPage) || 1;

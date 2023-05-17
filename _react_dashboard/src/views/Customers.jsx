@@ -137,13 +137,13 @@ const CustomersList = () => {
     const action = {
       single: deleteCustomer,
       mutiple: deleteMultipleCustomer,
-      text: 'deletion',
+      text: 'Suppression',
     };
     // eslint-disable-next-line
     if (actionType === 'RESTORE') {
       action.single = restoreCustomer;
       action.mutiple = restoreMultipleCustomer;
-      action.text = 'restore';
+      action.text = 'Restauration';
     }
     // If there is many customers to delete
     if (customer.selectedCount) {
@@ -155,13 +155,13 @@ const CustomersList = () => {
         successAction === customer.selectedCount
           ? {
               type: 'success',
-              text: `Success ${action.text} of :`,
+              text: `${action.text} reussie de :`,
               value: customer.selectedRows,
             }
           : {
               type: 'error',
-              text: `Failed to ${action.text} :`,
-              value: `${customer.selectedCount - successAction} Customer(s)`,
+              text: `Echec de la ${action.text} de :`,
+              value: `${customer.selectedCount - successAction} Client(s)`,
             };
     } else {
       const successAction = await dispatch(
@@ -170,12 +170,12 @@ const CustomersList = () => {
       toastValue = successAction
         ? {
             type: 'success',
-            text: `Success ${action.text} of :`,
+            text: `${action.text} reussie de :`,
             value: customer,
           }
         : {
             type: 'error',
-            text: `Failed to ${action.text} :`,
+            text: `Echec de la ${action.text} de :`,
             value: customer,
           };
     }
@@ -230,13 +230,13 @@ const CustomersList = () => {
     <Fragment>
       <div className='container'>
         <Breadcrumbs
-          breadCrumbTitle='Customers '
-          breadCrumbActive='customers'
+          breadCrumbTitle='Liste des Clients'
+          breadCrumbActive='Clients'
         />
         {/* Filter */}
         <Card>
           <CardHeader>
-            <CardTitle tag='h4'>Filter</CardTitle>
+            <CardTitle tag='h4'>Filtre</CardTitle>
           </CardHeader>
           <CardBody>
             <Row>
@@ -244,7 +244,7 @@ const CustomersList = () => {
               <Col md='4'>
                 <div className='d-flex align-items-center mb-sm-0 mb-1 mr-1'>
                   <Label className='mb-0' for='search-invoice'>
-                    Search:
+                    Recherche:
                   </Label>
                   <Input
                     // disabled
@@ -260,7 +260,7 @@ const CustomersList = () => {
               <Col className='my-md-0 my-1' md='4'>
                 <div className='d-flex align-items-center w-100'>
                   <Label className='mr-1' for='search-gender'>
-                    Gender:
+                    Genre:
                   </Label>
                   <Select
                     // isDisabled

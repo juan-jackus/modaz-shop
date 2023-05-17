@@ -14,81 +14,81 @@ import {
 const data = [
   {
     name: '7/12',
-    sales: 20,
-    clicks: 60,
-    visits: 100,
+    ventes: 20,
+    clics: 60,
+    visites: 100,
   },
   {
     name: '8/12',
-    sales: 40,
-    clicks: 80,
-    visits: 120,
+    ventes: 40,
+    clics: 80,
+    visites: 120,
   },
   {
     name: '9/12',
-    sales: 30,
-    clicks: 70,
-    visits: 90,
+    ventes: 30,
+    clics: 70,
+    visites: 90,
   },
   {
     name: '10/12',
-    sales: 70,
-    clicks: 110,
-    visits: 170,
+    ventes: 70,
+    clics: 110,
+    visites: 170,
   },
   {
     name: '11/12',
-    sales: 40,
-    clicks: 80,
-    visits: 130,
+    ventes: 40,
+    clics: 80,
+    visites: 130,
   },
   {
     name: '12/12',
-    sales: 60,
-    clicks: 80,
-    visits: 160,
+    ventes: 60,
+    clics: 80,
+    visites: 160,
   },
   {
     name: '13/12',
-    sales: 50,
-    clicks: 100,
-    visits: 140,
+    ventes: 50,
+    clics: 100,
+    visites: 140,
   },
   {
     name: '14/12',
-    sales: 140,
-    clicks: 90,
-    visits: 240,
+    ventes: 140,
+    clics: 90,
+    visites: 240,
   },
   {
     name: '15/12',
-    sales: 120,
-    clicks: 180,
-    visits: 220,
+    ventes: 120,
+    clics: 180,
+    visites: 220,
   },
   {
     name: '16/12',
-    sales: 100,
-    clicks: 160,
-    visits: 180,
+    ventes: 100,
+    clics: 160,
+    visites: 180,
   },
   {
     name: '17/12',
-    sales: 140,
-    clicks: 140,
-    visits: 270,
+    ventes: 140,
+    clics: 140,
+    visites: 270,
   },
   {
     name: '18/12',
-    sales: 180,
-    clicks: 200,
-    visits: 280,
+    ventes: 180,
+    clics: 200,
+    visites: 280,
   },
   {
     name: '19/12',
-    sales: 220,
-    clicks: 220,
-    visits: 375,
+    ventes: 220,
+    clics: 220,
+    visites: 375,
   },
 ];
 
@@ -126,7 +126,7 @@ const SimpleAreaChart = ({ primary }) => {
   return (
     <Card>
       <CardHeader className='flex-sm-row flex-column justify-content-sm-between justify-content-center align-items-sm-center align-items-start'>
-        <CardTitle tag='h4'>Website Data</CardTitle>
+        <CardTitle tag='h4'>Données du site web</CardTitle>
         <div className='d-flex align-items-center'>
           <Calendar size={15} />
           <Flatpickr
@@ -143,21 +143,21 @@ const SimpleAreaChart = ({ primary }) => {
         <div className='d-flex align-items-center mb-2'>
           <div className='mr-2'>
             <span className='bullet bullet-sm bullet-primary bullet-bordered mr-50'></span>
-            <span className='align-middle'>Clicks</span>
+            <span className='align-middle'>Clics</span>
           </div>
           <div className='mr-2'>
             <span
               className='bullet bullet-sm bullet-bordered mr-50'
               style={{ backgroundColor: 'rgba(115, 103, 240, .5)' }}
             ></span>
-            <span className='align-middle mr-75'>Sales</span>
+            <span className='align-middle mr-75'>Ventes</span>
           </div>
           <div>
             <span
               className='bullet bullet-sm bullet-bordered mr-50'
               style={{ backgroundColor: 'rgba(115, 103, 240, .2)' }}
             ></span>
-            <span className='align-middle'>Visits</span>
+            <span className='align-middle'>Visites</span>
           </div>
         </div>
         <div className='recharts-wrapper'>
@@ -168,20 +168,20 @@ const SimpleAreaChart = ({ primary }) => {
               <YAxis />
               <Tooltip content={CustomTooltip} />
               <Area
-                dataKey='sales'
-                stackId='sales'
+                dataKey='ventes'
+                stackId='ventes'
                 stroke='0'
                 fill='rgba(115, 103, 240, .5)'
               />
               <Area
-                dataKey='clicks'
-                stackId='clicks'
+                dataKey='clics'
+                stackId='clics'
                 stroke='0'
                 fill='rgb(115, 103, 240)'
               />
               <Area
-                dataKey='visits'
-                stackId='visits'
+                dataKey='visites'
+                stackId='visites'
                 stroke='0'
                 fill='rgba(115, 103, 240, .2)'
               />

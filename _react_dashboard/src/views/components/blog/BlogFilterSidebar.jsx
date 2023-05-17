@@ -35,18 +35,18 @@ const BlogFilterSidebar = (props) => {
   } = props;
 
   const sortByOptions = {
-    newest: 'Newest',
-    oldest: 'Oldest',
-    mostReaded: 'Most Readed',
-    leastReaded: 'Least Readed',
+    newest: 'Récents',
+    oldest: 'Plus anciens',
+    mostReaded: 'Plus lus',
+    leastReaded: 'Moins lus',
   };
   const trashSortByOptions = {
-    trash_desc: 'Recently Deleted',
-    trash_asc: 'Oldest Deleted',
+    trash_desc: 'Récemment supprimés',
+    trash_asc: 'Anciennement supprimés',
   };
   const postStatus = [
-    { value: true, label: 'Published' },
-    { value: false, label: 'Drafted' },
+    { value: true, label: 'Publiés' },
+    { value: false, label: 'Non publiés' },
   ];
   const selectedStatus = postStatus.find((st) => st.value === status);
   const selectedSortOption = showTrash ? trashSortByOptions : sortByOptions;
@@ -123,11 +123,11 @@ const BlogFilterSidebar = (props) => {
           })}
         >
           <Card key={remountKey}>
-            <h5 className='text-center mt-3 mb-0'>Filters</h5>
+            <h5 className='text-center mt-3 mb-0'>Filtres</h5>
             <CardBody>
               {/* POST STATUS */}
               <div className='mb-2'>
-                <h6 className='section-label'>STATUS</h6>
+                <h6 className='section-label'>STATUT</h6>
                 <Select
                   classNamePrefix='select'
                   placeholder='...'
@@ -140,7 +140,7 @@ const BlogFilterSidebar = (props) => {
               </div>
               {/* SORT POST */}
               <div className='mb-2'>
-                <h6 className='section-label'>SORT BY</h6>
+                <h6 className='section-label'>TRIER PAR</h6>
                 <UncontrolledButtonDropdown className=''>
                   <DropdownToggle
                     className='text-capitalize mr-1'
@@ -156,7 +156,7 @@ const BlogFilterSidebar = (props) => {
               {/* POST CATEGORIES */}
               <div className='mb-2'>
                 <div className='blog-categories '>
-                  <h6 className='section-label'>Categories</h6>
+                  <h6 className='section-label'>Catégories</h6>
                   <div className='mt-1'>{renderCategories()} </div>
                 </div>
               </div>
@@ -166,7 +166,7 @@ const BlogFilterSidebar = (props) => {
                 color='secondary'
                 onClick={resetFilterHandler}
               >
-                Reset Filter
+                Effacer les filtres
               </Button.Ripple>
             </CardBody>
           </Card>
