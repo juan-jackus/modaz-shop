@@ -73,9 +73,11 @@ app.use('/account', authRoutes);
 
 // Admin Dashboard Route
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '_dashboard', 'build')));
+  app.use(express.static(path.join(__dirname, '_react_dashboard', 'build')));
   app.get('/admin/dashboard', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '_dashboard', 'build', 'index.html'));
+    res.sendFile(
+      path.resolve(__dirname, '_react_dashboard', 'build', 'index.html')
+    );
   });
 }
 
