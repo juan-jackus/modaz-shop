@@ -9,9 +9,9 @@ Full Stack Ecommerce website with Content Management System (CMS)
 Live version is available here:
 
 - Website :
-  [Modaz Shop](https://modaz-shop.herokuapp.com)
+  [Modaz Shop](https://modaz-shop.onrender.com)
 - Website CMS :
-  [Modaz Shop Dashboard](https://modaz-shop.herokuapp.com/admin/dashboard)
+  [Modaz Shop Dashboard](https://modaz-shop.onrender.com/admin/dashboard)
 
 ## Version
 
